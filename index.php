@@ -1,23 +1,14 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Time Sheet Prototype</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-</head>
-
-<body class="w3-black">
-  <h2 class="w3-text-light-grey">Time Sheet Prototype</h2>
-  <div class="w3-padding-large" id="main">
-  <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-    <a href = "techLogIn.php">Tech Log In</a>
+<?php include_once "mainMenu.php" ?>
+  <div class="w3-half contentColour w3-container" style="height:700px">
+    <div class="w3-padding-64 w3-center">
+      <h1>Home</h1>
+      <img src="Pictures/logo.png" class="w3-margin" alt="Person" style="width:50%">
+      <div class="w3-left-align w3-padding-large">
+        <p>Welcome to the Positive Progress Parent Reporting system!</p>
+        <p>This system has been created to allow you to view your childs report written by their tutors from the convience of your device.</p>
+      </div>
+    </div>
   </div>
-  <div class="w3-row w3-center w3-padding-16 w3-section w3-light-grey">
-    <a href = "adminLogIn.php">Admin Log In</a>
-  </div>
-  </div>
+<?php include_once "footer.php" ?>
 </body>
-
 </html>
