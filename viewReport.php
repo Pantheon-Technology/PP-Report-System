@@ -1,22 +1,10 @@
 <?php 
-session_start();
-if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
-  header("location: parentLogin.php");
-  exit;
-}
+include_once "parentMenu.php";
 require_once "config.php";
-$username = $_SESSION["parentUsername"]; ?>
+$username = $_SESSION["parentUsername"]; 
+?>
 <html>
-<div class="w3-row">
-  <div class="w3-half w3-black w3-container w3-center" style="height:700px">
-    <div class="w3-padding-64">
-      <h1>Positive Progress</h1>
-    </div>
-    <div class="w3-padding-64">
-      <a href="index.php" class="w3-button w3-black w3-block w3-hover-blue-grey w3-padding-16">Home</a>
-      <a href="logOut.php" class="w3-button w3-black w3-block w3-hover-teal w3-padding-16">Logout</a>
-    </div>
-  </div>
+
   <div class="w3-half w3-blue-grey w3-container" style="height:700px">
     <div class="w3-padding-64 w3-center">
       <h1>Reports for <?php echo $username ?></h1>

@@ -1,9 +1,5 @@
 <?php 
-session_start(); 
-if(!isset($_SESSION["loggedInAdmin"]) || $_SESSION["loggedInAdmin"] !== true){
-    header("location: adminLogin.php");
-    exit;
-  }
+include_once "adminMenu.php";
 include_once 'config.php';
  
 $username = $password = $confirm_password = "";
@@ -56,7 +52,7 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
                  mysqli_stmt_close($stmt);
                 }}
         mysqli_close($conn);
-    }include_once "adminMenu.php"; ?>
+    } ?>
 <html>
   <div class="w3-half w3-blue-grey w3-container" style="height:700px">
     <div class="w3-padding-64 w3-center">

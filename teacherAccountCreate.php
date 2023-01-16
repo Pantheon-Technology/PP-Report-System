@@ -1,9 +1,4 @@
 <?php 
-session_start();
-if(!isset($_SESSION["loggedInAdmin"]) || $_SESSION["loggedInAdmin"] !== true){
-    header("location: adminLogin.php");
-    exit;
-  }
 include_once 'config.php';
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";

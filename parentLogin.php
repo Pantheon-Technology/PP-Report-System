@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password_verify($password, $hashed_password)) {
                 $_SESSION["loggedInParent"] = true;
                 $_SESSION["parentUsername"] = $username;
-                header("location: viewReport.php");
+                header("location: parentHome.php");
               } else {
                 $login_err = "Invalid username or password.";
               }
@@ -43,9 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
     } mysqli_close($conn);
   }
-      if (!empty($login_err)) {
-        echo '<div class="alert alert-danger">' . $login_err . '</div>';
-      }      
 require_once "mainMenu.php"; ?>
   <div class="w3-half w3-blue-grey w3-container" style="height:700px">
     <div class="w3-padding-64 w3-center">
@@ -54,13 +51,14 @@ require_once "mainMenu.php"; ?>
       <form method="post">
         <label for="uname"><b>Username</b></label>
         <input type="text" placeholder="Enter Username" name="uname" value="<?php echo $username; ?>"><br><br>
-        <?php echo (!empty($username_err)) ? 'is-invalid' : '';?>
-        <span class="invalid-feedback"><?php echo $username_err; ?></span>
+        <span class="invalid-feedback"></span>
         <label for="psw"><b>Password</b></label>
         <input type="password" placeholder="Enter Password" name="psw"></br></br>
-        <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>
-        <span class="invalid-feedback"><?php echo $password_err; ?></span>
+        <span class="invalid-feedback"></span>
         <button type="submit">Login</button>
+        <?php echo "<p>" . $username_err . "</p>";?>
+        <?php echo "<p>" . $password_err . "</p>"; ?>
+        <?php echo "<p>" . $login_err . "</p>"; ?>
       </form>
     </div>
   </div>

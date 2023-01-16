@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link rel="stylesheet" href="ColourScheme.css">
+  <link rel="icon" href="Pictures/Logo.png">
 </head>
 <body class="w3-content background" style="max-width:1300px">
 <div class="w3-row">

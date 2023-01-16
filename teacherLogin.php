@@ -1,5 +1,4 @@
 <?php 
-session_start();
 include_once 'config.php';
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
@@ -41,9 +40,7 @@ if (empty($username_err) && empty($password_err)) {
       } mysqli_stmt_close($stmt);
   }
 } mysqli_close($conn);
-}?>
-<body class="w3-content" style="max-width:1300px">
-<?php require_once "mainMenu.php"; ?>
+}require_once "mainMenu.php"; ?>
   <div class="w3-half w3-blue-grey w3-container" style="height:700px">
     <div class="w3-padding-64 w3-center">
       <h1>Teacher Login Page</h1>

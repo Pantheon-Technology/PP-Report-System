@@ -1,9 +1,5 @@
 <?php 
-session_start();
-if(!isset($_SESSION["loggedInAdmin"]) || $_SESSION["loggedInAdmin"] !== true){
-    header("location: adminLogin.php");
-    exit;
-  }
+include_once "adminMenu.php"; 
 include_once 'config.php';
 $username = "";
 $username_err = "";
@@ -39,8 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } mysqli_stmt_close($stmt);
         }
     }mysqli_close($conn);
-}
-include_once "adminMenu.php"; ?>
+} ?>
   <div class="w3-half w3-blue-grey w3-container" style="height:700px">
     <div class="w3-padding-64 w3-center">
       <h1>Teacher Account REMOVE</h1>

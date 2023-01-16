@@ -1,9 +1,5 @@
 <?php 
-session_start();
-if(!isset($_SESSION["loggedInAdmin"]) || $_SESSION["loggedInAdmin"] !== true){
-    header("location: adminLogin.php");
-    exit;
-  }
+include_once "adminMenu.php";
 include_once 'config.php';
 $username = "";
 $username_err = "";
@@ -41,7 +37,33 @@ if (empty($username_err)) {
     }
         } mysqli_close($conn);
 }
-include_once "adminMenu.php"; ?>
+?>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script> //script for searching my database
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("backend-search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in drop down box on the page
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
+
   <div class="w3-half w3-blue-grey w3-container" style="height:700px">
     <div class="w3-padding-64 w3-center">
       <h1>Parent Account REMOVE</h1>
@@ -55,6 +77,13 @@ include_once "adminMenu.php"; ?>
       <p><button class="w3-button w3-light-grey w3-block" type="submit">Remove</button></p>
       <p><button class="w3-button w3-light-grey w3-block" type="reset">Reset data</button></p>
         </form>
+
+        <h2>Username Search</h2>
+        <p> Type in the name of the child to find out the username</p>
+        <div class="search-box">
+        <input type="text" autocomplete="off" placeholder="Search..." />
+        <div class="result"></div>
+    </div>
     </div>
   </div>
 <?php include_once "footer.php" ?>
