@@ -3,6 +3,15 @@ DROP TABLE IF EXISTS teacher;
 DROP TABLE IF EXISTS admins;
 DROP TABLE IF EXISTS reportUpload;
 DROP TABLE IF EXISTS legalUpload;
+DROP TABLE IF EXISTS `posts`;
+
+CREATE TABLE IF NOT EXISTS `posts`(
+eventID Int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+eventImg varchar(100),
+eventName varchar(100),
+eventDesc varchar(300),
+`postDate` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
 CREATE TABLE IF NOT EXISTS `parents`(
 `parentID` INT AUTO_INCREMENT PRIMARY KEY,
@@ -70,7 +79,8 @@ CREATE TABLE IF NOT EXISTS `admins`(
 CREATE TABLE IF NOT EXISTS `reportUpload`(
 `parentUsername` Varchar(200),
 `fileName` Varchar(200),
-`file` VARCHAR(250)
+`file` VARCHAR(250),
+`date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE IF NOT EXISTS `legalUpload`(
@@ -83,3 +93,4 @@ SELECT * FROM `admins`;
 SELECT * FROM `teacher`;
 SELECT * FROM `parents`;
 SELECT * FROM `legalUpload`;
+SELECT * FROM `posts`;

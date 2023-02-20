@@ -1,5 +1,5 @@
 <?php 
-include_once "adminMenu.php";
+include_once "NewMenuAdmin.php";
 include_once 'config.php';
 $username = "";
 $username_err = "";
@@ -64,8 +64,6 @@ $(document).ready(function(){
 });
 </script>
 
-  <div class="w3-half w3-blue-grey w3-container" style="height:700px">
-    <div class="w3-padding-64 w3-center">
       <h1>Parent Account REMOVE</h1>
       <p>Use the form below to REMOVE a parent from your system.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">

@@ -1,5 +1,5 @@
 <?php 
-include_once "adminMenu.php";
+include_once "NewMenuAdmin.php";
 include_once 'config.php';
  
 $username = $password = $confirm_password = "";
@@ -53,9 +53,6 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
                 }}
         mysqli_close($conn);
     } ?>
-<html>
-  <div class="w3-half w3-blue-grey w3-container" style="height:700px">
-    <div class="w3-padding-64 w3-center">
       <h1>Admin Account Create</h1>
       <p>Use the form below to add a new admin to your system.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">

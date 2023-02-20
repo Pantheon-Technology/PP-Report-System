@@ -41,8 +41,6 @@ if (empty($username_err) && empty($password_err)) {
   }
 } mysqli_close($conn);
 }require_once "mainMenu.php"; ?>
-  <div class="w3-half w3-blue-grey w3-container" style="height:700px">
-    <div class="w3-padding-64 w3-center">
       <h1>Teacher Login Page</h1>
       <p>If you are a teacher, please use the login form below to access your account.</p>
       <?php
@@ -50,11 +48,11 @@ if (empty($username_err) && empty($password_err)) {
         echo '<div class="alert alert-danger">' . $login_err . '</div>';
       }?>
       <form method="post">
-        <label for="uname"><b>Username</b></label>
+       <p><b>Username</b></p>
         <input type="text" placeholder="Enter Username" name="uname" value="<?php echo $username; ?>"><br><br>
         <?php echo (!empty($username_err)) ? 'is-invalid' : '';?>
         <span class="invalid-feedback"><?php echo $username_err; ?></span>
-        <label for="psw"><b>Password</b></label>
+        <p><b>Password</b></p>
         <input type="password" placeholder="Enter Password" name="psw"></br></br>
         <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>
         <span class="invalid-feedback"><?php echo $password_err; ?></span>

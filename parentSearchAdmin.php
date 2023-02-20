@@ -1,4 +1,4 @@
-<?php require_once "adminMenu.php";
+<?php require_once "NewMenuAdmin.php";
 require_once "config.php";
 ?>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -25,10 +25,6 @@ $(document).ready(function(){
     });
 });
 </script>
-</html>
-<body>
-<div class="w3-half w3-blue-grey w3-container" style="height:700px">
-    <div class="w3-padding-64 w3-center">
     <h3>Student Search</h3>
         <p>Use the search box below to type in the name of the child.</p>
         <div class="search-box">

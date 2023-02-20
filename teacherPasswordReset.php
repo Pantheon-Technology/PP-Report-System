@@ -53,9 +53,7 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
             }
         } mysqli_close($conn);
     }
- include_once "adminMenu.php"; ?>
-  <div class="w3-half w3-blue-grey w3-container" style="height:700px">
-    <div class="w3-padding-64 w3-center">
+ include_once "NewMenuAdmin.php"; ?>
       <h1>Teacher update password</h1>
       <p>Use the form below to change a teacher password in your system.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">

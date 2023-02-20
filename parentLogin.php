@@ -42,17 +42,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } mysqli_stmt_close($stmt);
       }
     } mysqli_close($conn);
-  }
-require_once "mainMenu.php"; ?>
-  <div class="w3-half w3-blue-grey w3-container" style="height:700px">
-    <div class="w3-padding-64 w3-center">
+  } 
+  require_once "mainMenu.php";
+  ?>
       <h1>Parent Login</h1>
       <p>If you are a parent, please use your login to access your childs reports.</p>
       <form method="post">
-        <label for="uname"><b>Username</b></label>
+        <p><b>Username</b></p>
         <input type="text" placeholder="Enter Username" name="uname" value="<?php echo $username; ?>"><br><br>
         <span class="invalid-feedback"></span>
-        <label for="psw"><b>Password</b></label>
+        <p><b>Password</b></p>
         <input type="password" placeholder="Enter Password" name="psw"></br></br>
         <span class="invalid-feedback"></span>
         <button type="submit">Login</button>

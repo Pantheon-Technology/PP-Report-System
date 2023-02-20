@@ -1,6 +1,5 @@
-<?php 
+<?php include_once 'config.php';
 session_start(); 
-include_once 'config.php';
 include_once 'mainMenu.php';
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -95,15 +94,6 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
     }
   ?>
   <head>
-  <title>Positive Progress Reporting System</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <link rel="stylesheet" href="ColourScheme.css">
-</head>
-<body class="w3-content background" style="max-width:1300px">
-  <div class="w3-half w3-blue-grey w3-container" style="height:auto">
-    <div class="w3-padding-64 w3-center">
       <h1>Parent Account Create</h1>
       <p>Use the form below to create your account. * Indicates a required field.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -149,7 +139,7 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
       <p><input type="radio" id="male" required name="gender" value="Male">
       <label for="male">Male</label>
       <input type="radio" id="Female" required name="gender" value="Female">
-      <label for="Female">Female</label></p>
+      <label for="Female">Female</label>
       <input type="radio" id="Other" required name="gender" value="Other">
       <label for="Other">Other</label></p>
 
@@ -224,8 +214,6 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
     </div>
 </div>
 </div>
-  <footer class="w3-container footercolour w3-padding-16">
-  <p class="w3-center">Software created by <a href="https://www.pantheontechnology.co.uk" target="_blank">Pantheon Technology</a></p>
-</footer>
+  <?php include_once "footer.php"?>
 </body>
 </html>

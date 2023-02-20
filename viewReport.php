@@ -5,12 +5,10 @@ $username = $_SESSION["parentUsername"];
 ?>
 <html>
 
-  <div class="w3-half w3-blue-grey w3-container" style="height:700px">
-    <div class="w3-padding-64 w3-center">
       <h1>Reports for <?php echo $username ?></h1>
       <?php 
 
-$sql = "SELECT * FROM `reportUpload` WHERE parentUsername = '$username'";
+$sql = "SELECT * FROM `reportUpload` WHERE parentUsername = '$username' ORDER BY `uploadDate` DESC";
 $result = mysqli_query($conn, $sql);
 if($result->num_rows > 0){
 while($row = $result->fetch_assoc()){   
@@ -23,8 +21,7 @@ else{
 }
 $conn->close();
 ?>
-    </div>
-  </div>
+
 </div>
 <?php include_once "footer.php" ?>
 </body>

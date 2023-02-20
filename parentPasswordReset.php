@@ -1,6 +1,6 @@
 <?php 
 include_once 'config.php';
-include_once "adminMenu.php";
+include_once "NewMenuAdmin.php";
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -80,8 +80,6 @@ $(document).ready(function(){
 });
 </script>
 
-  <div class="w3-half w3-blue-grey w3-container" style="height:700px">
-    <div class="w3-padding-64 w3-center">
       <h1>Parent update password</h1>
       <p>Use the form below to change a parent password in your system.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">

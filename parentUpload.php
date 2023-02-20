@@ -5,8 +5,6 @@ if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
   header("location: parentLogin.php");
     exit; }
     ?>
-<div class="w3-half w3-blue-grey w3-container" style="height:700px">
-  <div class="w3-padding-64 w3-center">
     <h1>Upload Legal Forms</h1>
     <p>We ask that you would take the time to read the documents below. Once you have read these documents, you can sign them and upload them below.</p>
     <br>
