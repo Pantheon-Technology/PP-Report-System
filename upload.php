@@ -10,6 +10,7 @@ include_once "config.php";
 $child = $_POST["childName"];
 $documentName = $_POST["reportName"];
 $file = "";
+$teacherUpload = $_SESSION['teacherUsername'];
 
 if ($_FILES["fileToUpload"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
@@ -33,12 +34,13 @@ if ($uploadOk == 0) {
   echo " Your file was not uploaded.";
 
 } else {
-  $sql = "INSERT INTO `reportUpload` (`parentUsername`, `fileName`, `file`) VALUES (?, ?, ?)";
+  $sql = "INSERT INTO `reportUpload` (`parentUsername`, `fileName`, `file`, `teacher`) VALUES (?, ?, ?, ?)";
        if ($stmt = mysqli_prepare($conn, $sql)) {
-         mysqli_stmt_bind_param($stmt, "sss", $param_user, $param_fileName, $param_fileToUpload);
+         mysqli_stmt_bind_param($stmt, "ssss", $param_user, $param_fileName, $param_fileToUpload, $param_teacher);
          $param_user = $child;
          $param_fileName = $documentName;
          $param_fileToUpload = htmlspecialchars( $reportUpload);
+         $param_teacher = $teacherUpload;
   move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
   echo '<script>alert("' . $reportUpload . " " . 'uploaded successfully");document.location="upAndDown.php"</script>';
 }

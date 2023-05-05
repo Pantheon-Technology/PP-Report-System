@@ -63,7 +63,7 @@ $username_err = $password_err = $login_err = "";
     </div>
   </div>
 
-<?php include_once "frontend/footer.php" ?>
+<?php include_once "footer.php" ?>
 </body>
 
 </html>

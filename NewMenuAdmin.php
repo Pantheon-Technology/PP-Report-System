@@ -34,14 +34,18 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="adminHome.php" class="w3-bar-item w3-button w3-padding">Home</a>
     <a href="parentSearchAdmin.php" class="w3-bar-item w3-button w3-padding">View Students</a>
     <a href="teacherAccountCreate.php" class="w3-bar-item w3-button w3-padding">Create New Teacher</a>
     <a href="adminAccountCreate.php" class="w3-bar-item w3-button w3-padding">Create New Admin</a>
     <a href="teacherAccountRemove.php" class="w3-bar-item w3-button w3-padding">Remove Teacher</a>
-    <a href="parentAccountRemove.php" class="w3-bar-item w3-button w3-padding">Remove Parent</a>
+    <a href="parentAccountRemove.php" class="w3-bar-item w3-button w3-padding">Archive Parent</a>
+    <a href="parentAccountUnArchive.php" class="w3-bar-item w3-button w3-padding">Un-Archive Parent</a>
     <a href="parentPasswordReset.php" class="w3-bar-item w3-button w3-padding">Parent Password Reset</a>
     <a href="teacherPasswordReset.php" class="w3-bar-item w3-button w3-padding">Teacher Password Reset</a>
     <a href="makepost.php" class="w3-bar-item w3-button w3-padding">Make a Post</a>
+    <a href="View_Uploads.php" class="w3-bar-item w3-button w3-padding">View Recent Uploads</a>
+    <a href="View_Incidents.php" class="w3-bar-item w3-button w3-padding">View Incident Reports</a>
     <a href="logOut.php" class="w3-bar-item w3-button w3-padding">Logout</a>
   </div>
 </nav>

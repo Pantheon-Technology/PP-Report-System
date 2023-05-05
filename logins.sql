@@ -4,6 +4,7 @@ DROP TABLE IF EXISTS admins;
 DROP TABLE IF EXISTS reportUpload;
 DROP TABLE IF EXISTS legalUpload;
 DROP TABLE IF EXISTS `posts`;
+DROP TABLE IF EXISTS `incidents`;
 
 CREATE TABLE IF NOT EXISTS `posts`(
 eventID Int PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -61,7 +62,8 @@ CREATE TABLE IF NOT EXISTS `parents`(
 `feePaid` VARCHAR(4),
 `T&CSigned` VARCHAR(4),
 `firstInvoiceDate` VARCHAR(40),
-`firstInvoiceAmount`INT(40)
+`firstInvoiceAmount`INT(40),
+`archived` INT(3) DEFAULT 0
 );
 
 CREATE TABLE IF NOT EXISTS `teacher`(
@@ -80,6 +82,7 @@ CREATE TABLE IF NOT EXISTS `reportUpload`(
 `parentUsername` Varchar(200),
 `fileName` Varchar(200),
 `file` VARCHAR(250),
+`teacher` VARCHAR(250),
 `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -88,9 +91,24 @@ CREATE TABLE IF NOT EXISTS `legalUpload`(
 `file` VARCHAR(250)
 );
 
+CREATE TABLE IF NOT EXISTS `incidents`(
+`incidentNumber` INT(20) AUTO_INCREMENT PRIMARY KEY,
+`studentName` Varchar(250),
+`date` VARCHAR(100),
+`time` VARCHAR(10),
+`issueType` VARCHAR(10),
+`desc` VARCHAR (250),
+`reffered` VARCHAR(10),
+`otherReffered` VARCHAR(10),
+`followUp` VARCHAR(250),
+`whoFollowedUp` VARCHAR(20),
+`reportedBy` VARCHAR(20)
+);
+
 SELECT * FROM `reportUpload`;
 SELECT * FROM `admins`;
 SELECT * FROM `teacher`;
 SELECT * FROM `parents`;
 SELECT * FROM `legalUpload`;
 SELECT * FROM `posts`;
+SELECT * FROM `incidents`;

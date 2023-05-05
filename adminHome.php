@@ -6,10 +6,13 @@
       <a href="teacherAccountCreate.php" class="w3-button w3-grey w3-block w3-hover-brown w3-padding-16 w3-half">Create New Teacher</a>
       <a href="adminAccountCreate.php" class="w3-button w3-grey w3-block w3-hover-black w3-padding-16 w3-half">Create New Admin</a>
       <a href="teacherAccountRemove.php" class="w3-button w3-white w3-block w3-hover-red w3-padding-16 w3-half">Remove Teacher</a>
-      <a href="parentAccountRemove.php" class="w3-button w3-white w3-block w3-hover-red w3-padding-16 w3-half">Remove Parent</a>
+      <a href="parentAccountRemove.php" class="w3-button w3-white w3-block w3-hover-red w3-padding-16 w3-half">Archive Parent</a>
+      <a href="parentAccountUnArchive.php" class="w3-button w3-grey w3-block w3-hover-red w3-padding-16 w3-half">Un-Archive a Parent</a>
       <a href="parentPasswordReset.php" class="w3-button w3-grey w3-block w3-hover-yellow w3-padding-16 w3-half">Parent Password Reset</a>
-      <a href="teacherPasswordReset.php" class="w3-button w3-grey w3-block w3-hover-green w3-padding-16 w3-half">Teacher Password Reset</a>
+      <a href="teacherPasswordReset.php" class="w3-button w3-white w3-block w3-hover-green w3-padding-16 w3-half">Teacher Password Reset</a>
       <a href="makepost.php" class="w3-button w3-white w3-block w3-hover-green w3-padding-16 w3-half w3-margin-bottom">Make a Post</a>
+      <a href="View_Uploads.php" class="w3-button w3-grey w3-block w3-hover-green w3-padding-16 w3-half w3-margin-bottom">View Recent Uploads</a>
+      <a href="View_incidents.php" class="w3-button w3-white w3-block w3-hover-green w3-padding-16 w3-half w3-margin-bottom">View Incident Reports</a>
       <a href="logOut.php" class="w3-button w3-black w3-block w3-hover-green w3-padding-16 w3-margin-bottom">Logout</a>
   </div>
 </div>

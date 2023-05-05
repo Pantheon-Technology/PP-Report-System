@@ -25,12 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         }
 if (empty($username_err)) {
- $sql = "UPDATE parents SET `archived` = 1 WHERE parentUsername = ?";
+ $sql = "UPDATE parents SET `archived` = 0 WHERE parentUsername = ?";
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "s", $param_username);
         $param_username = $username;
             if (mysqli_stmt_execute($stmt)) {
-                echo '<script>alert("' . $username . " " . 'archived successfully")</script>';
+                echo '<script>alert("' . $username . " " . 'entered back into the database successfully")</script>';
             } else {
                  echo "Oops! Something went wrong. Please try again later.";
             } mysqli_stmt_close($stmt);
@@ -64,15 +64,15 @@ $(document).ready(function(){
 });
 </script>
 
-      <h1>Parent Account Archive</h1>
-      <p>Use the form below to Archive a parent in your system.</p>
+      <h1>Parent Account Un-Archive</h1>
+      <p>Use the form below to put a parent back in your system.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
       <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="username" required name="username"></p>
       <?php echo (! empty($username_err)) ? 'is-invalid' : '';?>
                 <span class="invalid-feedback">
                 <?php echo $username_err;?>
                 </span>
-      <p><button class="w3-button w3-light-grey w3-block" type="submit">Archive</button></p>
+      <p><button class="w3-button w3-light-grey w3-block" type="submit">Submit</button></p>
       <p><button class="w3-button w3-light-grey w3-block" type="reset">Reset data</button></p>
         </form>
 

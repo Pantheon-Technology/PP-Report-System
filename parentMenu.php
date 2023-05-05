@@ -38,6 +38,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <a href="viewReport.php" class="w3-bar-item w3-button w3-padding">View Reports</a>
       <a href="childDetails.php" class="w3-bar-item w3-button w3-padding">View Account</a>
       <a href="parentUpload.php" class="w3-bar-item w3-button w3-padding">Legal Documents</a>
+      <a href="https://positive-progress.co.uk/pay-fees/" class="w3-bar-item w3-button w3-padding">Pay My Fees</a>
       <a href="logOut.php" class="w3-bar-item w3-button w3-padding">Logout</a>
   </div>
 </nav>

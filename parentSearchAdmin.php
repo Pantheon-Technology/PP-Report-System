@@ -1,5 +1,6 @@
 <?php require_once "NewMenuAdmin.php";
 require_once "config.php";
+
 ?>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script> //script for searching my database
@@ -31,6 +32,18 @@ $(document).ready(function(){
         <input type="text" autocomplete="off" placeholder="Search..." />
         <div class="result"></div>
     </div>
+    <h3>Recent Students</h3>
+ 
+    <?php
+     $sql1 = "SELECT * FROM `parents` ORDER BY `dateCreated` DESC LIMIT 20";
+     $result = mysqli_query($conn, $sql1); 
+     if($result->num_rows){
+        while($row = $result->fetch_assoc()){ 
+           echo "<a href =\"parents.php?parentid=". $row['parentID'] . "\">" . "View " . $row["childFName"] ." " . $row["childLName"] . "'s" . " details" . "</p>";
+        }
+    }
+  $conn->close();?>
+
 </div>
 </div>
 <?php include_once "footer.php" ?>
