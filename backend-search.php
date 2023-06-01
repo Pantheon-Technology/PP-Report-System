@@ -21,7 +21,7 @@ if (isset($_REQUEST["term"])) {
             if (mysqli_num_rows($result) > 0) {
                 // create an associative array and fetch the results
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    echo "<p>" . $row["childFName"] ." " . $row["childLName"] . "'s" . " username is" . " " . $row['parentUsername'] . "</p>";
+                    echo "<p>" . $row['parentUsername'] . "</p>";
                 }
             } else {
                 echo "<p>No matches found</p>";

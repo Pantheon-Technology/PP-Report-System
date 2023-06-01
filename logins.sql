@@ -5,6 +5,9 @@ DROP TABLE IF EXISTS reportUpload;
 DROP TABLE IF EXISTS legalUpload;
 DROP TABLE IF EXISTS `posts`;
 DROP TABLE IF EXISTS `incidents`;
+DROP TABLE IF EXISTS `school`;
+DROP TABLE IF EXISTS `schoolStudent`;
+DROP TABLE IF EXISTS `changeRequests`;
 
 CREATE TABLE IF NOT EXISTS `posts`(
 eventID Int PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -92,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `legalUpload`(
 );
 
 CREATE TABLE IF NOT EXISTS `incidents`(
-`incidentNumber` INT(20) AUTO_INCREMENT PRIMARY KEY,
+`incidentNumber` INT AUTO_INCREMENT PRIMARY KEY,
 `studentName` Varchar(250),
 `date` VARCHAR(100),
 `time` VARCHAR(10),
@@ -105,6 +108,80 @@ CREATE TABLE IF NOT EXISTS `incidents`(
 `reportedBy` VARCHAR(20)
 );
 
+CREATE TABLE IF NOT EXISTS `school`(
+`schoolID` INT PRIMARY KEY AUTO_INCREMENT,
+`schoolName` VARCHAR(100),
+`authority` VARCHAR(100),
+`authorityName` VARCHAR(100),
+`password` VARCHAR(300),
+`contactName` VARCHAR(100),
+`contactEmail` VARCHAR(100),
+`contactNumber` VARCHAR(15),
+`financeName` VARCHAR(100),
+`financeEmail` VARCHAR(100)
+);
+
+CREATE TABLE IF NOT EXISTS `schoolStudent`(
+`studentID` INT PRIMARY KEY AUTO_INCREMENT,
+`studentName` VARCHAR(100),
+`studentUsername` VARCHAR(100),
+`password` VARCHAR(300),
+`schoolName` VARCHAR(100),
+`schoolYear` VARCHAR(10),
+`SEND` VARCHAR(1000),
+`EHCP` VARCHAR(10),
+`PEP` varchar(10),
+`PEPauth` VARCHAR(100),
+`subject1` VARCHAR(10),
+`subject2` VARCHAR(10),
+`subject3` VARCHAR(10),
+`otherSubjects` VARCHAR(200),
+`preferredDate` VARCHAR(35),
+`otherPreferred` VARCHAR(100),
+`preferredTime` VARCHAR(40),
+`allocatedTutor` VARCHAR(50),
+`dbs` VARCHAR(50),
+`trn` VARCHAR(50),
+`register` VARCHAR(10),
+`PEPfile` VARCHAR(250),
+`EHCPfile` VARCHAR(250)
+);
+
+DROP TABLE IF EXISTS `schoolStudentFiles`;
+
+CREATE TABLE IF NOT EXISTS `schoolStudentFiles`(
+`studentUsername` VARCHAR(100),
+`fileName` VARCHAR(150),
+`file` VARCHAR(150),
+`teacher` VARCHAR(50),
+`school` VARCHAR(100),
+`date` TIMESTAMP DEFAULT current_timestamp
+);
+
+select * from `schoolStudentFiles`;
+
+CREATE TABLE IF NOT EXISTS `changeRequests`(
+`requestID` INT PRIMARY KEY auto_increment,
+`studentName` VARCHAR(100),
+`sessionDate` VARCHAR(50),
+`sessionTime` VARCHAR(5),
+`reason` VARCHAR(7),
+`comments` VARCHAR(3000),
+`date` TIMESTAMP DEFAULT current_timestamp
+);
+
+SELECT * FROM `changeRequests`;
+
+
+CREATE TABLE IF NOT EXISTS `cancellations`(
+`cancellationID` INT PRIMARY KEY auto_increment,
+`studentName` VARCHAR(100),
+`comments` VARCHAR(3000),
+`date` TIMESTAMP DEFAULT current_timestamp
+);
+
+SELECT * FROM `cancellations`;
+
 SELECT * FROM `reportUpload`;
 SELECT * FROM `admins`;
 SELECT * FROM `teacher`;
@@ -112,3 +189,5 @@ SELECT * FROM `parents`;
 SELECT * FROM `legalUpload`;
 SELECT * FROM `posts`;
 SELECT * FROM `incidents`;
+select * from `school`;
+select * from `schoolStudent`;

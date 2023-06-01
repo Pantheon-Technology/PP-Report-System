@@ -33,17 +33,22 @@ $(document).ready(function(){
         <div class="result"></div>
     </div>
     <h3>Recent Students</h3>
- 
+    <div class="w3-row-padding w3-padding-16 w3-center" id="options">
     <?php
      $sql1 = "SELECT * FROM `parents` ORDER BY `dateCreated` DESC LIMIT 20";
      $result = mysqli_query($conn, $sql1); 
      if($result->num_rows){
         while($row = $result->fetch_assoc()){ 
-           echo "<a href =\"parents.php?parentid=". $row['parentID'] . "\">" . "View " . $row["childFName"] ." " . $row["childLName"] . "'s" . " details" . "</p>";
+           echo "<a href =\"parents.php?parentid=". $row['parentID'] . "\">" . "<div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom'>";
+           echo "<h2><i class='fa fa-user'></i></h2>";
+           echo "<p>" . "View " . $row["childFName"] ." " . $row["childLName"] . "'s" . " details"  . "</p>";
+           echo "</div>";
+           echo "</a>";
+        
         }
     }
   $conn->close();?>
-
+</div>
 </div>
 </div>
 <?php include_once "footer.php" ?>

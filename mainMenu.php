@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="index.css">
+<link rel="icon" type="image/x-icon" href="/pictures/logo.png">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -27,6 +28,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="schoolHome.php" class="w3-bar-item w3-button w3-padding">My Positive Progress for Schools</a>
     <a href="parentLogin.php" class="w3-bar-item w3-button w3-padding">Parent Login</a>
     <a href="teacherLogin.php" class="w3-bar-item w3-button w3-padding">Teacher Login</a>
     <a href="adminlogin.php" class="w3-bar-item w3-button w3-padding">Admin Login</a>

@@ -14,6 +14,7 @@ if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="index.css">
+<link rel="icon" type="image/x-icon" href="/pictures/logo.png">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -39,6 +40,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
       <a href="childDetails.php" class="w3-bar-item w3-button w3-padding">View Account</a>
       <a href="parentUpload.php" class="w3-bar-item w3-button w3-padding">Legal Documents</a>
       <a href="https://positive-progress.co.uk/pay-fees/" class="w3-bar-item w3-button w3-padding">Pay My Fees</a>
+      <a href="changeRequest.php" class="w3-bar-item w3-button w3-padding">Change Session Request</a>
+      <a href="cancellation.php" class="w3-bar-item w3-button w3-padding">Cancellation Request</a>
       <a href="logOut.php" class="w3-bar-item w3-button w3-padding">Logout</a>
   </div>
 </nav>
