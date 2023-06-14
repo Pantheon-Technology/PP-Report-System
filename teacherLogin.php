@@ -27,7 +27,7 @@ if (empty($username_err) && empty($password_err)) {
                 session_start();
                 $_SESSION["loggedInTeacher"] = true;
                 $_SESSION["teacherUsername"] = $username;
-                header("location: upAndDown.php");
+                header("location: teacherHome.php");
                 } else {
                   $login_err = "Invalid username or password.";
                 }

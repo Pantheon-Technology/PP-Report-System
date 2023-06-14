@@ -1,4 +1,3 @@
-<?php include_once 'schoolMenu.php';?>
 <?php 
 session_start();
 include_once 'config.php';
@@ -43,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
     } mysqli_close($conn);
   } 
-
+  include_once 'schoolMenu.php';
   ?>
       <h1>Center Login</h1>
       <p>Use the form below to access your center dashboard.</p>

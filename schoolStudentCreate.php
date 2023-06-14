@@ -131,7 +131,37 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
                 <?php echo $confirm_password_err;?>
                 </span>
 
-        <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="School*" required name="school"></p>
+<?php
+        $query = "SELECT * FROM school"; // Replace 'your_table' with the actual table name
+
+// Execute the query
+$result = mysqli_query($conn, $query);
+
+// Check if the query was successful
+if ($result) {
+    echo "<p>" . "<b>" . "School*" . "</b>" . "</p>";
+    echo '<select name="school">';
+    echo '<option>' . "select" . '</option>';
+
+    // Fetch each row from the result set
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        $value = $row['schoolName']; 
+
+        // Create an option tag with the fetched value
+        echo '<option value="' . $value . ' ">' . $value . '</option>';
+    }
+
+    // End the dropdown box
+    echo '</select>'. "</p>";
+
+    // Free the result set
+    mysqli_free_result($result);
+} else {
+    // Error handling if the query fails
+    echo 'Error: ' . mysqli_error($connection);
+}
+?>
       
                 <label for="year">School Year</label>
             <select id="year" name="schoolYear">
@@ -218,9 +248,9 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
 
         <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="DBS*" required name="dbs"></p>
 
-        <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="TRN*" required name="trn"></p>
+        <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="TRN" name="trn"></p>
 
-        <p>Registered update service required?*</p>
+        <p>Is the Tutor registered to update service?*</p>
         <p><input type="radio" id="yes1" required name="register" value="Yes">
             <label for="yes1">Yes</label>
         <input type="radio" id="No1" required name="register" value="No">

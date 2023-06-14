@@ -180,6 +180,19 @@ CREATE TABLE IF NOT EXISTS `cancellations`(
 `date` TIMESTAMP DEFAULT current_timestamp
 );
 
+CREATE TABLE IF NOT EXISTS `timesheet`(
+`employee_name` VARCHAR(50),
+`date` VARCHAR (50) DEFAULT NULL,
+`hours_worked` INT(50) DEFAULT NULL,
+`project` VARCHAR(40) DEFAULT NULL,
+`confirmation` VARCHAR(5) DEFAULT NULL,
+`archived` INT DEFAULT 0,
+`weekCommencing` VARCHAR(50) DEFAULT NULL,
+`date_upload` TIMESTAMP DEFAULT current_timestamp 
+);
+
+drop table `timesheet`;
+select * from `timesheet`;
 SELECT * FROM `cancellations`;
 
 SELECT * FROM `reportUpload`;

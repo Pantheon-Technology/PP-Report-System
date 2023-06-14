@@ -15,7 +15,7 @@ if(!isset($_SESSION["loggedInTeacher"]) || $_SESSION["loggedInTeacher"] !== true
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="index.css">
-<link rel="icon" type="image/x-icon" href="/pictures/logo.png">
+<link rel="icon" href="pictures/logo.png">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -38,6 +38,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="upAndDown.php" class="w3-bar-item w3-button w3-padding">Upload a Report for Positive Progress Students</a>
     <a href="studentFileUpload.php" class="w3-bar-item w3-button w3-padding">Upload a Report for School Students</a>
     <a href="incident_report.php" class="w3-bar-item w3-button w3-padding">Report an Incident</a>
+    <a href="timesheets.php" class="w3-bar-item w3-button w3-padding">Timesheet submit</a>
+    <a href="https://positive-progress.co.uk/webmail/log-in" class="w3-bar-item w3-button w3-padding">Emails</a>
+    <a href="https://auth.atlas-hub.co.uk/atlashub.onmicrosoft.com/b2c_1a_rest_signup_signin_auth/oauth2/v2.0/authorize?client_id=6d80e7f2-a808-4763-a8df-d3a27555a8bb&redirect_uri=https%3a%2f%2fwww.citation-atlas.co.uk&response_mode=form_post&response_type=code+id_token+token&scope=openid+https%3a%2f%2fAtlasHub.onmicrosoft.com%2fatlas-api%2funity.atlas.api&state=OpenIdConnect.AuthenticationProperties%3dyhcD-APxTgT7_620v9jKH5rPWPPqpHaW8cceJN9qxXuaMN5P5BbvOjxVRFzPyVsCbWB8AsOoH1uP-7F7gib8USgGTpk1tdc8VlnVMxUWBaSuquF-mRZSS_nTI7p3XgQqaXRSE75Ftl6hdLsgEftSsJXE41gMd7Ep24CggsMopvk5ChxJA1fePuIuN0KcaBVC32mCWsMBcoIh1olZOoUNE9UcYoVH-akgSBcuekZ8e6A-G5vuhH930LTDEoify5S3Rtoab2Dy3gEBZpqIa43U_w&nonce=638218567894748559.NjIyNWVjMzMtNDFlNi00Nzk2LTk0NGYtZjBhYzRmODEwMmMyZmZhYzA2NGUtZmYyMC00YWY5LTg1OGEtM2U3NjNhODYyNzkx" class="w3-bar-item w3-button w3-padding">Atlas</a>
     <a href="logout.php" class="w3-bar-item w3-button w3-padding">Logout</a>
   </div>
 </nav>
@@ -51,3 +54,4 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <header class="w3-container" style="padding-top:22px">
   <h1 class ="w3-animate-top"><b>My Positive Progress</b></h1>
 </header>
+

@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="index.css">
-<link rel="icon" type="image/x-icon" href="/pictures/logo.png">
+<link rel="icon" href="pictures/logo.png">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -35,6 +35,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="parentAccountCreate.php" class="w3-bar-item w3-button w3-padding">Parent Account Create</a>
     <a href="postPage.php" class="w3-bar-item w3-button w3-padding">View Announcements</a>
     <a href="portal.php" class="w3-bar-item w3-button w3-padding">Available Courses</a>
+    <a href="policies.php" class="w3-bar-item w3-button w3-padding">Policies & Legal</a>
   </div>
 </nav>
 
