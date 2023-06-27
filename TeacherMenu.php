@@ -3,6 +3,7 @@ session_start();
 if(!isset($_SESSION["loggedInTeacher"]) || $_SESSION["loggedInTeacher"] !== true){
   header("location: teacherLogin.php");
     exit; }
+    $username = $_SESSION['teacherUsername'];
     include_once "config.php";
     ?>
  <!DOCTYPE html>

@@ -71,6 +71,12 @@
       </div>
       </a>
 
+      <a href="incident_report_admin.php"><div class="w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round">
+        <h2><i class="fa fa-plus"></i></h2>
+        <p>Report Incident</p>
+      </div>
+      </a>
+
       <a href="AdminViewCancellations.php"><div class="w3-quarter w3-red w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-eye"></i></h2>
         <p>View Cancellation Requests</p>

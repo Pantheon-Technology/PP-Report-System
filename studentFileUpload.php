@@ -34,7 +34,7 @@ $(document).ready(function(){
         <form action="studentUpload.php" method="post" enctype="multipart/form-data">
 
         <?php
-          $query = "SELECT * FROM schoolStudent"; // Replace 'your_table' with the actual table name
+          $query = "SELECT * FROM schoolStudent ORDER BY `studentUsername` ASC"; 
 
 // Execute the query
 $result = mysqli_query($conn, $query);

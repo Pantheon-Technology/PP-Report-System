@@ -1,5 +1,5 @@
 <?php
-include_once "teacherMenu.php";
+include_once "NewMenuAdmin.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $sql = "INSERT INTO `incidents` (`studentName`, `date`, `time`, `issueType`, `desc`, `reffered`, `otherReffered`, `followUp`, `whoFollowedUp`, `reportedBy`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
