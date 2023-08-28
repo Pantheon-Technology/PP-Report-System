@@ -1,37 +1,49 @@
 <?php include_once "config.php";
 include_once "teacherMenu.php"; 
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  $stmt = $conn->prepare("INSERT INTO `timesheet` (`employee_name`, `date`, `hours_worked`, `project`, `confirmation`, `weekCommencing`) VALUES (?, ?, ?, ?, ?, ?)");
+  // Assuming you have established the database connection in $conn variable.
 
-  $stmt->bind_param("ssssss", $employeeName, $date, $hoursWorked, $project, $confirmation, $week);
-
- 
+  $stmt = $conn->prepare("INSERT INTO `timesheet` (`employee_name`, `date`, `hours_worked`, `milage`, `tunnel`, `project`, `confirmation`, `weekCommencing`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
   // Get data from the form submission
   $employeeName = $_SESSION["teacherUsername"];
   $dates = $_POST["date"];
   $hoursWorkedArr = $_POST["hours_worked"];
+  $milageArr = $_POST["milage"];
+  $tunnelArr = $_POST["toll"];
   $projects = $_POST["project"];
   $confirmation = $_POST['confirmation'];
   $week = $_POST['weekCommencing'];
 
+  // Count the number of entries in the hours array
+  $numEntries = count($dates);
+
+  // Variable to track successful insertions
+  $insertedSuccessfully = false;
 
   // Loop through the submitted data and insert into the database
-  for ($i = 0; $i < count($dates); $i++) {
+  for ($i = 0; $i < $numEntries; $i++) {
       $date = $dates[$i];
       $hoursWorked = $hoursWorkedArr[$i];
       $project = $projects[$i];
-      // Execute the prepared statement
-      $stmt->execute();
-  }
-  if (mysqli_stmt_execute($stmt)){
-    echo '<script>alert("Your timesheet has been added successfully!")</script>';
+      $milage = $milageArr[$i];
+      $tunnel = $tunnelArr[$i];
+
+      // Bind the parameters and execute the statement
+      $stmt->bind_param("ssssssss", $employeeName, $date, $hoursWorked, $milage, $tunnel, $project, $confirmation, $week);
+
+      if ($stmt->execute()) {
+          // Set the flag to true if at least one entry is inserted successfully
+          $insertedSuccessfully = true;
+      }
   }
 
+  // Display the alert if at least one entry is inserted successfully
+  if ($insertedSuccessfully) {
+      echo '<script>alert("Your timesheet entries have been added successfully!")</script>';
+  }
 }
-
 ?>
 
 <script>
@@ -97,9 +109,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <p><b>Week Commencing (starting Monday)</b><input type="date" name="weekCommencing"  required></p>
     <table>
       <tr>
-        <td><b>Monday</b></td>
+        <td><b>Monday - Morning</b></td>
         <td><input type="date" name="date[]"  ></td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked - Morning"></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -111,7 +123,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"oninput="calculateTotalHours()" placeholder = "Hours worked - Afternoon"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Monday - Afternoon</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -123,7 +141,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Evening"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Monday - Evening</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -135,12 +159,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
       </tr>
 
       <tr>
-        <td><b>Tuesday</b></td>
+      <td><b>Tuesday - Morning</b></td>
         <td><input type="date" name="date[]"  ></td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked - Morning"></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -152,7 +178,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Afternoon"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Tuesday - Afternoon</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -164,7 +196,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Evening"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Tuesday - Evening</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -176,12 +214,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
       </tr>
 
       <tr>
-        <td><b>Wednesday</b></td>
+      <td><b>Wednesday - Morning</b></td>
         <td><input type="date" name="date[]"  ></td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Morning"></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -193,36 +233,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Afternoon"></td>
-        <td>
-          <select name="project[]"  >
-            <option value="">Select a  work premises</option>
-            <option value="ASFA">ASFA</option>
-            <option value="The Heath">The Heath</option>
-            <option value="South Liverpool">South Liverpool</option>
-            <option value="West Derby">West Derby</option>
-            <option value="Online">Online</option>
-            <option value="Other">Other</option>
-          </select>
-        </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Evening"></td>
-        <td>
-          <select name="project[]"  >
-            <option value="">Select a  work premises</option>
-            <option value="ASFA">ASFA</option>
-            <option value="The Heath">The Heath</option>
-            <option value="South Liverpool">South Liverpool</option>
-            <option value="West Derby">West Derby</option>
-            <option value="Online">Online</option>
-            <option value="Other">Other</option>
-          </select>
-        </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
       </tr>
-     
       <tr>
-        <td><b>Thursday</b></td>
+      <td><b>Wednesday - Afternoon</b></td>
         <td><input type="date" name="date[]"  ></td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Morning"></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -234,7 +251,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Afternoon"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Wednesday - Evening</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -246,24 +269,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Evening"></td>
-        <td>
-          <select name="project[]"  >
-            <option value="">Select a  work premises</option>
-            <option value="ASFA">ASFA</option>
-            <option value="The Heath">The Heath</option>
-            <option value="South Liverpool">South Liverpool</option>
-            <option value="West Derby">West Derby</option>
-            <option value="Online">Online</option>
-            <option value="Other">Other</option>
-          </select>
-        </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
       </tr>
 
       <tr>
-        <td><b>Friday</b></td>
+      <td><b>Thursday - Morning</b></td>
         <td><input type="date" name="date[]"  ></td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Morning"></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -275,7 +288,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Afternoon"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Thursday - Afternoon</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -287,7 +306,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Evening"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Thursday - Evening</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -299,12 +324,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
       </tr>
 
       <tr>
-        <td><b>Saturday</b></td>
+      <td><b>Friday - Morning</b></td>
         <td><input type="date" name="date[]"  ></td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Morning"></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -316,7 +343,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Afternoon"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Friday - Afternoon</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -328,7 +361,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Evening"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Friday - Evening</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -340,12 +379,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
       </tr>
 
       <tr>
-        <td><b>Sunday</b></td>
-        <td><input type="date" name="date[]"  ></td> 
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Morning"></td>
+      <td><b>Saturday - Morning</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -357,7 +398,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Afternoon"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Saturday - Afternoon</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -369,7 +416,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
-        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()" placeholder = "Hours worked - Evening"></td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Saturday - Evening</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
         <td>
           <select name="project[]"  >
             <option value="">Select a  work premises</option>
@@ -381,6 +434,63 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="Other">Other</option>
           </select>
         </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+
+      <tr>
+      <td><b>Sunday - Morning</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
+        <td>
+          <select name="project[]"  >
+            <option value="">Select a  work premises</option>
+            <option value="ASFA">ASFA</option>
+            <option value="The Heath">The Heath</option>
+            <option value="South Liverpool">South Liverpool</option>
+            <option value="West Derby">West Derby</option>
+            <option value="Online">Online</option>
+            <option value="Other">Other</option>
+          </select>
+        </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Sunday - Afternoon</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
+        <td>
+          <select name="project[]"  >
+            <option value="">Select a  work premises</option>
+            <option value="ASFA">ASFA</option>
+            <option value="The Heath">The Heath</option>
+            <option value="South Liverpool">South Liverpool</option>
+            <option value="West Derby">West Derby</option>
+            <option value="Online">Online</option>
+            <option value="Other">Other</option>
+          </select>
+        </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
+      </tr>
+      <tr>
+      <td><b>Sunday - Evening</b></td>
+        <td><input type="date" name="date[]"  ></td>
+        <td><input type="number" name="hours_worked[]"   oninput="calculateTotalHours()"placeholder = "Hours worked"></td>
+        <td>
+          <select name="project[]"  >
+            <option value="">Select a  work premises</option>
+            <option value="ASFA">ASFA</option>
+            <option value="The Heath">The Heath</option>
+            <option value="South Liverpool">South Liverpool</option>
+            <option value="West Derby">West Derby</option>
+            <option value="Online">Online</option>
+            <option value="Other">Other</option>
+          </select>
+        </td>
+        <td><input type="number" name="milage[]" placeholder = "Milage"></td>
+        <td><input type="number" name="toll[]"   placeholder = "Toll Price"></td>
       </tr>
 
     </table>

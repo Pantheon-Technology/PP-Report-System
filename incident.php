@@ -7,7 +7,6 @@ if (isset($_GET['id'])) {
     $id = $_SESSION["id"];
 }
 ?>
-</html>
 <body>
       <h1><?php echo "Incident No." . $id; ?></h1>
       <div>

@@ -16,7 +16,7 @@ while($row = $result->fetch_assoc()){
     echo "</a>";
 }}
 else{
- echo "<h2>" . "There are no change requests right now" . "</h2>";
+ echo "<h2>" . "There are no timesheets right now" . "</h2>";
 }
 $conn->close();
 ?>

@@ -26,6 +26,9 @@ if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
                 echo "<p>" . "Allowed First Aid: " . $row['firstAid'] . "</p>";
                 echo "<p>" . "Security Password: " . $row['securityPassword'] . "</p>";
                 echo "<p>" . "Parent Name: " . $row['parentFName'] . $row['parentLName'] . "</p>";
+                echo "<p>" . "Account Credits: " . $row['credits'] . "</p>";
+                echo "<p>" . "Membership Type: " . $row['membershipType'] . "</p>";
+                echo "<p><a href='https://billing.stripe.com/p/login/test_3cseVsdYi82SbFS9AA'>Click here to manage your membership</a></p>";
                 echo "</div>";
 
                 echo "<div class=w3-half>";
@@ -73,10 +76,14 @@ if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
                 echo "<div class=w3-half>";
                 echo "<p>" . "<h2>" . "Additional Information" . "</h2>" . "</p>";
                 echo "<p>" . "How did you hear about us?: " . $row['heardBy'] . "</p>";
-                echo "<p>" . "Do you know to sign the T&C's in the Legal section of your account?: " . $row['T&CSigned'] . "</p>";
-                echo "<p>" . "Additional Information: " . $row['additionalInfo'] . "</p>";
+                echo "<p>" . "Aware of T&Cs?: " . $row['T&CSigned'] . "</p>";
+                echo "<p>" . "Additional Needs: " . $row['additionalInfo'] . "</p>";
+                echo "<p>" . "Special Educational Needs: " . $row['SEN'] . "</p>";
                 echo "<p>" . "You have been with us since: " . $row['dateCreated'] . "</p>";
+                echo "<p>" . "<a href='changeAdditionalInformation.php' class='w3-button w3-round w3-white w3-text-black'>" . "Add Additional Information" . "</a>" . "</p>";
+                
                 echo "</div>";
+
               }
         }else{
             echo "0 results";

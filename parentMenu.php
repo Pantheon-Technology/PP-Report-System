@@ -37,6 +37,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="parentHome.php" class="w3-bar-item w3-button w3-padding">Home</a>
       <a href="viewReport.php" class="w3-bar-item w3-button w3-padding">View Reports</a>
+      <a href="homework.php" class="w3-bar-item w3-button w3-padding">Upload Homework</a>
       <a href="childDetails.php" class="w3-bar-item w3-button w3-padding">View Account</a>
       <a href="parentUpload.php" class="w3-bar-item w3-button w3-padding">Legal Documents</a>
       <a href="https://positive-progress.co.uk/pay-fees/" class="w3-bar-item w3-button w3-padding">Pay My Fees</a>

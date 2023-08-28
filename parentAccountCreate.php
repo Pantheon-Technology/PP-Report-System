@@ -18,7 +18,10 @@ $username_err = $password_err = $confirm_password_err = "";
                             mysqli_stmt_store_result($stmt);
                                 if (mysqli_stmt_num_rows($stmt) == 1) {
                                     $username_err = "This username is already taken. Please try another";
-                                } else {
+                                } 
+                                if (strpos(trim($_POST['username']), '<script>')  !== false){
+                                    $username_err = "Inputs may not contain script code";
+                                }else {
                                     $username = trim($_POST["username"]);
                                 }
                                 } else {
@@ -43,9 +46,9 @@ $username_err = $password_err = $confirm_password_err = "";
             }
     
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($error)) {
-        $sql = "INSERT INTO parents (`parentUsername`, `password`, `parentFName`, `parentLName`, `addressLine1`, `addressLine2`, `city`, `postcode`, `phoneNum`, `eMail`, `childFName`, `childLName`, `gender`, `DOB`, `school`, `yearGroup`, `health`, `socialMedia`, `travel`, `firstAid`, `securityPassword`, `emergencyName1`, `relation1`, `emergencyPostcode1`, `emergencyContactNum1`, `emergencyName2`, `relation2`, `emergencyPostcode2`, `emergencyContactNum2`, `heardBy`, `helpWithFees`, `subject1`, `subject2`, `subject3`, `exam`, `desiredSchool`, `additionalInfo`, `T&CSigned`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO parents (`parentUsername`, `password`, `parentFName`, `parentLName`, `addressLine1`, `addressLine2`, `city`, `postcode`, `phoneNum`, `eMail`, `childFName`, `childLName`, `gender`, `DOB`, `school`, `yearGroup`, `health`, `socialMedia`, `travel`, `firstAid`, `securityPassword`, `emergencyName1`, `relation1`, `emergencyPostcode1`, `emergencyContactNum1`, `emergencyName2`, `relation2`, `emergencyPostcode2`, `emergencyContactNum2`, `heardBy`, `helpWithFees`, `subject1`, `subject2`, `subject3`, `exam`, `desiredSchool`, `additionalInfo`, `T&CSigned`, `SEN`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             if ($stmt = mysqli_prepare($conn, $sql)) {
-             mysqli_stmt_bind_param($stmt, "ssssssssssssssssssssssssssssssssssssss", $param_username, $param_password, $param_parentFName, $param_parentLName, $param_addressLine1, $param_addressLine2, $param_city, $param_postcode, $param_phoneNum, $param_eMail, $param_childFName, $param_childLName, $param_gender, $param_DOB, $param_school, $param_yearGroup, $param_health, $param_socialMedia, $param_travel, $param_firstAid, $param_securityPassword, $param_emergencyName1, $param_relation1, $param_emergencyPostcode1, $param_emergencyContactNum1, $param_emergencyName2, $param_relation2, $param_emergencyPostcode2, $param_emergencyContactNum2, $param_heardBy, $param_helpWithFees, $param_subject1, $param_subject2, $param_subject3, $param_exam, $param_desiredSchool, $param_additionalInfo, $param_TandCSigned);
+             mysqli_stmt_bind_param($stmt, "sssssssssssssssssssssssssssssssssssssss", $param_username, $param_password, $param_parentFName, $param_parentLName, $param_addressLine1, $param_addressLine2, $param_city, $param_postcode, $param_phoneNum, $param_eMail, $param_childFName, $param_childLName, $param_gender, $param_DOB, $param_school, $param_yearGroup, $param_health, $param_socialMedia, $param_travel, $param_firstAid, $param_securityPassword, $param_emergencyName1, $param_relation1, $param_emergencyPostcode1, $param_emergencyContactNum1, $param_emergencyName2, $param_relation2, $param_emergencyPostcode2, $param_emergencyContactNum2, $param_heardBy, $param_helpWithFees, $param_subject1, $param_subject2, $param_subject3, $param_exam, $param_desiredSchool, $param_additionalInfo, $param_TandCSigned, $param_SEN);
                 $param_username = $username;
                 $param_password = password_hash($password, PASSWORD_DEFAULT);
                 $param_parentFName = trim($_POST['parentFName']);
@@ -84,6 +87,7 @@ $username_err = $password_err = $confirm_password_err = "";
                 $param_desiredSchool = trim($_POST['desiredSchool']);
                 $param_additionalInfo = trim($_POST['additionalInfo']);
                 $param_TandCSigned = trim($_POST['T&CSigned']);
+                $param_SEN = trim($_POST['SEN']);
                 
                     if (mysqli_stmt_execute($stmt)) {
                         echo '<script>alert("You have been added successfully");document.location="parentlogin.php"</script>';
@@ -105,6 +109,11 @@ $username_err = $password_err = $confirm_password_err = "";
       <h1>Parent Account Create</h1>
       <p>Use the form below to create your account. * Indicates a required field.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="register">
+
+      <p>By creating your account you are agreeing to <a href="DefaultLegalForms\General_Tuition_Terms_and_Conditions_Dec_2022.docx">Our T&C's</a>, have you read these T&C's?*</p>
+      <p><input type="radio" id="yes6" required name="T&CSigned" value="Yes">
+      <label for="yes6">Yes</label>
+
       <h2>Account Information</h2>
       <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="Username*" required name="username"></p>
       <?php echo (! empty($username_err)) ? 'is-invalid' : '';?>
@@ -204,17 +213,15 @@ $username_err = $password_err = $confirm_password_err = "";
       <h2>Additional Information</h2>
       
       <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="How did you hear about us?" name="heardBy"></p>
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="If you would like to add any additional information, please use this box." name="additionalInfo"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="Please state any needs your child may have." name="additionalInfo"></p>
+      <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="Please provide any special educational needs your child may have." name="SEN"></p>
+      
 
       <p>Did you know you can recieve help for your tuition via working/universal tax credits?*</p>
       <p><input type="radio" id="yes5" required name="helpWithFees" value="Yes">
       <label for="yes5">Yes</label>
       <input type="radio" id="No5" required name="helpWithFees" value="No">
       <label for="No5">No</label></p>
-
-      <p>Do you agree to sign the legal documents in the legal section of your account upon account creation?*</p>
-      <p><input type="radio" id="yes6" required name="T&CSigned" value="Yes">
-      <label for="yes6">Yes</label>
       
       <p><button class="w3-button w3-light-grey w3-block" type="submit" data-sitekey="6Le7fnkmAAAAAGX7dtfEt5UDwpQpEMT-rhb1kr74" data-callback='onSubmit' >Create</button></p>
       <p><button class="w3-button w3-light-grey w3-block" type="reset">Reset data</button></p>

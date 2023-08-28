@@ -69,6 +69,8 @@ CREATE TABLE IF NOT EXISTS `parents`(
 `archived` INT(3) DEFAULT 0
 );
 
+ALTER TABLE `bookings` ADD `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
 CREATE TABLE IF NOT EXISTS `teacher`(
 `teacherID` INT AUTO_INCREMENT PRIMARY KEY,
 `teacherUsername` CHAR(200) NOT NULL,
@@ -184,6 +186,8 @@ CREATE TABLE IF NOT EXISTS `timesheet`(
 `employee_name` VARCHAR(50),
 `date` VARCHAR (50) DEFAULT NULL,
 `hours_worked` INT(50) DEFAULT NULL,
+`milage` INT(50) DEFAULT NULL,
+`tunnel` VARCHAR(5),
 `project` VARCHAR(40) DEFAULT NULL,
 `confirmation` VARCHAR(5) DEFAULT NULL,
 `archived` INT DEFAULT 0,
@@ -191,10 +195,86 @@ CREATE TABLE IF NOT EXISTS `timesheet`(
 `date_upload` TIMESTAMP DEFAULT current_timestamp 
 );
 
+CREATE TABLE IF NOT EXISTS `homework`(
+`parentUsername` VARCHAR(100),
+`fileName` VARCHAR(150),
+`subject` VARCHAR(150),
+`file` VARCHAR(150),
+`date` TIMESTAMP DEFAULT current_timestamp
+);
+
+CREATE TABLE IF NOT EXISTS `meetingMinutes`(
+`subject` VARCHAR (100),
+`summary` VARCHAR (100),
+`file` VARCHAR (250),
+`date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS `timeTable`(
+`classID` INT PRIMARY KEY auto_increment NOT NULL,
+`subject` VARCHAR(50),
+`teacher` VARCHAR(50),
+`link` VARCHAR(500),
+`date` VARCHAR(15),
+`time` VARCHAR(7),
+`desc` VARCHAR(1000),
+`studentList` VARCHAR(1000),
+`additionalComments` VARCHAR (1000)
+);
+
+CREATE TABLE IF NOT EXISTS `equipmentRequest`(
+`requestID` INT primary key not null auto_increment,
+`equipment` VARCHAR (100),
+`startDate` VARCHAR (50),
+`startTime` VARCHAR(10),
+`endDate` VARCHAR(50),
+`endTime` VARCHAR(10),
+`teacher` VARCHAR(100),
+`photocopy` VARCHAR(300),
+`granted` VARCHAR(3) default 0
+);
+
+CREATE TABLE IF NOT EXISTS `courseList`(
+`courseID` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`courseTitle` VARCHAR(250),
+`courseImage` VARCHAR(250),
+`courseDesc` VARCHAR(2000),
+`learningObjectives` VARCHAR(2000),
+`credits` INT(100)
+);
+
+CREATE TABLE IF NOT EXISTS `bookings`(
+`bookingID` INT PRIMARY KEY NOT NULL auto_increment,
+`parentUsername` VARCHAR(250),
+`email` VARCHAR(250),
+`courseTitle` VARCHAR(250),
+`childFName` VARCHAR(250),
+`childLName` VARCHAR(250),
+`date` timestamp default current_timestamp
+);
+
+CREATE TABLE IF NOT EXISTS `studentTimeTable`(
+`parentUsername` VARCHAR(100),
+`subject` VARCHAR(50),
+`link` VARCHAR(500),
+`date` VARCHAR(15),
+`time` VARCHAR(7)
+);
+
+SELECT * FROM `bookings`;
+SELECT * FROM `studentTimeTable`;
+
+drop table `timeTable`;
+select * from `courseList`;
+drop table `equipmentRequest`;
+select * from `timeTable`;
+select * from `equipmentRequest`;
+
 drop table `timesheet`;
+select * from `meetingMinutes`;
 select * from `timesheet`;
 SELECT * FROM `cancellations`;
-
+SELECT * FROM `homework`;
 SELECT * FROM `reportUpload`;
 SELECT * FROM `admins`;
 SELECT * FROM `teacher`;
@@ -204,3 +284,5 @@ SELECT * FROM `posts`;
 SELECT * FROM `incidents`;
 select * from `school`;
 select * from `schoolStudent`;
+
+update `parents` set `giveCredits` = "01/07/2023" where `parentID` = 3;

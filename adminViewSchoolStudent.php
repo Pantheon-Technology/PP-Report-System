@@ -36,7 +36,7 @@ $(document).ready(function(){
     <h3>Recent Students</h3>
     <div class="w3-row-padding w3-padding-16 w3-center" id="options">
     <?php
-     $sql1 = "SELECT * FROM `schoolStudent` LIMIT 20";
+     $sql1 = "SELECT * FROM `schoolStudent`";
      $result = mysqli_query($conn, $sql1); 
      if($result->num_rows){
         while($row = $result->fetch_assoc()){ 

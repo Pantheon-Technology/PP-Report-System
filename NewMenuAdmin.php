@@ -52,6 +52,8 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="adminViewCancellations.php" class="w3-bar-item w3-button w3-padding">View Cancellations</a>
     <a href="adminViewChanges.php" class="w3-bar-item w3-button w3-padding">View Class Change Requests</a>
     <a href="view_all_timesheets.php" class="w3-bar-item w3-button w3-padding">View Timesheets</a>
+    <a href="meetingMinutes.php" class="w3-bar-item w3-button w3-padding">Upload Meeting Minutes</a>
+    <a href="adminViewMeetingMinutes.php" class="w3-bar-item w3-button w3-padding">View Meeting Minutes</a>
   </div>
   <h5>School Options</h5>
     <a href="schoolCreate.php" class="w3-bar-item w3-button w3-padding">Add school</a>
