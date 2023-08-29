@@ -18,19 +18,19 @@ if ($result->num_rows > 0) {
 
   if ($when <= $timeSince){
     if ($membershipType == "bronze"){
-      $query = "UPDATE `parents` SET `credits` = `credits` + 25 WHERE `parentUsername` = '$username'";
+      $query = "UPDATE `parents` SET `memberCredits` = 1 WHERE `parentUsername` = '$username'";
       mysqli_query($conn, $query);
       $newDate = "UPDATE `parents` SET `giveCredits` = '$currentDate' WHERE `parentUsername` = '$username'";
       mysqli_query($conn, $newDate);
     }
     if ($membershipType == "silver"){
-      $query = "UPDATE `parents` SET `credits` = `credits` + 50 WHERE `parentUsername` = '$username'";
+      $query = "UPDATE `parents` SET `memberCredits` = 2 WHERE `parentUsername` = '$username'";
       mysqli_query($conn, $query);
       $newDate = "UPDATE `parents` SET `giveCredits` = '$currentDate' WHERE `parentUsername` = '$username'";
       mysqli_query($conn, $newDate);
     }
     if ($membershipType == "gold"){
-      $query = "UPDATE `parents` SET `credits` = `credits` + 80 WHERE `parentUsername` = '$username'";
+      $query = "UPDATE `parents` SET `memberCredits` = 3 WHERE `parentUsername` = '$username'";
       mysqli_query($conn, $query);
       $newDate = "UPDATE `parents` SET `giveCredits` = '$currentDate' WHERE `parentUsername` = '$username'";
       mysqli_query($conn, $newDate);
@@ -112,7 +112,7 @@ mysqli_close($conn);
 
       <a href="cancellation.php"><div class="w3-quarter w3-orange w3-margin-left w3-margin-bottom w3-round w3-hover-opacity">
         <h2><i class="fa fa-ban"></i></h2>
-        <p>Cancel Subscription</p>
+        <p>Cancel Tuition</p>
       </div>
       </a>
 

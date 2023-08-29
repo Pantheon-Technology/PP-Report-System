@@ -120,6 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -138,6 +139,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -156,6 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -175,6 +178,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -193,6 +197,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -211,6 +216,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -230,6 +236,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -248,6 +255,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -266,6 +274,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -285,6 +294,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -303,6 +313,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -321,6 +332,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -340,6 +352,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -358,6 +371,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -376,6 +390,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -395,6 +410,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -413,6 +429,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -431,6 +448,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -450,6 +468,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -468,6 +487,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>
@@ -486,6 +506,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <option value="South Liverpool">South Liverpool</option>
             <option value="West Derby">West Derby</option>
             <option value="Online">Online</option>
+            <option value ="Belfast">Belfast</option>
             <option value="Other">Other</option>
           </select>
         </td>

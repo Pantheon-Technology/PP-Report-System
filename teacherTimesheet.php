@@ -75,11 +75,9 @@ if ($result->num_rows > 0) {
     echo "</table>";
     echo "<h2>" . $id . " has worked a total of " . $totalHours . " hours since you last archived.</h2>";
     echo "<h3>Total hours worked on each project:</h3>";
-    echo "<ul>";
     foreach ($totalHoursPerProject as $project => $totalProjectHours) {
-        echo "<li>$project: $totalProjectHours hours</li>";
+        echo "<p>$project: $totalProjectHours hours</p>";
     }
-    echo "</ul>";
 
     echo "<form method='POST' action=''>";
     echo "<p><button type='submit'>Archive Timesheet</button></p>";

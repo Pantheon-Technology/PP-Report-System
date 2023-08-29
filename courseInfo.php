@@ -32,14 +32,14 @@ if($result1->num_rows > 0){
    $email = $row1['eMail'];
    $Fname = $row1['childFName'];
    $Lname = $row1['childLName'];
+   $membershipCredits = $row1['memberCredits'];
  }
 }
-else{
-   echo "<h2>" . "You have attempted to reach this page before selecting a course!" . "</h2>";
-}
+else{}
 
   if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
+  if (isset($_POST["form1Input"])){
     if($credits > $accountBal){
       echo "<h2>You do not have enough credits to purchase this course</h2>";
     }else{
@@ -70,12 +70,50 @@ else{
         echo "Error: " . $sql3 . "<br>" . $conn->error;
 
     }
+  }
 
-    mysqli_stmt_close($stmt);
+   // mysqli_stmt_close($stmt);
     }
 
   }
 }
+  
+  if(isset($_POST["form2Input"])){
+    if ($membershipCredits > 0){
+      $sql2 = "UPDATE `parents` SET `memberCredits` = `memberCredits` - ? WHERE parentUsername = '$username'";
+    if ($stmt = mysqli_prepare($conn, $sql2)) {
+
+    mysqli_stmt_bind_param($stmt, "i", $param_credits);
+
+    $param_credits = 1;
+
+    if (!mysqli_stmt_execute($stmt)) {
+        echo "Error: " . $sql2 . "<br>" . $conn->error;
+    }else{
+echo "test";
+      $sql3 = "INSERT INTO `bookings` (`parentUsername`, `email`, `courseTitle`, `childFName`, `childLName`) VALUES (?, ?, ?, ?, ?)";
+      if ($stmt2 = mysqli_prepare($conn, $sql3)){
+        mysqli_stmt_bind_param($stmt2, "sssss", $param_username, $param_email, $param_courseTitle, $param_childFirstName, $param_childLastName);
+
+        $param_username = $username;
+        $param_email = $email;
+        $param_courseTitle = $courseName;
+        $param_childFirstName = $Fname;
+        $param_childLastName = $Lname;
+
+        echo '<script>alert("Thank you for purchasing this course, click OK to continue");document.location="parentViewBookings.php"</script>';
+      } if (!mysqli_stmt_execute($stmt2)) {
+        echo "Error: " . $sql3 . "<br>" . $conn->error;
+
+    }
+  }
+
+    mysqli_stmt_close($stmt);
+    }
+    }else{
+      echo "<h2>You do not have enough membership credits to purchase this course</h2>";
+    }
+  }
   }
  
   $conn->close();
@@ -90,7 +128,10 @@ else{
     <div class='w3-container w3-white w3-round'>
       <p> This course costs <?php echo $credits ?> credits </p>
       <form method="post">
-      <p><button class='w3-button w3-black w3-round w3-margin-bottom w3-hover-opacity' type="submit" value="<?php echo $courseName ?>">Purchase With Credits</button> </p>
+      <p><button class='w3-button w3-black w3-round w3-margin-bottom w3-hover-opacity' type="submit" value="<?php echo $courseName ?>" name="form1Input">Purchase With Credits</button> </p>
+      </form>
+      <form method="post">
+      <p><button class='w3-button w3-black w3-round w3-margin-bottom w3-hover-opacity' type="submit" value="<?php echo $courseName ?>" name="form2Input">Use Membership Credits</button> </p>
       </form>
       </div>
     </div>
@@ -105,19 +146,6 @@ else{
       <p><?php echo $courseDesc ?></p>
     </div>
 </div>
-
-<div class="w3-container w3-margin-bottom">
-  <h2>Have a question before you buy? Get in touch!</h2>
-      <div class="w3-left-align w3-padding-large">
-      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-          <p><b>Your Email*</b></p>
-            <p><input class="w3-input w3-border w3-padding-16" type="text" name="student" placeholder="Email" required></p>
-            <p><b>Your Name*</b></p>
-            <p><input class="w3-input w3-border w3-padding-16" type="text" name="student" placeholder="Name" required></p>             
-          <p><b>Message*</b></p>
-            <p><textarea class="w3-input w3-padding-16 w3-border" type="textarea" auto_complete="no" placeholder="Description of Incident" name="description"></textarea></p>
-          <button class="w3-button w3-black w3-margin-bottom" input type="submit" required >Send Message</button>
-        </form>
 </div>
 </div>
 </div>

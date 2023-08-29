@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 <div class="w3-row-padding w3-center w3-padding-64" id="pricing">
     <h2>Course Bookings</h2>
     <?php 
-$sql = "SELECT * FROM `bookings` ORDER BY `date` DESC";
+$sql = "SELECT * FROM `bookings` ORDER BY `date` asc";
 $result = mysqli_query($conn, $sql);
 
 if ($result->num_rows > 0) {

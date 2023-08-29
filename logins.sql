@@ -284,5 +284,4 @@ SELECT * FROM `posts`;
 SELECT * FROM `incidents`;
 select * from `school`;
 select * from `schoolStudent`;
-
-update `parents` set `giveCredits` = "01/07/2023" where `parentID` = 3;
+alter table 'parents' add column `memberCredits` INT(3) DEFAULT 0;
