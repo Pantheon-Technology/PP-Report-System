@@ -6,20 +6,6 @@ if (isset($_GET['id'])) {
 } else {
     $id = $_SESSION["id"];
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $sql1 = "UPDATE `changeRequests` SET `archived` = 1 WHERE requestID = ?";
-        if ($stmt = mysqli_prepare($conn, $sql1)) {
-         mysqli_stmt_bind_param($stmt, "s", $param_id);
-         $param_id = $id;
-            if (mysqli_stmt_execute($stmt)) {
-                echo '<script>alert("Change Request Removed Successfully")</script>';
-                header("location: adminViewChanges.php");
-            } else {
-                echo "Oops! Something went wrong. Please try again later.";
-            } mysqli_stmt_close($stmt);
-        }
-    }
-
 
 ?>
 </html>
@@ -41,10 +27,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               echo "<p>" . $row['comments'] . "</p>";
               echo "<p>" . "Date of Request: " . $row['date'] . "</p>";
               echo "</div>";
-
-              echo "<form method='POST' action=''>";
-              echo "<p><button type='submit'>Mark Request as complete</button></p>";
-              echo "</form>";
               
               }
         }else{

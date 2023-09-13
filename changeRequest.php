@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $param_comments = trim($_POST['comments']);
      
       if (mysqli_stmt_execute($stmt)) {
-          echo '<script>alert("Your request has been sent to our team, they will respons to your query ASAP");document.location="parentHome.php"</script>';
+          echo '<script>alert("Your request has been sent to our team, they will respond to your query ASAP");document.location="parentHome.php"</script>';
       } else {
           echo "Oops! Something went wrong. Please try again later.";
       }

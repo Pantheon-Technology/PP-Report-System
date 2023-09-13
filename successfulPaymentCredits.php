@@ -1,6 +1,6 @@
 <html>
 <meta charset="UTF-8">
-<?php require_once "paymentConfigTest.php";
+<?php require_once "paymentConfig.php";
 require_once "parentMenu.php";
 require_once "config.php";
 

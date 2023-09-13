@@ -1,7 +1,7 @@
 <?php
 include_once "config.php";
 include_once "parentMenu.php";
-require_once "paymentConfigTest.php";
+require_once "paymentConfig.php";
 ?>
 
 <div class="w3-row-padding w3-center w3-padding-64" id="pricing">
@@ -10,9 +10,9 @@ require_once "paymentConfigTest.php";
 
     <?php
     $pricingOptions = [
-        ['price' => 25, 'credits' => 15],
-        ['price' => 40, 'credits' => 30],
-        ['price' => 60, 'credits' => 60],
+        ['price' => 12, 'credits' => 24],
+        ['price' => 24, 'credits' => 48],
+        ['price' => 36, 'credits' => 72],
     ];
 
     foreach ($pricingOptions as $option) {

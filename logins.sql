@@ -69,8 +69,6 @@ CREATE TABLE IF NOT EXISTS `parents`(
 `archived` INT(3) DEFAULT 0
 );
 
-ALTER TABLE `bookings` ADD `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
-
 CREATE TABLE IF NOT EXISTS `teacher`(
 `teacherID` INT AUTO_INCREMENT PRIMARY KEY,
 `teacherUsername` CHAR(200) NOT NULL,
@@ -284,4 +282,4 @@ SELECT * FROM `posts`;
 SELECT * FROM `incidents`;
 select * from `school`;
 select * from `schoolStudent`;
-alter table 'parents' add column `memberCredits` INT(3) DEFAULT 0;
+alter table `parents` add column `memberCredits` INT(3) DEFAULT 0;

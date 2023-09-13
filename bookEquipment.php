@@ -50,6 +50,7 @@ $file = "";
                 <option value="Computer">Computer</option>
                 <option value="Phone">Phone</option>
                 <option value="Projector">Projector</option>
+                <option value="Kindle">Kindle</option>
                 <option value="Photocopy">Photocopy Request</option>
             </select>
           <p>If submitting a photocopy request, please upload the file below</p>

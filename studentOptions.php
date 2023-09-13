@@ -46,6 +46,12 @@
         <p>View Class Change Requests</p>
       </div>
       </a>
+
+      <a href="adminViewArchivedChanges.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+        <h2><i class="fa fa-eye"></i></h2>
+        <p>View Archived Class Change Requests</p>
+      </div>
+      </a>
 </div>
   </div>
 </div>
