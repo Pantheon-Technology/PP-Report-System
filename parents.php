@@ -74,13 +74,42 @@ if (isset($_GET['parentid'])) {
               echo "<p>" . "Additional Information: " . $row['additionalInfo'] . "</p>";
               echo "<p>" . "You have been with us since: " . $row['dateCreated'] . "</p>";
               echo "</div>";
-              }
-        }else{
-            echo "0 results";
-        }
-        
-        mysqli_close($conn);
 
+              $sql1 = "SELECT * FROM `reportUpload` where `parentUsername` = '$username' ORDER BY `date` DESC LIMIT 10 ";
+              echo "<div class=w3-half>";
+              echo "<h2>" . "Student Uploads" . "</h2>";
+              $result = mysqli_query($conn, $sql1);
+                 if (mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_assoc($result)){
+                       $filePath = "uploads\\" . $row['file']; 
+                       echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
+                       
+                    }
+                  }else{
+                    echo "No uploads";
+                  }
+                  echo "</div>";
+
+                  echo "<div class=w3-half>";
+                  echo "<h2>" . "Teacher Files for" . $username . "</h2>";
+
+              $sql1 = "SELECT * FROM `homework` where `parentUsername` = '$username' ORDER BY `date` DESC LIMIT 10 ";
+
+              $result = mysqli_query($conn, $sql1);
+                 if (mysqli_num_rows($result) > 0){
+                    while($row = mysqli_fetch_assoc($result)){
+                       $filePath = "uploads\\" . $row['file']; 
+                       echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
+                    }
+                  }else{
+                    echo "No uploads";
+                  }
+                  echo "</div>";
+
+              }
+                }else{
+                  echo "0 results";
+                } mysqli_close($conn);
         ?>
       </div>
     </div>

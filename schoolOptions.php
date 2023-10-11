@@ -11,6 +11,12 @@
       </div>
   </a>
 
+  <a href="schoolChangePass.php"><div class="w3-quarter w3-orange w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+        <h2><i class="fa fa-repeat"></i></h2>
+        <p>Change School Password</p>
+      </div>
+  </a>
+
   <a href="schoolStudentCreate.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-plus-square"></i></h2>
         <p>Add School Student</p>
@@ -20,6 +26,12 @@
   <a href="schoolStudentRemove.php"><div class="w3-quarter w3-blue w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-minus-square"></i></h2>
         <p>Remove School Student</p>
+      </div>
+  </a>
+  
+  <a href="schoolStudentChangePass.php"><div class="w3-quarter w3-grey w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+        <h2><i class="fa fa-repeat"></i></h2>
+        <p>Change Student Password</p>
       </div>
   </a>
 

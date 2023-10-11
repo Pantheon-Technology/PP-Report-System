@@ -1,7 +1,4 @@
-<?php include_once "teacherMenu.php"; ?>
-
-<!--Events tab -->
-<div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
+<?php include_once "teacherMenu.php"; include "config.php";?>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script> //script for searching my database
@@ -27,6 +24,9 @@ $(document).ready(function(){
     });
 });
 </script>
+
+<!--Events tab -->
+<div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
 
     <h1>Upload Report</h1>
     <p>Use the form below to upload a report for a child, you may use the 'username search' to find out their username if required.</p>
@@ -63,11 +63,21 @@ if ($result) {
     echo 'Error: ' . mysqli_error($connection);
 }
 ?>
-          <p><b>Name of Document</b></p>
-          <p><input type="text" id="reportName" name="reportName" placeholder="Name of document" required></p>
-          <p><b>File Upload</b></p>
-          <p><input type="file" id="fileToUpload" name="fileToUpload"></p>
-          <button class="w3-button w3-black w3-margin-bottom" input type="submit" value="Upload Image" required>Upload Document</button>
+          <p><b>Name of Documents</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="text" id="reportName" name="reportName" placeholder="Name of documents" required></p>
+          <p><b>File 1 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload" name="fileToUpload"></p>
+          <p><b>File 2 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload2" name="fileToUpload2"></p>
+          <p><b>File 3 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload3" name="fileToUpload3"></p>
+          <p><b>File 4 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload4" name="fileToUpload4"></p>
+          <p><b>File 5 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload5" name="fileToUpload5"></p>
+
+          <p><textarea class="w3-input w3-padding-16 w3-border" type="text" name="comment" placeholder="Add comment"></textarea></p>
+          <button class="w3-button w3-black w3-margin-bottom" input type="submit" >Upload</button>
         </form>
         
         <h2>Username Search</h2>

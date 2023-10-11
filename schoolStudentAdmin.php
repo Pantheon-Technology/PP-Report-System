@@ -47,6 +47,7 @@ if (isset($_GET['studentid'])) {
               }
         }
 
+        echo "<div class=w3-half>";
         echo "<h2>" . "Student Uploads" . "</h2>";
 
         $student = $_SESSION['thisStudent'];
@@ -56,15 +57,13 @@ if (isset($_GET['studentid'])) {
         $result = mysqli_query($conn, $sql1);
         if (mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
-                echo "<div class=w3-half>";
                 $filePath = "uploads\\" . $row['file']; 
                 echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
-                echo "</div>";
-
               }
         }else{
             echo "No uploads";
         }
+        echo "</div>";
       
 
         ?>

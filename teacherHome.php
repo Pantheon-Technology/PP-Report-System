@@ -29,6 +29,12 @@
       </div>
       </a>
 
+      <a href="View_Incident_teacher.php"><div class="w3-quarter w3-light-grey w3-margin-left w3-margin-bottom w3-round">
+        <h2><i class="fa fa-eye"></i></h2>
+        <p>View Incidents</p>
+      </div>
+      </a>
+
       <a href="timesheets.php"><div class="w3-quarter w3-purple w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-calendar"></i></h2>
         <p>Upload Timesheet</p>
@@ -50,6 +56,18 @@
       <a href="teacherViewOwnTimesheet.php"><div class="w3-quarter w3-grey w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-calendar"></i></h2>
         <p>View your Timesheet</p>
+      </div>
+      </a>
+
+      <a href="addContent.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
+        <h2><i class="fa fa-graduation-cap"></i></h2>
+        <p>Add Course Content</p>
+      </div>
+      </a>
+
+      <a href="searchContent.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
+        <h2><i class="fa fa-graduation-cap"></i></h2>
+        <p>View Course Content</p>
       </div>
       </a>
 

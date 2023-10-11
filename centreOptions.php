@@ -65,6 +65,18 @@
       </div>
       </a>
 
+      <a href="addContent-admin.php"><div class="w3-quarter w3-red w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+        <h2><i class="fa fa-plus"></i></h2>
+        <p>Add Course Content</p>
+      </div>
+      </a>
+
+      <a href="searchContent-admin.php"><div class="w3-quarter w3-black w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+        <h2><i class="fa fa-eye"></i></h2>
+        <p>View Content</p>
+      </div>
+      </a>
+
 </div>
 </div>
   </div>

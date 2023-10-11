@@ -37,6 +37,9 @@ if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
                 echo "<p>" . "Address Line 2: " . $row['addressLine2'] . "</p>";
                 echo "<p>" . "City: " . $row['city'] . " Postcode: " . $row['postcode'] .  "</p>";
                 echo "<p>" . "<a href='changeAddress.php' class='w3-button w3-round w3-white w3-text-black'>" . "Change Address" . "</a>" . "</p>";
+                echo "<p><b>Education Centre</b></p>";
+                echo "<p>" . $row['site'] . "</p>";
+                echo "<p>" . "<a href='changeCentre.php' class='w3-button w3-round w3-white w3-text-black'>" . "Change Education Centre" . "</a>" . "</p>";
                 echo "</div>";
 
                 echo "<div class=w3-half>";
@@ -88,11 +91,33 @@ if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
         }else{
             echo "0 results";
         }
-        
-        mysqli_close($conn);
 
         ?>
       </div>
     </div>
+    <div id="EVENTS" class="w3-panel w3-white w3-animate-right">
+    <div class="w3-row-padding w3-padding-16 w3-center" id="options">
+    <h2>Incidents area</h2>
+    <?php 
+$sql = "SELECT * FROM `incidents` WHERE `studentName` = '$username' ORDER BY `incidentNumber` DESC";
+$result = mysqli_query($conn, $sql);
+if($result->num_rows > 0){
+while($row = $result->fetch_assoc()){   
+    echo "<a href =\"View_incident_parent.php?id=". $row['incidentNumber'] . "\"><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom'>";
+    echo "<h2><i class='fa fa-eye'></i></h2>";
+    echo "<p>" . "View details of Incident submitted by " . $row['reportedBy'] .  "</p>";
+    echo "</div>";
+    echo "</a>";
+}}
+else{
+ echo "<h2>" . "There are no incidents." . "</h2>";
+}
+$conn->close();
+?>
+</div>
+    </div>
   </div>
-<?php include_once "footer.php"; ?>
+<?php include_once "footer.php"; 
+
+
+?>

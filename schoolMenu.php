@@ -30,6 +30,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
     <a href="studentLogin.php" class="w3-bar-item w3-button w3-padding">Student Login</a>
     <a href="schoolLogin.php" class="w3-bar-item w3-button w3-padding">Center Login</a>
+    <a href="index.php" class="w3-bar-item w3-button w3-padding">Back</a>
   </div>
 </nav>
 

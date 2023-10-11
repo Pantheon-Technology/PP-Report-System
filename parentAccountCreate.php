@@ -46,9 +46,9 @@ $username_err = $password_err = $confirm_password_err = "";
             }
     
     if (empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($error)) {
-        $sql = "INSERT INTO parents (`parentUsername`, `password`, `parentFName`, `parentLName`, `addressLine1`, `addressLine2`, `city`, `postcode`, `phoneNum`, `eMail`, `childFName`, `childLName`, `gender`, `DOB`, `school`, `yearGroup`, `health`, `socialMedia`, `travel`, `firstAid`, `securityPassword`, `emergencyName1`, `relation1`, `emergencyPostcode1`, `emergencyContactNum1`, `emergencyName2`, `relation2`, `emergencyPostcode2`, `emergencyContactNum2`, `heardBy`, `helpWithFees`, `subject1`, `subject2`, `subject3`, `exam`, `desiredSchool`, `additionalInfo`, `T&CSigned`, `SEN`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO parents (`parentUsername`, `password`, `parentFName`, `parentLName`, `addressLine1`, `addressLine2`, `city`, `postcode`, `phoneNum`, `eMail`, `childFName`, `childLName`, `gender`, `DOB`, `school`, `yearGroup`, `health`, `socialMedia`, `travel`, `firstAid`, `securityPassword`, `emergencyName1`, `relation1`, `emergencyPostcode1`, `emergencyContactNum1`, `emergencyName2`, `relation2`, `emergencyPostcode2`, `emergencyContactNum2`, `heardBy`, `helpWithFees`, `subject1`, `subject2`, `subject3`, `exam`, `desiredSchool`, `additionalInfo`, `T&CSigned`, `SEN`, `site`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             if ($stmt = mysqli_prepare($conn, $sql)) {
-             mysqli_stmt_bind_param($stmt, "sssssssssssssssssssssssssssssssssssssss", $param_username, $param_password, $param_parentFName, $param_parentLName, $param_addressLine1, $param_addressLine2, $param_city, $param_postcode, $param_phoneNum, $param_eMail, $param_childFName, $param_childLName, $param_gender, $param_DOB, $param_school, $param_yearGroup, $param_health, $param_socialMedia, $param_travel, $param_firstAid, $param_securityPassword, $param_emergencyName1, $param_relation1, $param_emergencyPostcode1, $param_emergencyContactNum1, $param_emergencyName2, $param_relation2, $param_emergencyPostcode2, $param_emergencyContactNum2, $param_heardBy, $param_helpWithFees, $param_subject1, $param_subject2, $param_subject3, $param_exam, $param_desiredSchool, $param_additionalInfo, $param_TandCSigned, $param_SEN);
+             mysqli_stmt_bind_param($stmt, "ssssssssssssssssssssssssssssssssssssssss", $param_username, $param_password, $param_parentFName, $param_parentLName, $param_addressLine1, $param_addressLine2, $param_city, $param_postcode, $param_phoneNum, $param_eMail, $param_childFName, $param_childLName, $param_gender, $param_DOB, $param_school, $param_yearGroup, $param_health, $param_socialMedia, $param_travel, $param_firstAid, $param_securityPassword, $param_emergencyName1, $param_relation1, $param_emergencyPostcode1, $param_emergencyContactNum1, $param_emergencyName2, $param_relation2, $param_emergencyPostcode2, $param_emergencyContactNum2, $param_heardBy, $param_helpWithFees, $param_subject1, $param_subject2, $param_subject3, $param_exam, $param_desiredSchool, $param_additionalInfo, $param_TandCSigned, $param_SEN, $param_site);
                 $param_username = $username;
                 $param_password = password_hash($password, PASSWORD_DEFAULT);
                 $param_parentFName = trim($_POST['parentFName']);
@@ -88,6 +88,7 @@ $username_err = $password_err = $confirm_password_err = "";
                 $param_additionalInfo = trim($_POST['additionalInfo']);
                 $param_TandCSigned = trim($_POST['T&CSigned']);
                 $param_SEN = trim($_POST['SEN']);
+                $param_site = trim($_POST['site']);
                 
                     if (mysqli_stmt_execute($stmt)) {
                         echo '<script>alert("You have been added successfully");document.location="parentlogin.php"</script>';
@@ -222,6 +223,12 @@ $username_err = $password_err = $confirm_password_err = "";
       <label for="yes5">Yes</label>
       <input type="radio" id="No5" required name="helpWithFees" value="No">
       <label for="No5">No</label></p>
+
+      <p>Which site are you/ will you be attending?*</p>
+      <p><input type="radio" id="South Liverpool" required name="site" value="South Liverpool">
+      <label for="South Liverpool">South Liverpool</label>
+      <input type="radio" id="Widnes" required name="site" value="Widnes">
+      <label for="Widnes">Widnes</label></p>
       
       <p><button class="w3-button w3-light-grey w3-block" type="submit" data-sitekey="6Le7fnkmAAAAAGX7dtfEt5UDwpQpEMT-rhb1kr74" data-callback='onSubmit' >Create</button></p>
       <p><button class="w3-button w3-light-grey w3-block" type="reset">Reset data</button></p>

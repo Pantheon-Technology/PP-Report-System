@@ -23,21 +23,81 @@ $sql = "INSERT INTO `incidents` (`studentName`, `date`, `time`, `issueType`, `de
                 }
                 mysqli_stmt_close($stmt);
             }
-         mysqli_close($conn);
+
           }
     
   ?>
  <!DOCTYPE html>
 
+ <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script> //script for searching my database
+$(document).ready(function(){
+    $('.search-box input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
+        var inputVal = $(this).val();
+        var resultDropdown = $(this).siblings(".result");
+        if(inputVal.length){
+            $.get("backend-search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in drop down box on the page
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+
+    // Set search input value on click of result item
+    $(document).on("click", ".result p", function(){
+        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+        $(this).parent(".result").empty();
+    });
+});
+</script>
+
 <!--Events tab -->
 <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
 
     <h1>Incident Report</h1>
-    <p>Use the form below to fill out an incident report.</p>
+    <p>Use the form below to fill out an incident report. You can search for a students username using the search box below.</p>
+    <h2>Username Search</h2>
+        <div class="search-box">
+        <input type="text" autocomplete="off" placeholder="Childs Name" />
+        <div class="result"></div>
+    </div>
       <div class="w3-left-align w3-padding-large">
+      <h2>Incident Form</h2>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-          <p><b>Student Name*</b></p>
-            <p><input class="w3-input w3-border w3-padding-16" type="text" name="student" placeholder="Name the student involved" required></p>
+      <?php
+          $query = "SELECT * FROM parents ORDER BY `parentUsername` ASC";
+
+// Execute the query
+$result = mysqli_query($conn, $query);
+
+// Check if the query was successful
+if ($result) {
+    echo "<p>" . "<b>" . "Username of Child" . "</b>" . "</p>";
+    echo '<select name="student">';
+    echo '<option>' . "select" . '</option>';
+
+    // Fetch each row from the result set
+    while ($row = mysqli_fetch_assoc($result)) {
+
+        $value = $row['parentUsername']; 
+
+        // Create an option tag with the fetched value
+        echo '<option value="' . $value . ' ">' . $value . '</option>';
+    }
+
+    // End the dropdown box
+    echo '</select>';
+
+    // Free the result set
+    mysqli_free_result($result);
+} else {
+    // Error handling if the query fails
+    echo 'Error: ' . mysqli_error($connection);
+}
+?>
           <p><b>Date of Incident*</b></p>
             <p><input class="w3-input w3-border w3-padding-16" type="date" name="date" auto_complete="no" required></p>   
           <p><b>Time of Incident*</b></p>

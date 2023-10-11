@@ -68,6 +68,8 @@ CREATE TABLE IF NOT EXISTS `parents`(
 `firstInvoiceAmount`INT(40),
 `archived` INT(3) DEFAULT 0
 );
+ALTER TABLE `parents` add `site` varchar(20);
+select * from `parents`;
 
 CREATE TABLE IF NOT EXISTS `teacher`(
 `teacherID` INT AUTO_INCREMENT PRIMARY KEY,
@@ -86,8 +88,17 @@ CREATE TABLE IF NOT EXISTS `reportUpload`(
 `fileName` Varchar(200),
 `file` VARCHAR(250),
 `teacher` VARCHAR(250),
+`comment` VARCHAR(1000),
 `date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+alter table `reportUpload` add `file2` varchar(250);
+alter table `reportUpload` add `file3` varchar(250);
+alter table `reportUpload` add `file4` varchar(250);
+alter table `reportUpload` add `file5` varchar(250);
+
+select * from `reportUpload`;
+
+ALTER TABLE `reportUpload` add `comment` VARCHAR(1000);
 
 CREATE TABLE IF NOT EXISTS `legalUpload`(
 `parentUsername` Varchar(200),
@@ -108,6 +119,15 @@ CREATE TABLE IF NOT EXISTS `incidents`(
 `reportedBy` VARCHAR(20)
 );
 
+ALTER TABLE `incidents` add `witness1` VARCHAR(2000);
+ALTER TABLE `incidents` add `w1name` VARCHAR(30);
+
+ALTER TABLE `incidents` add `witness2` VARCHAR(2000);
+ALTER TABLE `incidents` add `w2name` VARCHAR(30);
+
+ALTER TABLE `incidents` add `witness3` VARCHAR(2000);
+ALTER TABLE `incidents` add `w3name` VARCHAR(30);
+
 CREATE TABLE IF NOT EXISTS `school`(
 `schoolID` INT PRIMARY KEY AUTO_INCREMENT,
 `schoolName` VARCHAR(100),
@@ -120,6 +140,7 @@ CREATE TABLE IF NOT EXISTS `school`(
 `financeName` VARCHAR(100),
 `financeEmail` VARCHAR(100)
 );
+
 
 CREATE TABLE IF NOT EXISTS `schoolStudent`(
 `studentID` INT PRIMARY KEY AUTO_INCREMENT,
@@ -259,27 +280,25 @@ CREATE TABLE IF NOT EXISTS `studentTimeTable`(
 `time` VARCHAR(7)
 );
 
-SELECT * FROM `bookings`;
-SELECT * FROM `studentTimeTable`;
+CREATE TABLE IF NOT EXISTS `courseContent`(
+`ID` int primary key not null auto_increment,
+`courseTitle` varchar(100),
+`courseDesc` varchar(3000),
+`subject` varchar(100),
+`year` varchar(10),
+`file1` varchar(300),
+`file2` varchar(300),
+`file3` varchar(300),
+`file4` varchar(300),
+`file5` varchar(300),
+`file6` varchar(300),
+`file7` varchar(300),
+`link1` varchar(300),
+`link2` varchar(300),
+`link3` varchar(300),
+`createdBy` varchar(300),
+`date` timestamp default current_timestamp
+);
+select * from `courseContent`;
 
-drop table `timeTable`;
-select * from `courseList`;
-drop table `equipmentRequest`;
-select * from `timeTable`;
-select * from `equipmentRequest`;
-
-drop table `timesheet`;
-select * from `meetingMinutes`;
-select * from `timesheet`;
-SELECT * FROM `cancellations`;
-SELECT * FROM `homework`;
-SELECT * FROM `reportUpload`;
-SELECT * FROM `admins`;
-SELECT * FROM `teacher`;
-SELECT * FROM `parents`;
-SELECT * FROM `legalUpload`;
-SELECT * FROM `posts`;
-SELECT * FROM `incidents`;
-select * from `school`;
-select * from `schoolStudent`;
 alter table `parents` add column `memberCredits` INT(3) DEFAULT 0;

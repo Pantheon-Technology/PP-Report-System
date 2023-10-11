@@ -2,7 +2,17 @@
 session_start();
 $target_dir = "uploads/";
 $reportUpload = str_replace(" ", "", basename($_FILES["fileToUpload"]["name"]));
+$reportUpload2 = str_replace(" ", "", basename($_FILES["fileToUpload2"]["name"]));
+$reportUpload3 = str_replace(" ", "", basename($_FILES["fileToUpload3"]["name"]));
+$reportUpload4 = str_replace(" ", "", basename($_FILES["fileToUpload4"]["name"]));
+$reportUpload5 = str_replace(" ", "", basename($_FILES["fileToUpload5"]["name"]));
+
+
 $target_file = $target_dir . $reportUpload;
+$target_file2 = $target_dir . $reportUpload2;
+$target_file3 = $target_dir . $reportUpload3;
+$target_file4 = $target_dir . $reportUpload4;
+$target_file5 = $target_dir . $reportUpload5;
 
 $uploadOk = 1;
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -34,15 +44,26 @@ if ($uploadOk == 0) {
   echo " Your file was not uploaded.";
 
 } else {
-  $sql = "INSERT INTO `reportUpload` (`parentUsername`, `fileName`, `file`, `teacher`) VALUES (?, ?, ?, ?)";
+
+  $sql = "INSERT INTO `reportUpload` (`parentUsername`, `fileName`, `file`, `teacher`, `comment`, `file2` , `file3`, `file4`, `file5`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
        if ($stmt = mysqli_prepare($conn, $sql)) {
-         mysqli_stmt_bind_param($stmt, "ssss", $param_user, $param_fileName, $param_fileToUpload, $param_teacher);
+         mysqli_stmt_bind_param($stmt, "sssssssss", $param_user, $param_fileName, $param_fileToUpload, $param_teacher, $param_comment, $param_fileToUpload2, $param_fileToUpload3, $param_fileToUpload4, $param_fileToUpload5);
          $param_user = $child;
          $param_fileName = $documentName;
-         $param_fileToUpload = htmlspecialchars( $reportUpload);
+         $param_fileToUpload = htmlspecialchars($reportUpload);
          $param_teacher = $teacherUpload;
+         $param_comment = $_POST['comment'];
+         $param_fileToUpload2 = htmlspecialchars($reportUpload2);
+         $param_fileToUpload3 = htmlspecialchars($reportUpload3);
+         $param_fileToUpload4 = htmlspecialchars($reportUpload4);
+         $param_fileToUpload5 = htmlspecialchars($reportUpload5);
+         
   move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-  echo '<script>alert("' . $reportUpload . " " . 'uploaded successfully");document.location="upAndDown.php"</script>';
+  move_uploaded_file($_FILES["fileToUpload2"]["tmp_name"], $target_file2);
+  move_uploaded_file($_FILES["fileToUpload3"]["tmp_name"], $target_file3);
+  move_uploaded_file($_FILES["fileToUpload4"]["tmp_name"], $target_file4);
+  move_uploaded_file($_FILES["fileToUpload5"]["tmp_name"], $target_file5);
+  echo'<script>alert("' . $reportUpload . " " . 'uploaded successfully");document.location="upAndDown.php"</script>';
 }
 if (!(mysqli_stmt_execute($stmt))) {
   echo "Error: " . $sql . "<br>" . $conn->error;

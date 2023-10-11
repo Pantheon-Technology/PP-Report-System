@@ -3,14 +3,28 @@
       <h1>Course Portal</h1>
       <h4>Use the buttons below to browse our available courses!</h4>
       <div class="w3-left-align w3-padding-large">
-      <a href="https://positive-progress.co.uk/classes/" class="w3-button w3-grey w3-block w3-round w3-hover-green w3-padding-16">General Tuition for All School Years</a>
-        <br>
-        <a href="https://positive-progress.co.uk/learn-english-home/" class="w3-button w3-grey w3-block w3-round w3-hover-red w3-padding-16">Learn to Speak English</a>
-        <br>
-        <a href="https://positive-progress.co.uk/first-aid-courses-available/" class="w3-button w3-grey w3-block w3-round w3-hover-blue w3-padding-16">First Aid School</a>
-        <br>
-        <a href="" class="w3-button w3-grey w3-block w3-round w3-hover-white w3-padding-16">Summer School - COMING SOON!</a>
+      <div class="w3-row-padding w3-padding-16 w3-center" id="options">
+
+      <a href="https://positive-progress.co.uk/classes/"><div class="w3-quarter w3-orange w3-margin-left w3-margin-bottom w3-round w3-hover-opacity">
+        <h2><i class="fa fa-graduation-cap"></i></h2>
+        <p>General Tuition</p>
       </div>
+      </a>
+
+      <a href="https://positive-progress.co.uk/learn-english-home/"><div class="w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-opacity">
+        <h2><i class="fa fa-graduation-cap"></i></h2>
+        <p>Learn to Speak English</p>
+      </div>
+      </a>
+
+      <a href="PostPage.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round w3-hover-opacity">
+        <h2><i class="fa fa-graduation-cap"></i></h2>
+        <p>Revision Lessons</p>
+      </div>
+      </a>
+
+      </div>
+</div>
 </div>
 <?php include_once "footer.php" ?>
 </body>
