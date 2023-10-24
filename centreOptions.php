@@ -77,6 +77,18 @@
       </div>
       </a>
 
+      <a href="uploadPolicies.php"><div class="w3-quarter w3-blue w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+        <h2><i class="fa fa-upload"></i></h2>
+        <p>Upload Policies & Legal</p>
+      </div>
+      </a>
+
+      <a href="managePolicies.php"><div class="w3-quarter w3-blue w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+        <h2><i class="fa fa-cog"></i></h2>
+        <p>Manage Policies & Legal</p>
+      </div>
+      </a>
+
 </div>
 </div>
   </div>

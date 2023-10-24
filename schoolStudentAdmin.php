@@ -47,19 +47,21 @@ if (isset($_GET['studentid'])) {
               }
         }
 
-        echo "<div class=w3-half>";
-        echo "<h2>" . "Student Uploads" . "</h2>";
+        echo "<div class='w3-half'>";
+        echo "<h2>" . "Recent Upload" . "</h2>";
 
         $student = $_SESSION['thisStudent'];
 
-        $sql1 = "SELECT * FROM `schoolStudentFiles` where `studentUsername` = '$student' ORDER BY `date` DESC LIMIT 10 ";
+        $sql1 = "SELECT * FROM `schoolStudentFiles` where `studentUsername` = '$student' ORDER BY `date` DESC LIMIT 1 ";
 
         $result = mysqli_query($conn, $sql1);
         if (mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
-                $filePath = "uploads\\" . $row['file']; 
-                echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
-              }
+              echo "<a href =\"admin_view_school.php?id=". $row['fileName'] . "&name=" . $row['studentUsername'] . "\"><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom'>";
+              echo "<h2><i class='fa fa-eye'></i></h2>";
+              echo "<p>View " . $row['fileName'] . " for " . $row['studentUsername'] . "</p>";
+              echo "</div>";
+              echo "</a>";}
         }else{
             echo "No uploads";
         }

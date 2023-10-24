@@ -1,4 +1,4 @@
-<?php include_once "NewMenuAdmin.php";
+<?php include_once "studentMenu.php";
 require_once "config.php";
 
 if (isset($_GET['id'])) {
@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
 <h1><?php echo $id . " " . "for" . " " . $name; ?></h1>
 <div class="w3-row-padding w3-padding-16 w3-center" id="options">
 <?php 
-$sql = "SELECT * FROM `reportUpload` WHERE `fileName` = '$id' AND `parentUsername` = '$name' Limit 1";
+$sql = "SELECT * FROM `schoolStudentFiles` WHERE `fileName` = '$id' AND `studentUsername` = '$name' Limit 1";
 $result = mysqli_query($conn, $sql);
 if($result->num_rows > 0){
 while($row = $result->fetch_assoc()){   

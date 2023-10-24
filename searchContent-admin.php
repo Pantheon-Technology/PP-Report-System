@@ -20,7 +20,7 @@ $search = isset($_GET['search']) ? $_GET['search'] : ''; // Get the search query
 $sql = "SELECT * FROM `courseContent`";
 
 if (!empty($search)) {
-    $sql .= " WHERE `courseTitle` LIKE '%$search%' OR `courseDesc` LIKE '%$search%'";
+    $sql .= " WHERE `courseTitle` LIKE '%$search%' OR `courseDesc` LIKE '%$search%' OR `subject` LIKE '%$search%' OR `year` LIKE '%$search%'";
 }
 
 $result = mysqli_query($conn, $sql);

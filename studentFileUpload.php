@@ -63,11 +63,7 @@ if ($result) {
     // Error handling if the query fails
     echo 'Error: ' . mysqli_error($connection);
 }
-?>
 
-          <p><b>Name of Document</b></p>
-          <p><input type="text" id="reportName" name="reportName" placeholder="Name of document" required></p>
-<?php
           $query = "SELECT * FROM school"; // Replace 'your_table' with the actual table name
 
 // Execute the query
@@ -99,10 +95,21 @@ if ($result) {
     echo 'Error: ' . mysqli_error($connection);
 }
 ?>
+<p><b>Name of Documents</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="text" id="reportName" name="reportName" placeholder="Name of documents" required></p>
+          <p><b>File 1 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload" name="fileToUpload"></p>
+          <p><b>File 2 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload2" name="fileToUpload2"></p>
+          <p><b>File 3 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload3" name="fileToUpload3"></p>
+          <p><b>File 4 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload4" name="fileToUpload4"></p>
+          <p><b>File 5 Upload</b></p>
+          <p><input class="w3-input w3-padding-16 w3-border" type="file" id="fileToUpload5" name="fileToUpload5"></p>
 
-          <p><b>File Upload</b></p>
-          <p><input type="file" id="fileToUpload" name="fileToUpload"></p>
-          <button class="w3-button w3-black w3-margin-bottom" input type="submit" value="Upload Image" required>Upload Document</button>
+          <p><textarea class="w3-input w3-padding-16 w3-border" type="text" name="comment" placeholder="Add comment"></textarea></p>
+          <button class="w3-button w3-black w3-margin-bottom w3-padding-16 w3-border w3-input" input type="submit" >Upload</button>
         </form>
         
         <h2>Username Search</h2>

@@ -7,7 +7,7 @@ require_once "config.php";
 <h1>Recent Incidents</h1>
 <div class="w3-row-padding w3-padding-16 w3-center" id="options">
 <?php 
-$sql = "SELECT * FROM `incidents` ORDER BY `incidentNumber` DESC LIMIT 20";
+$sql = "SELECT * FROM `incidents` WHERE `issueType` <> 'Safeguarding' ORDER BY `incidentNumber` DESC LIMIT 20";
 $result = mysqli_query($conn, $sql);
 if($result->num_rows > 0){
 while($row = $result->fetch_assoc()){   

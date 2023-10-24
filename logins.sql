@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `incidents`(
 `studentName` Varchar(250),
 `date` VARCHAR(100),
 `time` VARCHAR(10),
-`issueType` VARCHAR(10),
+`issueType` VARCHAR(20),
 `desc` VARCHAR (250),
 `reffered` VARCHAR(10),
 `otherReffered` VARCHAR(10),
@@ -118,7 +118,6 @@ CREATE TABLE IF NOT EXISTS `incidents`(
 `whoFollowedUp` VARCHAR(20),
 `reportedBy` VARCHAR(20)
 );
-
 ALTER TABLE `incidents` add `witness1` VARCHAR(2000);
 ALTER TABLE `incidents` add `w1name` VARCHAR(30);
 
@@ -178,6 +177,12 @@ CREATE TABLE IF NOT EXISTS `schoolStudentFiles`(
 `school` VARCHAR(100),
 `date` TIMESTAMP DEFAULT current_timestamp
 );
+
+alter table `schoolStudentFiles` add `file2` varchar(250);
+alter table `schoolStudentFiles` add `file3` varchar(250);
+alter table `schoolStudentFiles` add `file4` varchar(250);
+alter table `schoolStudentFiles` add `file5` varchar(250);
+alter table `schoolStudentFiles` add `comment` varchar(2000);
 
 select * from `schoolStudentFiles`;
 
@@ -302,3 +307,10 @@ CREATE TABLE IF NOT EXISTS `courseContent`(
 select * from `courseContent`;
 
 alter table `parents` add column `memberCredits` INT(3) DEFAULT 0;
+
+CREATE TABLE IF NOT EXISTS `policies`(
+`ID` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`fileName` varchar(200),
+`file` varchar(250)
+);
+drop table `policies`
