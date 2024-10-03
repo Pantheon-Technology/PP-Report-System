@@ -1,11 +1,12 @@
 <?php
 session_start();
 $target_dir = "schoolUploads/";
-$reportUpload = str_replace(" ", "", basename($_FILES["fileToUpload"]["name"]));
-$reportUpload2 = str_replace(" ", "", basename($_FILES["fileToUpload2"]["name"]));
-$reportUpload3 = str_replace(" ", "", basename($_FILES["fileToUpload3"]["name"]));
-$reportUpload4 = str_replace(" ", "", basename($_FILES["fileToUpload4"]["name"]));
-$reportUpload5 = str_replace(" ", "", basename($_FILES["fileToUpload5"]["name"]));
+$child = $_POST["childName"];
+$reportUpload = str_replace(" ", "", basename("file1" . $child . $_FILES["fileToUpload"]["name"]));
+$reportUpload2 = str_replace(" ", "", basename("file2" . $child .$_FILES["fileToUpload2"]["name"]));
+$reportUpload3 = str_replace(" ", "", basename("file3" . $child .$_FILES["fileToUpload3"]["name"]));
+$reportUpload4 = str_replace(" ", "", basename("file4" . $child .$_FILES["fileToUpload4"]["name"]));
+$reportUpload5 = str_replace(" ", "", basename("file5" . $child .$_FILES["fileToUpload5"]["name"]));
 
 
 $target_file = $target_dir . $reportUpload;
@@ -17,7 +18,6 @@ $target_file5 = $target_dir . $reportUpload5;
 $uploadOk = 1;
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 include_once "config.php";
-$child = $_POST["childName"];
 $documentName = $_POST["reportName"];
 $file = "";
 $teacherUpload = $_SESSION['teacherUsername'];

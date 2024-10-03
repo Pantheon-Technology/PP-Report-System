@@ -10,7 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_SEN = $_POST["SEN"];
             
                 if (mysqli_stmt_execute($stmt)) {
-                    echo '<script>alert("' . $username . " " . ' Contact details has been updated successfully")</script>';
+                    echo '<script>alert("' . $username . " " . ' details has been updated successfully")</script>';
                 } else {
                     echo "Oops! Something went wrong. Please try again later.";
                 }
@@ -19,8 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         } mysqli_close($conn);
  ?>
 
-      <h1>Change your Contact Details</h1>
-      <p>Use the form below to change your contact information.</p>
+      <h1>Change Additional Details</h1>
+      <p>Use the form below to change the information.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
       <p><textarea class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="Student Needs" required name="additionalInfo"></textarea></p>
       <p><textarea class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="Special Education Requirements" required name="SEN"></textarea></p>

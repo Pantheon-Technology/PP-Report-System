@@ -94,8 +94,11 @@ CREATE TABLE IF NOT EXISTS `reportUpload`(
 alter table `reportUpload` add `file2` varchar(250);
 alter table `reportUpload` add `file3` varchar(250);
 alter table `reportUpload` add `file4` varchar(250);
-alter table `reportUpload` add `file5` varchar(250);
-
+if($query != null){
+        $sql = "SELECT * FROM incidents WHERE `issueType` <> 'Safeguarding' AND (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
+    }else{
+    $sql = "SELECT * FROM `incidents` where `issueType` <> 'Safeguarding' ORDER BY `Date` DESC LIMIT 20";
+    }
 select * from `reportUpload`;
 
 ALTER TABLE `reportUpload` add `comment` VARCHAR(1000);
@@ -126,6 +129,7 @@ ALTER TABLE `incidents` add `w2name` VARCHAR(30);
 
 ALTER TABLE `incidents` add `witness3` VARCHAR(2000);
 ALTER TABLE `incidents` add `w3name` VARCHAR(30);
+ALTER TABLE `incidents` add `fullName` VARCHAR(150);
 
 CREATE TABLE IF NOT EXISTS `school`(
 `schoolID` INT PRIMARY KEY AUTO_INCREMENT,
@@ -313,4 +317,11 @@ CREATE TABLE IF NOT EXISTS `policies`(
 `fileName` varchar(200),
 `file` varchar(250)
 );
-drop table `policies`
+drop table `policies`;
+
+CREATE TABLE IF NOT EXISTS `followUp`(
+`ID` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`relatedId` INT NOT NULL,
+`followUpDetail` VARCHAR(5000),
+`followedUpBy` VARCHAR(250)
+);

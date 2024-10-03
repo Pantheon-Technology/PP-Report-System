@@ -6,10 +6,19 @@ if (isset($_GET['parentid'])) {
 } else {
     $id = $_SESSION["parentid"];
 }
+$getUsername = "SELECT * FROM parents WHERE parentID = $id";
+$studentResult = mysqli_query($conn, $getUsername);
+if(mysqli_num_rows($studentResult) > 0){
+  while($queryRow = mysqli_fetch_assoc($studentResult)){
+  $studentUsername = $queryRow['parentUsername'];
+  
+  }
+}
+
 ?>
 </html>
 <body>
-      <h1><?php echo $username . "'s details"; ?></h1>
+      <h1><?php echo $studentUsername . "'s details"; ?></h1>
       <div>
         <?php
         $sql = "SELECT * FROM parents where parentID = $id ";
@@ -75,7 +84,7 @@ if (isset($_GET['parentid'])) {
               echo "<p>" . "You have been with us since: " . $row['dateCreated'] . "</p>";
               echo "</div>";
 
-              $sql1 = "SELECT * FROM `reportUpload` where `parentUsername` = '$username' ORDER BY `date` DESC LIMIT 10 ";
+              $sql1 = "SELECT * FROM `reportUpload` where `parentUsername` = '$studentUsername' ORDER BY `date` DESC LIMIT 10 ";
               echo "<div class=w3-half>";
               echo "<h2>" . "Student Uploads" . "</h2>";
               $result = mysqli_query($conn, $sql1);
@@ -91,9 +100,9 @@ if (isset($_GET['parentid'])) {
                   echo "</div>";
 
                   echo "<div class=w3-half>";
-                  echo "<h2>" . "Teacher Files for" . $username . "</h2>";
+                  echo "<h2>" . "Teacher Files for " . $studentUsername . "</h2>";
 
-              $sql1 = "SELECT * FROM `homework` where `parentUsername` = '$username' ORDER BY `date` DESC LIMIT 10 ";
+              $sql1 = "SELECT * FROM `homework` where `parentUsername` = '$studentUsername' ORDER BY `date` DESC LIMIT 10 ";
 
               $result = mysqli_query($conn, $sql1);
                  if (mysqli_num_rows($result) > 0){

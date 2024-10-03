@@ -23,7 +23,8 @@ if (isset($_GET['id'])) {
               $day = substr($row['date'], 8, 10);
 
               echo "<div class=w3-half>";
-              echo "<p>" . "Student Name: " . $row['studentName'] . "</p>";
+              echo "<p>" . "Student User Name: " . $row['studentName'] . "</p>";
+              echo "<p>" . "Student Name: " . $row['fullName'] . "</p>";
               echo "<p>" . "Date of Incident: " . $day . "/" . $month . "/" . $year . "</p>";
               echo "<p>" . "Time of Incident: " . $row['time'] . "</p>";
               echo "<p>" . "Type of Incident: " . $row['issueType'] . "</p>";
@@ -81,6 +82,22 @@ if (isset($_GET['id'])) {
 
                 
               }
+              $followUp = "SELECT * FROM `followUp` WHERE `relatedId` = $id";
+              $results = mysqli_query($conn, $followUp);
+
+        if (mysqli_num_rows($results) > 0){
+            while($row = mysqli_fetch_assoc($results)){
+
+              echo "<h2>Follow up Actions and Comments</h2>";
+              echo "<h6><b>Who followed up?</b></h6>";
+              echo "<p>" . $row["followedUpBy"] . "</p>";
+              echo "<h6><b>Follow Up Detail</b></h6>";
+              echo "<p>" . $row["followUpDetail"] . "</p>";
+              echo "<hr>";
+            }
+          }else{
+            echo "<h2>There are no follow up actions yet</h2>";
+          }
         }else{
             echo "0 results";
         }

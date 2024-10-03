@@ -15,7 +15,7 @@ if (isset($_GET['eventid'])) {
     while($row = $result->fetch_assoc()){    
     $img = $row['eventImg'];
     echo "<div class='w3-third w3-margin'>" . "<img src='posts/$img' style='width:220px'>" . "</div>"; 
-    echo "<div class = 'w3-half'>" . "<h2>" . $row['eventName'] . "</h2>" . "<p>" ."<h4>" . "Description:". "</h4>" . "</p>" . "<p>" . $row['eventDesc'] . "</p>" . "<a class='w3-button w3-black w3-margin-bottom' href=mailto:enquiries@positive-progress.co.uk>" . "Contact us" . "</a>" . "</div>";
+    echo "<div class = 'w3-half'>" . "<h2>" . $row['eventName'] . "</h2>" . "<p>" ."<h4>" . "Description:". "</h4>" . "</p>" . "<p>" . $row['eventDesc'] . "</p>" . "<a class='w3-button w3-black w3-margin-bottom' href=mailto:admin@positive-progress.co.uk>" . "Contact us" . "</a>" . "</div>";
 }
    }
    else{

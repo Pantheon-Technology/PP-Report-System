@@ -12,14 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          mysqli_stmt_bind_param($stmt, "s", $param_id);
          $param_id = $id;
             if (mysqli_stmt_execute($stmt)) {
-                echo '<script>alert("Change Request Removed Successfully")</script>';
-                header("location: adminViewChanges.php");
+                echo '<script>alert("Change Request Removed Successfully");document.location="adminViewChanges.php"</script>';
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             } mysqli_stmt_close($stmt);
         }
     }
-
 
 ?>
 </html>

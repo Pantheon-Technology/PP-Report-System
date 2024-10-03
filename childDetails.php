@@ -82,7 +82,7 @@ if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
                 echo "<p>" . "Aware of T&Cs?: " . $row['T&CSigned'] . "</p>";
                 echo "<p>" . "Additional Needs: " . $row['additionalInfo'] . "</p>";
                 echo "<p>" . "Special Educational Needs: " . $row['SEN'] . "</p>";
-                echo "<p>" . "You have been with us since: " . $row['dateCreated'] . "</p>";
+                echo "<p>" . "You last modified your information on: " . $row['dateCreated'] . "</p>";
                 echo "<p>" . "<a href='changeAdditionalInformation.php' class='w3-button w3-round w3-white w3-text-black'>" . "Add Additional Information" . "</a>" . "</p>";
                 
                 echo "</div>";
