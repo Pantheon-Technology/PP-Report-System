@@ -21,10 +21,18 @@ $query = $_SESSION['queryFilter'];
         </form>
 <div class="w3-row-padding w3-padding-16 w3-center" id="options">
 <?php 
+if($username == 't.archibald'){
+ if($query != null){
+    $sql = "SELECT * FROM incidents WHERE (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
+ }else{
+    $sql = "SELECT * FROM `incidents` ORDER BY `Date` DESC LIMIT 20";
+ }
+}else{
 if($query != null){
     $sql = "SELECT * FROM incidents WHERE `issueType` <> 'Safeguarding' AND (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
 }else{
 $sql = "SELECT * FROM `incidents` where `issueType` <> 'Safeguarding' ORDER BY `Date` DESC LIMIT 20";
+}
 }
 
 $result = mysqli_query($conn, $sql);

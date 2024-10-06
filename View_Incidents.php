@@ -20,7 +20,7 @@ $query = $_SESSION['queryFilter'];
     </div>
 <div class="w3-row-padding w3-padding-16 w3-center" id="options">
 <?php 
-if ($username == "l.heron" || $username == "Margaret.Rude21" || $username == "e.colangelo" || $username == "k.dermott"){
+if ($username == "l.heron" || $username == "Margaret.Rude21" || $username == "e.colangelo" || $username == "k.dermott" || $username == "gnisted"){
     if($query != null){
         $sql = "SELECT * FROM incidents WHERE (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
     }else{
