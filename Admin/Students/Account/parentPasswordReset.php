@@ -1,6 +1,5 @@
 <?php 
-include_once 'config.php';
-include_once "NewMenuAdmin.php";
+include_once "../../../MenusAndFooter/NewMenuAdmin.php";
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -63,7 +62,7 @@ $(document).ready(function(){
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){
-            $.get("backend-search.php", {term: inputVal}).done(function(data){
+            $.get("../../../Utilities/backend-search.php", {term: inputVal}).done(function(data){
                 // Display the returned data in drop down box on the page
                 resultDropdown.html(data);
             });
@@ -111,6 +110,6 @@ $(document).ready(function(){
 
     </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

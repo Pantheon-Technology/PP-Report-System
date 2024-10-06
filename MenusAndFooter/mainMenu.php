@@ -7,8 +7,7 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="index.css">
-<link rel="icon" href="pictures/logo.png">
+<link rel="icon" href="https://mypositiveprogress.co.uk/Pictures/logo.png">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -22,20 +21,20 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:250px;" id="mySidebar"><br>
   <div class="w3-container">
-      <img src="Pictures/logo.png" style="width:220px">
+      <img src="https://mypositiveprogress.co.uk/Pictures/logo.png" style="width:220px">
     </div>
     <h5>Menu</h5>
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="schoolHome.php" class="w3-bar-item w3-button w3-padding">My Positive Progress for Schools</a>
-    <a href="parentLogin.php" class="w3-bar-item w3-button w3-padding">Parent Login</a>
-    <a href="teacherLogin.php" class="w3-bar-item w3-button w3-padding">Teacher Login</a>
-    <a href="adminlogin.php" class="w3-bar-item w3-button w3-padding">Admin Login</a>
-    <a href="parentAccountCreate.php" class="w3-bar-item w3-button w3-padding">Parent Account Create</a>
-    <a href="postPage.php" class="w3-bar-item w3-button w3-padding">View Announcements</a>
-    <a href="portal.php" class="w3-bar-item w3-button w3-padding">Available Courses</a>
-    <a href="policies.php" class="w3-bar-item w3-button w3-padding">Policies & Legal</a>
+    <a href="https://mypositiveprogress.co.uk/Main/schoolHome.php" class="w3-bar-item w3-button w3-padding">My Positive Progress for Schools</a>
+    <a href="https://mypositiveprogress.co.uk/Main/Login/parentLogin.php" class="w3-bar-item w3-button w3-padding">Parent Login</a>
+    <a href="https://mypositiveprogress.co.uk/Main/Login/teacherLogin.php" class="w3-bar-item w3-button w3-padding">Teacher Login</a>
+    <a href="https://mypositiveprogress.co.uk/Main/Login/adminlogin.php" class="w3-bar-item w3-button w3-padding">Admin Login</a>
+    <a href="https://mypositiveprogress.co.uk/parentAccountCreate.php" class="w3-bar-item w3-button w3-padding">Parent Account Create</a>
+    <a href="https://mypositiveprogress.co.uk/Main/Post/postPage.php" class="w3-bar-item w3-button w3-padding">View Announcements</a>
+    <a href="https://mypositiveprogress.co.uk/Main/Portal/portal.php" class="w3-bar-item w3-button w3-padding">Available Courses</a>
+    <a href="https://mypositiveprogress.co.uk/Main/Policies/policies.php" class="w3-bar-item w3-button w3-padding">Policies & Legal</a>
   </div>
 </nav>
 

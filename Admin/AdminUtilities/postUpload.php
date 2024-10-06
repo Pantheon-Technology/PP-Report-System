@@ -1,9 +1,9 @@
 <?php
 session_start();
-include_once "config.php"; 
+include_once "../../Utilities/config.php";
 
 $eventImg = "";
-$target_dir = "posts/";
+$target_dir = "../../posts/";
 $target_file = $target_dir . str_replace(" ", "", basename($_FILES["fileToUpload"]["name"]));
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             // execute the prepared statement
             if (mysqli_stmt_execute($stmt)) {
-                echo '<script>alert("' . $eventName . " " . 'has been posted");document.location="adminHome.php"</script>';
+                echo '<script>alert("' . $eventName . " " . 'has been posted");document.location="../Main/adminHome.php"</script>';
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             }
@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             mysqli_stmt_close($stmt);
         }
     }else{
-        echo '<script>alert("There has been an error uploading your post. Reason for error: ' . $error . " " . '");document.location="makePost.php"</script>';
+        echo '<script>alert("There has been an error uploading your post. Reason for error: ' . $error . " " . '");document.location="../Centre/Policies/makePost.php"</script>';
     }
 
     // Close connection

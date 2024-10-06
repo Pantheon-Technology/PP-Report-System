@@ -1,6 +1,6 @@
-<?php include_once "NewMenuAdmin.php"; ?>
+<?php include_once "../../../MenusAndFooter/NewMenuAdmin.php"; ?>
       <h1>Upload Meeting Minutes</h1>
-      <form action="meetingUpload.php" method="post" enctype="multipart/form-data">
+      <form action="../AdminUtilities/meetingUpload.php" method="post" enctype="multipart/form-data">
     <p><input class="w3-input w3-margin-bottom"  placeholder="Subject of Meeting" input type="text" name="subject" required>
     <textarea class="w3-input w3-margin-bottom" input type="text" name="summary" placeholder="Meeting Summary (optional)"></textarea></p>
     <p><b>Meeting File</b></p>
@@ -9,6 +9,6 @@
     <button class="w3-button w3-white w3-margin-bottom" input type="clear">Clear Form</button></p>
 </form>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

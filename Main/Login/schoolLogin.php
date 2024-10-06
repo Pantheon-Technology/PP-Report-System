@@ -1,6 +1,7 @@
 <?php 
 session_start();
-include_once 'config.php';
+require_once "../../MenusAndFooter/schoolMenu.php";
+include_once '../../Utilities/config.php';
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
 
@@ -28,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password_verify($password, $hashed_password)) {
                 $_SESSION["loggedInSchool"] = true;
                 $_SESSION["centerUsername"] = $username;
-                header("location: schoolDashboard.php");
+                header("location: ../../School/Centre/schoolDashboard.php");
               } else {
                 $login_err = "Invalid username or password.";
               }
@@ -42,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
     } mysqli_close($conn);
   } 
-  include_once 'schoolMenu.php';
   ?>
       <h1>Center Login</h1>
       <p>Use the form below to access your center dashboard.</p>
@@ -61,6 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </div>
 <?php
- include_once "footer.php" ?>
+ include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

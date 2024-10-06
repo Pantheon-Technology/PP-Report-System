@@ -1,12 +1,12 @@
 <?php
 session_start();
-$target_dir = "CenterForms/";
+$target_dir = "../../CenterForms/";
 $reportUpload = str_replace(" ", "", basename($_FILES["fileToUpload"]["name"]));
 $target_file = $target_dir . $reportUpload;
 
 $uploadOk = 1;
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-include_once "config.php";
+include_once "../../Utilities/config.php";
 $documentName = $_POST["reportName"];
 $file = "";
 
@@ -26,7 +26,7 @@ if ($uploadOk == 0) {
          $param_fileToUpload = htmlspecialchars( $reportUpload);
 
         move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
-  echo '<script>alert("' . $reportUpload . " " . 'uploaded successfully");document.location="uploadPolicies.php"</script>';
+  echo '<script>alert("' . $reportUpload . " " . 'uploaded successfully");document.location="../Centre/Policies/uploadPolicies.php"</script>';
 }
 if (!(mysqli_stmt_execute($stmt))) {
   echo "Error: " . $sql . "<br>" . $conn->error;

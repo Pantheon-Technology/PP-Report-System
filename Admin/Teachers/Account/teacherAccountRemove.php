@@ -1,6 +1,5 @@
 <?php 
-include_once "NewMenuAdmin.php"; 
-include_once 'config.php';
+include_once "../../../MenusAndFooter/NewMenuAdmin.php"; 
 $username = "";
 $username_err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -49,6 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </form>
     </div>
    </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

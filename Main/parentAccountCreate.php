@@ -1,7 +1,7 @@
 <?php 
 session_start(); 
-include_once 'config.php';
-include_once 'mainMenu.php';
+require_once "../MenusAndFooter/MainMenu.php";
+include_once '../Utilities/config.php';
 $username = $password = $confirm_password = $error = "";
 $username_err = $password_err = $confirm_password_err = "";
      
@@ -91,7 +91,7 @@ $username_err = $password_err = $confirm_password_err = "";
                 $param_site = trim($_POST['site']);
                 
                     if (mysqli_stmt_execute($stmt)) {
-                        echo '<script>alert("You have been added successfully");document.location="parentlogin.php"</script>';
+                        echo '<script>alert("You have been added successfully");document.location="Login/parentlogin.php"</script>';
                     } else {
                         echo "Oops! Something went wrong. Please try again later.";
                     }
@@ -111,7 +111,7 @@ $username_err = $password_err = $confirm_password_err = "";
       <p>Use the form below to create your account. * Indicates a required field.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="register">
 
-      <p>By creating your account you are agreeing to <a href="DefaultLegalForms\General_Tuition_Terms_and_Conditions_Dec_2022.docx">Our T&C's</a>, have you read these T&C's?*</p>
+      <p>By creating your account you are agreeing to <a href="../DefaultLegalForms\General_Tuition_Terms_and_Conditions_Dec_2022.docx">Our T&C's</a>, have you read these T&C's?*</p>
       <p><input type="radio" id="yes6" required name="T&CSigned" value="Yes">
       <label for="yes6">Yes</label>
 
@@ -236,6 +236,6 @@ $username_err = $password_err = $confirm_password_err = "";
     </div>
 </div>
 </div>
-  <?php include_once "footer.php"?>
+  <?php include_once "../MenusAndFooter/footer.php"?>
 </body>
 </html>

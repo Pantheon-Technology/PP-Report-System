@@ -1,4 +1,6 @@
-<?php include_once "config.php"; include_once "mainMenu.php";
+<?php 
+require_once "../../MenusAndFooter/mainMenu.php";
+include_once '../../Utilities/config.php';
 session_start();
 if (isset($_GET['eventid'])) {
     $eventid = $_SESSION["eventid"] = $_GET['eventid'];
@@ -14,7 +16,7 @@ if (isset($_GET['eventid'])) {
    if($result->num_rows > 0){
     while($row = $result->fetch_assoc()){    
     $img = $row['eventImg'];
-    echo "<div class='w3-third w3-margin'>" . "<img src='posts/$img' style='width:220px'>" . "</div>"; 
+    echo "<div class='w3-third w3-margin'>" . "<img src='../../posts/$img' style='width:220px'>" . "</div>"; 
     echo "<div class = 'w3-half'>" . "<h2>" . $row['eventName'] . "</h2>" . "<p>" ."<h4>" . "Description:". "</h4>" . "</p>" . "<p>" . $row['eventDesc'] . "</p>" . "<a class='w3-button w3-black w3-margin-bottom' href=mailto:enquiries@positive-progress.co.uk>" . "Contact us" . "</a>" . "</div>";
 }
    }
@@ -27,19 +29,16 @@ if (isset($_GET['eventid'])) {
     ?>
   </div>
 </div>
-  <?php include_once "footer.php"; ?>
+  <?php include_once "../../MenusAndFooter/footer.php"; ?>
 
-  <!-- End page content -->
 </div>
 
 <script>
-// Get the Sidebar
+
 var mySidebar = document.getElementById("mySidebar");
 
-// Get the DIV with overlay effect
 var overlayBg = document.getElementById("myOverlay");
 
-// Toggle between showing and hiding the sidebar, and add overlay effect
 function w3_open() {
   if (mySidebar.style.display === 'block') {
     mySidebar.style.display = 'none';
@@ -50,7 +49,6 @@ function w3_open() {
   }
 }
 
-// Close the sidebar with the close button
 function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";

@@ -1,4 +1,5 @@
-<?php include_once "mainMenu.php"; include_once "config.php";?>
+<?php require_once "../../MenusAndFooter/mainMenu.php";
+include_once '../../Utilities/config.php';?>
 
   <!--Events tab -->
   <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
@@ -33,7 +34,7 @@
   <div id="LOCATION" class="w3-panel w3-animate-zoom w3-yellow w3-padding-32">
     <h3>Location</h3>
     <div class="w3-third w3-margin-right">
-        <img src="Pictures/Location.jpg" style="width:100%">
+        <img src="https://mypositiveprogress.co.uk/Pictures/Location.jpg" style="width:100%">
         </div>
         <div class = "w3-half"> 
             <h5><b> Address : 41 Mill Ln, West Derby, Liverpool L12 7HZ </b></h5>
@@ -43,7 +44,7 @@
             <p>Click <a href="https://maps.app.goo.gl/ACXKWFGEgzZx2y8TA" target="blank">here</a> to view our Widnes centre.</p>
         </div>
   </div>
-    <?php include_once "footer.php" ?>
+    <?php include_once "../../MenusAndFooter/footer.php" ?>
 
   <!-- End page content -->
 </div>

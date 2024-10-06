@@ -1,28 +1,28 @@
-<?php include_once "NewMenuAdmin.php" ?>
+<?php include_once "../../MenusAndFooter/NewMenuAdmin.php" ?>
   <!--Events tab -->
   <div id="Main" class="w3-panel w3-dark-grey w3-animate-right">
     <h3>Teacher Options</h3>
 
     <div class="w3-row-padding w3-padding-16 w3-center" id="options">
   
-    <a href="teacherAccountCreate.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+    <a href="Account/teacherAccountCreate.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-plus-square"></i></h2>
         <p>Create New Teacher</p>
       </div>
       </a>
 
-      <a href="teacherAccountRemove.php"><div class="w3-quarter w3-cyan w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+      <a href="Account/teacherAccountRemove.php"><div class="w3-quarter w3-cyan w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-minus-square"></i></h2>
         <p>Teacher Account Remove</p>
       </div>
       </a>
 
-      <a href="teacherPasswordReset.php"><div class="w3-quarter w3-black w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+      <a href="Account/teacherPasswordReset.php"><div class="w3-quarter w3-black w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-repeat"></i></h2>
         <p>Teacher Password Reset</p>
       </div>
       </a>
-      <a href="teacherTimeTable.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+      <a href="TimeTable/teacherTimeTable.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-calendar"></i></h2>
         <p>Add class to timetable</p>
       </div>
@@ -32,7 +32,7 @@
   </div>
 
 
-    <?php include_once "footer.php" ?>
+    <?php include_once "../../MenusAndFooter/footer.php" ?>
   <!-- End page content -->
 </div>
 <script src="index.js"></script>

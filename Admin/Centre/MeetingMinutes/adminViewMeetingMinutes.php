@@ -1,5 +1,4 @@
-<?php require_once "NewMenuAdmin.php";
-require_once "config.php";
+<?php require_once "../../../MenusAndFooter/NewMenuAdmin.php";
 
 ?>
 <h3>Recent Meeting Minutes</h3>
@@ -10,7 +9,7 @@ require_once "config.php";
 
      if (mysqli_num_rows($result) > 0){
          while($row = mysqli_fetch_assoc($result)){
-           $filePath = "Minutes\\" . $row['file']; 
+           $filePath = "../../../Minutes\\" . $row['file']; 
          echo "<a href='$filePath' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round'>";
          echo "<h2><i class='fa fa-cloud-download'></i></h2>";
          echo "<p>" . "Download Meeting Minutes for Subject: " . $row['subject'] . "</p>";
@@ -25,4 +24,4 @@ require_once "config.php";
      ?>
    </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>

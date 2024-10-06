@@ -1,6 +1,5 @@
 <?php
-include_once "NewMenuAdmin.php";
-include_once "config.php";
+include_once "../../../MenusAndFooter/NewMenuAdmin.php";
 $id = $_SESSION['bookingID'];
 echo $id;
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -24,7 +23,7 @@ if ($stmt->execute()) {
     $stmt1 = $conn->prepare("DELETE FROM `bookings` WHERE `bookingID` = ?");
     $stmt1->bind_param("s", $id);
     $stmt1->execute();
-    echo '<script>alert("Subject:' . $_SESSION['childName'] .  ' has been added to timetable. Press OK to continue");document.location="viewBookings.php"</script>';
+    echo '<script>alert("Subject:' . $_SESSION['childName'] .  ' has been added to timetable. Press OK to continue");document.location="../../Centre/Bookings/viewBookings.php"</script>';
 } else {
     echo "Error: " . $stmt->error;
 }
@@ -47,6 +46,6 @@ if ($stmt->execute()) {
  </form>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?php include_once "NewMenuAdmin.php";?>
+<?php include_once "../../../MenusAndFooter/NewMenuAdmin.php";?>
 
 <!--Events tab -->
 <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
@@ -6,7 +6,7 @@
     <h1>Upload Document</h1>
     <p>Use the form below to upload a policy/legal document.</p>
       <div class="w3-left-align w3-padding-large">
-        <form action="policyUpload.php" method="post" enctype="multipart/form-data">
+        <form action="../../AdminUtilities/policyUpload.php" method="post" enctype="multipart/form-data">
 
 
           <p><b>Name of Document</b></p>
@@ -21,6 +21,6 @@
      </div>
    </div>
  </div>
- <?php include_once "footer.php" ?>
+ <?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

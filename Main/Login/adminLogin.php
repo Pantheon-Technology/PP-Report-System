@@ -1,5 +1,6 @@
 <?php session_start();
-include_once 'config.php';
+require_once "../../MenusAndFooter/mainMenu.php";
+include_once '../../Utilities/config.php';
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -26,7 +27,7 @@ $username_err = $password_err = $login_err = "";
                 if (password_verify($password, $hashed_password)) {
                 $_SESSION["loggedInAdmin"] = true;
                 $_SESSION["adminUsername"] = $username;
-                header("location: adminHome.php");
+                header("location: ../../Admin/Main/adminHome.php");
               } else {
                 $login_err = "Invalid username or password.";
               }
@@ -41,9 +42,7 @@ $username_err = $password_err = $login_err = "";
       }
     }
     mysqli_close($conn);
-  } require_once "mainMenu.php"; ?>
-
-      <?php
+  }
       if (!empty($login_err)) {
         echo '<div class="alert alert-danger">' . $login_err . '</div>';
       }
@@ -63,7 +62,7 @@ $username_err = $password_err = $login_err = "";
     </div>
   </div>
 
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 
 </html>

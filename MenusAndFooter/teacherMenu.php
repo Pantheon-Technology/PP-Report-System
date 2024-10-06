@@ -1,10 +1,10 @@
 <?php
 session_start();
 if(!isset($_SESSION["loggedInTeacher"]) || $_SESSION["loggedInTeacher"] !== true){
-  header("location: teacherLogin.php");
+  header("location:" . __DIR__ . ".../Main/Login/teacherLogin.php");
     exit; }
     $username = $_SESSION['teacherUsername'];
-    include_once "config.php";
+    require_once(__DIR__ . '../../Utilities/config.php');
     ?>
  <!DOCTYPE html>
 <html>
@@ -16,7 +16,7 @@ if(!isset($_SESSION["loggedInTeacher"]) || $_SESSION["loggedInTeacher"] !== true
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="index.css">
-<link rel="icon" href="pictures/logo.png">
+<link rel="icon" href="https://mypositiveprogress.co.uk/pictures/logo.png">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -30,26 +30,26 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:250px;" id="mySidebar"><br>
   <div class="w3-container">
-      <img src="Pictures/logo.png" style="width:220px">
+      <img src="https://mypositiveprogress.co.uk/Pictures/logo.png" style="width:220px">
     </div>
     <h5>Menu</h5>
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="teacherHome.php" class="w3-bar-item w3-button w3-padding">Home</a>
-    <a href="upAndDown.php" class="w3-bar-item w3-button w3-padding">Upload a Report for Positive Progress Students</a>
-    <a href="studentFileUpload.php" class="w3-bar-item w3-button w3-padding">Upload a Report for School Students</a>
-    <a href="homeworkSearch.php" class="w3-bar-item w3-button w3-padding">View Homework</a>
-    <a href="incident_report.php" class="w3-bar-item w3-button w3-padding">Report an Incident</a>
-    <a href="timesheets.php" class="w3-bar-item w3-button w3-padding">Timesheet submit</a>
-    <a href="bookEquipment.php" class="w3-bar-item w3-button w3-padding">Book Equipment</a>
-    <a href="displayTimeTable.php" class="w3-bar-item w3-button w3-padding">View Time Table</a>
-    <a href="teacherViewOwnTimesheet.php" class="w3-bar-item w3-button w3-padding">View Personal Timesheet</a>
-    <a href="addContent.php" class="w3-bar-item w3-button w3-padding">Add Course Content</a>
-    <a href="searchContent.php" class="w3-bar-item w3-button w3-padding">View Course Content</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/teacherHome.php" class="w3-bar-item w3-button w3-padding">Home</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Report/upAndDown.php" class="w3-bar-item w3-button w3-padding">Upload a Report for Positive Progress Students</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Report/studentFileUpload.php" class="w3-bar-item w3-button w3-padding">Upload a Report for School Students</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Homework/homeworkSearch.php" class="w3-bar-item w3-button w3-padding">View Homework</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Incident/incident_report.php" class="w3-bar-item w3-button w3-padding">Report an Incident</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Timesheet/timesheets.php" class="w3-bar-item w3-button w3-padding">Timesheet submit</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Equipment/bookEquipment.php" class="w3-bar-item w3-button w3-padding">Book Equipment</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Timetable/displayTimeTable.php" class="w3-bar-item w3-button w3-padding">View Time Table</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Timesheet/teacherViewOwnTimesheet.php" class="w3-bar-item w3-button w3-padding">View Personal Timesheet</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Content/addContent.php" class="w3-bar-item w3-button w3-padding">Add Course Content</a>
+    <a href="https://mypositiveprogress.co.uk/Teacher/Content/searchContent.php" class="w3-bar-item w3-button w3-padding">View Course Content</a>
     <a href="https://positive-progress.co.uk/webmail/log-in" class="w3-bar-item w3-button w3-padding">Emails</a>
     <a href="https://auth.atlas-hub.co.uk/atlashub.onmicrosoft.com/b2c_1a_rest_signup_signin_auth/oauth2/v2.0/authorize?client_id=6d80e7f2-a808-4763-a8df-d3a27555a8bb&redirect_uri=https%3a%2f%2fwww.citation-atlas.co.uk&response_mode=form_post&response_type=code+id_token+token&scope=openid+https%3a%2f%2fAtlasHub.onmicrosoft.com%2fatlas-api%2funity.atlas.api&state=OpenIdConnect.AuthenticationProperties%3dyhcD-APxTgT7_620v9jKH5rPWPPqpHaW8cceJN9qxXuaMN5P5BbvOjxVRFzPyVsCbWB8AsOoH1uP-7F7gib8USgGTpk1tdc8VlnVMxUWBaSuquF-mRZSS_nTI7p3XgQqaXRSE75Ftl6hdLsgEftSsJXE41gMd7Ep24CggsMopvk5ChxJA1fePuIuN0KcaBVC32mCWsMBcoIh1olZOoUNE9UcYoVH-akgSBcuekZ8e6A-G5vuhH930LTDEoify5S3Rtoab2Dy3gEBZpqIa43U_w&nonce=638218567894748559.NjIyNWVjMzMtNDFlNi00Nzk2LTk0NGYtZjBhYzRmODEwMmMyZmZhYzA2NGUtZmYyMC00YWY5LTg1OGEtM2U3NjNhODYyNzkx" class="w3-bar-item w3-button w3-padding">Atlas</a>
-    <a href="logout.php" class="w3-bar-item w3-button w3-padding">Logout</a>
+    <a href="https://mypositiveprogress.co.uk/Utilities/logout.php" class="w3-bar-item w3-button w3-padding">Logout</a>
   </div>
 </nav>
 

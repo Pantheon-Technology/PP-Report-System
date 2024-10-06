@@ -1,7 +1,8 @@
 
 <?php 
 session_start();
-include_once 'config.php';
+require_once "../../MenusAndFooter/mainMenu.php";
+include_once '../../Utilities/config.php';
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
 
@@ -29,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password_verify($password, $hashed_password)) {
                 $_SESSION["loggedInParent"] = true;
                 $_SESSION["parentUsername"] = $username;
-                header("location: parentHome.php");
+                header("location: ../../Student/parentHome.php");
               } else {
                 $login_err = "Invalid username or password.";
               }
@@ -43,7 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
     } mysqli_close($conn);
   } 
-  require_once "mainMenu.php";
   ?>
       <h1>Parent Login</h1>
       <p>If you are a parent, please use your login to access your childs reports.</p>
@@ -61,6 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </form>
     </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenuAndFooter/footer.php" ?>
 </body>
 </html>

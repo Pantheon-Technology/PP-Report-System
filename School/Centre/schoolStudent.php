@@ -1,6 +1,5 @@
 <?php
-require_once "schoolMenuLoggedIn.php";
-require_once "config.php";
+require_once "../../MenusAndFooter/schoolMenuLoggedIn.php";
 if (isset($_GET['studentid'])) {
     $id = $_SESSION["studentid"] = $_GET['studentid'];
 } else {
@@ -56,7 +55,7 @@ if (isset($_GET['studentid'])) {
         if (mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
                 echo "<div class=w3-half>";
-                $filePath = "uploads\\" . $row['file']; 
+                $filePath = "../../uploads\\" . $row['file']; 
                 echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
                 echo "</div>";
 
@@ -64,12 +63,10 @@ if (isset($_GET['studentid'])) {
         }else{
             echo "No uploads";
         }
-      
-
         ?>
       </div>
     </div>
   </div>
-  <?php include_once "footer.php"; ?>
+  <?php include_once "../../MenusAndFooter/footer.php"; ?>
 </body>
 </html>

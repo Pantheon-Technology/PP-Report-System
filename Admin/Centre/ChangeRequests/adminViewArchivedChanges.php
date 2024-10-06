@@ -1,5 +1,4 @@
-<?php include_once "NewMenuAdmin.php"; 
-include_once "config.php";
+<?php include_once "../../../MenusAndFooter/NewMenuAdmin.php"; 
 ?>
 
 <h1>Archived Class Change Requests</h1>
@@ -38,7 +37,7 @@ $conn->close();
 </div>
 </div>
 
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 
 </body>
 </html>

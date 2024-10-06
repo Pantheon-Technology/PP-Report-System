@@ -1,5 +1,5 @@
 <?php
-include_once "config.php";
+include_once "../../Utilities/config.php";
 
 if (isset($_REQUEST["term"])) {
     // Create a select statement
@@ -21,7 +21,7 @@ if (isset($_REQUEST["term"])) {
             if (mysqli_num_rows($result) > 0) {
                 // create an associative array and fetch the results
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    echo "<a href =\"schoolStudentAdmin.php?studentid=". $row['studentID'] . "\">" . "View " . $row["studentName"] . "'s" . " details" . "</p>";
+                    echo "<a href =\"../School/Student/schoolStudentAdmin.php?studentid=". $row['studentID'] . "\">" . "View " . $row["studentName"] . "'s" . " details" . "</p>";
                 
                 }
             } else {

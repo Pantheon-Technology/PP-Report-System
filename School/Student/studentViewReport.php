@@ -1,6 +1,5 @@
 <?php 
-include_once "studentMenu.php";
-require_once "config.php";
+include_once "../../MenusAndFooter/studentMenu.php";
 $username = $_SESSION["studentUsername"]; 
 ?>
 <html>
@@ -25,6 +24,6 @@ $conn->close();
 ?>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

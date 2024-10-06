@@ -1,4 +1,4 @@
-<?php include_once "mainMenu.php" ?>
+<?php include_once "../../MenusAndFooter/mainMenu.php" ?>
 
       <h1>Course Portal</h1>
       <h4>Use the buttons below to browse our available courses!</h4>
@@ -26,6 +26,6 @@
       </div>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

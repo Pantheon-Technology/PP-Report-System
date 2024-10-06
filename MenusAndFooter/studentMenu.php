@@ -1,4 +1,4 @@
-<?php session_start();$username = $_SESSION['studentUsername'];?>
+<?php session_start();$username = $_SESSION['studentUsername'];  require_once(__DIR__ . '../../Utilities/config.php');?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="index.css">
-<link rel="icon" href="pictures/logo.png">
+<link rel="icon" href="https://mypositiveprogress.co.uk/pictures/logo.png">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -23,17 +23,17 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:250px;" id="mySidebar"><br>
   <div class="w3-container">
-      <img src="Pictures/logo.png" style="width:220px">
+      <img src="https://mypositiveprogress.co.uk/Pictures/logo.png" style="width:220px">
     </div>
     <p><h4><i class="fa fa-user"> <b><?php echo $username; ?></i></b></h4></p>
     <h5>Menu</h5>
   </div>
   <div class="w3-bar-block">
     <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="studentHome.php" class="w3-bar-item w3-button w3-padding">Home</a>
-      <a href="studentViewReport.php" class="w3-bar-item w3-button w3-padding">View Reports</a>
-      <a href="studentDetails.php" class="w3-bar-item w3-button w3-padding">View Account</a>
-      <a href="logOut.php" class="w3-bar-item w3-button w3-padding">Logout</a>
+    <a href="https://mypositiveprogress.co.uk/School/Student/studentHome.php" class="w3-bar-item w3-button w3-padding">Home</a>
+    <a href="https://mypositiveprogress.co.uk/School/Student/studentViewReport.php" class="w3-bar-item w3-button w3-padding">View Reports</a>
+    <a href="https://mypositiveprogress.co.uk/School/Student/studentDetails.php" class="w3-bar-item w3-button w3-padding">View Account</a>
+    <a href="https://mypositiveprogress.co.uk/Utilities/logOut.php" class="w3-bar-item w3-button w3-padding">Logout</a>
   </div>
 </nav>
 

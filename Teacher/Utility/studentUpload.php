@@ -1,6 +1,6 @@
 <?php
 session_start();
-$target_dir = "schoolUploads/";
+$target_dir = "../../schoolUploads/";
 $child = $_POST["childName"];
 $reportUpload = str_replace(" ", "", basename("file1" . $child . $_FILES["fileToUpload"]["name"]));
 $reportUpload2 = str_replace(" ", "", basename("file2" . $child .$_FILES["fileToUpload2"]["name"]));

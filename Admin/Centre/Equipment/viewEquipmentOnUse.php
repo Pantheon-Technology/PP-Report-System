@@ -1,5 +1,4 @@
-<?php include_once "NewMenuAdmin.php"; 
-include_once "config.php";
+<?php include_once "../../../MenusAndFooter/NewMenuAdmin.php"; 
 $currentDate = date("Y-m-d");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -67,6 +66,6 @@ echo "</table>";
 ?>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

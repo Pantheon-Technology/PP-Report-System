@@ -1,7 +1,6 @@
 <?php
 session_start(); 
-include_once "studentMenu.php";
-include_once 'config.php';
+include_once "../../MenusAndFooter/studentMenu.php";
 $username = $_SESSION['studentUsername'];
 
 ?>
@@ -49,4 +48,4 @@ $username = $_SESSION['studentUsername'];
       </div>
     </div>
   </div>
-<?php include_once "footer.php"; ?>
+<?php include_once "../../MenusAndFooter/footer.php"; ?>

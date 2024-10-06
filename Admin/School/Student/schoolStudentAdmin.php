@@ -1,6 +1,5 @@
 <?php
-require_once "NewMenuAdmin.php";
-require_once "config.php";
+require_once "../../../MenusAndFooter/NewMenuAdmin.php";
 if (isset($_GET['studentid'])) {
     $id = $_SESSION["studentid"] = $_GET['studentid'];
 } else {
@@ -57,11 +56,15 @@ if (isset($_GET['studentid'])) {
         $result = mysqli_query($conn, $sql1);
         if (mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
-              echo "<a href =\"admin_view_school.php?id=". $row['fileName'] . "&name=" . $row['studentUsername'] . "\"><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom'>";
-              echo "<h2><i class='fa fa-eye'></i></h2>";
-              echo "<p>View " . $row['fileName'] . " for " . $row['studentUsername'] . "</p>";
+
+              $filePath = "../../../schoolUploads\\" . $row['file']; 
+              echo "<a href='$filePath' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round'>";
+              echo "<h2><i class='fa fa-cloud-download'></i></h2>";
+              echo "<p>Download student's recent upload</p>";
               echo "</div>";
-              echo "</a>";}
+              echo "</a>";
+            }
+            
         }else{
             echo "No uploads";
         }
@@ -72,6 +75,6 @@ if (isset($_GET['studentid'])) {
       </div>
     </div>
   </div>
-  <?php include_once "footer.php"; ?>
+  <?php include_once "../../../MenusAndFooter/footer.php"; ?>
 </body>
 </html>

@@ -1,4 +1,4 @@
-<?php include_once "studentMenu.php"; 
+<?php include_once "../../MenusAndFooter/studentMenu.php"; 
 ?>
       <h1>Student Home Page</h1>
       <h3>Welcome <?php echo $username ?></h3>
@@ -19,6 +19,6 @@
     </div>
     
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

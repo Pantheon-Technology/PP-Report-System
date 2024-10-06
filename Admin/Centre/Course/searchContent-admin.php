@@ -1,6 +1,5 @@
 <?php 
-include_once "NewMenuAdmin.php";
-require_once "config.php";
+include_once "../../../MenusAndFooter/NewMenuAdmin.php";
 
 $search = isset($_GET['search']) ? $_GET['search'] : ''; // Get the search query from the URL parameter
 
@@ -43,6 +42,6 @@ mysqli_close($conn);
 </div>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

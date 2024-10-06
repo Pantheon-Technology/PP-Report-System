@@ -1,6 +1,5 @@
 <?php
-include_once "config.php";
-include_once "NewMenuAdmin.php";
+include_once "../../../MenusAndFooter/NewMenuAdmin.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   $_SESSION['parent'] = $_POST['parent'];
@@ -8,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
   $_SESSION['childName'] = $_POST['student'];
   $_SESSION['courseTitle'] = $_POST['course'];
   $_SESSION['bookingID'] = $_POST['bookingID'];
-  echo '<script>alert("Student' . $_SESSION['childName'] .  ' has been chosen, click OK to continue");document.location="addToStudentTimeTable.php"</script>';
+  echo '<script>alert("Student' . $_SESSION['childName'] .  ' has been chosen, click OK to continue");document.location="../../Students/TimeTables/addToStudentTimeTable.php"</script>';
 }
 
 ?>
@@ -63,5 +62,5 @@ mysqli_close($conn);
 ?>
 </div>
 </div>
-<?php include_once "footer.php";?>
+<?php include_once "../../../MenusAndFooter/footer.php";?>
 </body></html>

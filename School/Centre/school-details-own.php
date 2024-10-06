@@ -1,6 +1,5 @@
 <?php
-require_once "schoolMenuLoggedIn.php";
-require_once "config.php";
+require_once "../../MenusAndFooter/schoolMenuLoggedIn.php";
 ?>
 </html>
 <body>
@@ -34,6 +33,6 @@ require_once "config.php";
       </div>
     </div>
   </div>
-  <?php include_once "footer.php"; ?>
+  <?php include_once "../../MenusAndFooter/footer.php"; ?>
 </body>
 </html>

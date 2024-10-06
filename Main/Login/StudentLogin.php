@@ -1,6 +1,7 @@
 <?php 
 session_start();
-include_once 'config.php';
+include_once '../../MenusAndFooter/schoolMenu.php';
+include_once '../../Utilities/config.php';
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
 
@@ -28,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password_verify($password, $hashed_password)) {
                 $_SESSION["loggedInStudent"] = true;
                 $_SESSION["studentUsername"] = $username;
-                header("location: studentHome.php");
+                header("location: ../../School/Student/studentHome.php");
               } else {
                 $login_err = "Invalid username or password.";
               }
@@ -42,7 +43,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       }
     } mysqli_close($conn);
   } 
-  include_once 'schoolMenu.php';
   ?>
       <h1>Student Login</h1>
       <p>Use the form below to access your student dashboard.</p>
@@ -61,6 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
   </div>
 <?php
- include_once "footer.php" ?>
+ include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

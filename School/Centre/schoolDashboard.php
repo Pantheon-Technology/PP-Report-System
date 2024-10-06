@@ -1,6 +1,5 @@
 <?php
-include_once "schoolMenuLoggedIn.php" ?>
-  <!--Events tab -->
+include_once "../../MenusAndFooter/schoolMenuLoggedIn.php" ?>
   <div id="Main" class="w3-panel w3-dark-grey w3-animate-right">
     <h3><?php echo $username . " "; ?>Admin Options</h3>
       
@@ -26,7 +25,7 @@ include_once "schoolMenuLoggedIn.php" ?>
     </div>
     </a>
 
-    <a href="logOut.php"><div class="w3-quarter w3-red w3-margin-left w3-margin-bottom w3-round">
+    <a href="../../Utilities/logOut.php"><div class="w3-quarter w3-red w3-margin-left w3-margin-bottom w3-round">
       <h2><i class="fa fa-sign-out"></i></h2>
       <p>Logout</p>
     </div>
@@ -34,7 +33,7 @@ include_once "schoolMenuLoggedIn.php" ?>
     </div>
     
 </div>
-    <?php include_once "footer.php" ?>
+    <?php include_once "../../MenusAndFooter/footer.php" ?>
   <!-- End page content -->
 </div>
 <script src="index.js"></script>

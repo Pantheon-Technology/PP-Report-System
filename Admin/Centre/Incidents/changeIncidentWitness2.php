@@ -1,6 +1,6 @@
 <?php 
-include_once "NewMenuAdmin.php";
-include_once 'config.php';
+include_once "../../../MenusAndFooter/NewMenuAdmin.php";
+
 if (isset($_GET['id'])) {
     $id = $_SESSION["id"] = $_GET['id'];
 } else {
@@ -34,6 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
     </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

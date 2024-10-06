@@ -1,6 +1,5 @@
 <?php 
-include_once "NewMenuAdmin.php";
-include_once 'config.php';
+include_once "../../../MenusAndFooter/NewMenuAdmin.php";
 if (isset($_GET['id'])) {
     $id = $_SESSION["id"] = $_GET['id'];
 } else {
@@ -23,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         } mysqli_close($conn);
  ?>
-      <h1>Change your Second Emergency Contact Details</h1>
-      <p>Use the form below to change your emergency contact information.</p>
+      <h1>Add Follow up details</h1>
+      <p>Use the form below to add follow up information.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
       <p><textarea class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="Follow Up" required name="followUp"></textarea></p>
       <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="Member of Staff" required name="name"></p>
@@ -34,6 +33,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
     </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

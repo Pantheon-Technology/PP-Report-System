@@ -1,6 +1,5 @@
 <?php 
-include_once "NewMenuAdmin.php";
-include_once "config.php";
+include_once "../../../MenusAndFooter/NewMenuAdmin.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -39,31 +38,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <?php
           $query = "SELECT * FROM `teacher` ORDER BY `teacherUsername` ASC";
 
-// Execute the query
 $result = mysqli_query($conn, $query);
 
-// Check if the query was successful
 if ($result) {
     echo "<p>" . "<b>" . "Teacher Username" . "</b>" . "</p>";
     echo '<select name="teacher">';
     echo '<option>' . "select" . '</option>';
 
-    // Fetch each row from the result set
     while ($row = mysqli_fetch_assoc($result)) {
 
         $value = $row['teacherUsername']; 
 
-        // Create an option tag with the fetched value
         echo '<option value="' . $value . ' ">' . $value . '</option>';
     }
 
-    // End the dropdown box
     echo '</select>';
-
-    // Free the result set
     mysqli_free_result($result);
 } else {
-    // Error handling if the query fails
     echo 'Error: ' . mysqli_error($connection);
 }   
 ?>
@@ -85,6 +76,6 @@ if ($result) {
      </form>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

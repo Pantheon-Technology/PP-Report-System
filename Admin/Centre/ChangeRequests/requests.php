@@ -1,6 +1,5 @@
 <?php
-require_once "NewMenuAdmin.php";
-require_once "config.php";
+require_once "../../../MenusAndFooter/NewMenuAdmin.php";
 if (isset($_GET['id'])) {
     $id = $_SESSION["id"] = $_GET['id'];
 } else {
@@ -12,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
          mysqli_stmt_bind_param($stmt, "s", $param_id);
          $param_id = $id;
             if (mysqli_stmt_execute($stmt)) {
-                echo '<script>alert("Change Request Removed Successfully");document.location="parentHome.php"</script>';
+                echo '<script>alert("Change Request Removed Successfully");document.location="adminViewChanges.php"</script>';
             } else {
                 echo "Oops! Something went wrong. Please try again later.";
             } mysqli_stmt_close($stmt);
@@ -53,6 +52,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </div>
   </div>
-  <?php include_once "footer.php"; ?>
+  <?php include_once "../../../MenusAndFooter/footer.php"; ?>
 </body>
 </html>

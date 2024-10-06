@@ -4,7 +4,7 @@
     <a href="https://www.facebook.com/PositiveProgressTuition" target="blank"><i class="fa fa-facebook-official w3-hover-opacity w3-xlarge"></i></a>
     <a href="https://www.instagram.com/positiveprogresstuition/" target="blank"><i class="fa fa-instagram w3-hover-opacity w3-xlarge"></i></a>
     <a href="https://twitter.com/PositiveTuition" target="blank"><i class="fa fa-twitter w3-hover-opacity w3-xlarge"></i></a>
-  <p class="w3-center">Software created by <a href="https://www.pantheontechnology.co.uk" target="_blank">Pantheon Technology</a></p>
+  <p class="w3-center">Software created by Pantheon Technology</p>
 </div>
 </footer>
 

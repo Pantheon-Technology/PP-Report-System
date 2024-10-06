@@ -1,29 +1,29 @@
-<?php include_once "NewMenuAdmin.php" ?>
+<?php include_once "../../MenusAndFooter/NewMenuAdmin.php" ?>
   <!--Events tab -->
   <div id="Main" class="w3-panel w3-dark-grey w3-animate-right">
     <h3>Welcome Back <b><?php echo $username ?>!</b></h3>
 
     <div class="w3-row-padding w3-padding-16 w3-center" id="options">
     
-    <a href="studentOptions.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+    <a href="../Students/studentOptions.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-mortar-board"></i></h2>
         <p>Student Options</p>
       </div>
       </a>
   
-    <a href="teacherOptions.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+    <a href="../Teachers/teacherOptions.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-book"></i></h2>
         <p>Teacher Options</p>
       </div>
       </a>
 
-      <a href="schoolOptions.php"><div class="w3-quarter w3-blue w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+      <a href="../School/schoolOptions.php"><div class="w3-quarter w3-blue w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-university"></i></h2>
         <p>School Options</p>
       </div>
       </a>
 
-      <a href="centreOptions.php"><div class="w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+      <a href="../Centre/centreOptions.php"><div class="w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-building"></i></h2>
         <p>Centre Administration</p>
       </div>
@@ -47,7 +47,19 @@
       </div>
       </a>
 
-      <a href="logout.php"><div class="w3-quarter w3-red w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+      <?php
+        if ($username === 'G.jones' || $username === 'BobTheTester') {
+        echo '
+        <a target="_blank" href="/adminAccountCreate.php">
+        <div class="w3-quarter w3-grey w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+            <h2><i class="fa fa-cog"></i></h2>
+            <p>Create admin account</p>
+        </div>
+        </a>';
+      }
+      ?>
+
+      <a href="../../Utilities/logOut.php"><div class="w3-quarter w3-red w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-sign-out"></i></h2>
         <p>Logout</p>
       </div>
@@ -58,7 +70,7 @@
   </div>
 
 
-    <?php include_once "footer.php" ?>
+    <?php include_once "../../MenusAndFooter/footer.php" ?>
   <!-- End page content -->
 </div>
 <script src="index.js"></script>
@@ -86,7 +98,6 @@ function w3_close() {
   overlayBg.style.display = "none";
 }
 </script>
-<script src ="index.js"></script>
 
 </body>
 </html>

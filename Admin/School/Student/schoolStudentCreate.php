@@ -1,5 +1,5 @@
 <?php
-include_once "NewMenuAdmin.php";
+include_once "../../../MenusAndFooter/NewMenuAdmin.php";
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -54,10 +54,10 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
         $file2_size = $file2['size'];
         
         // File 1 destination
-        $file1_destination = 'PEPfiles/' . $file1_name;
+        $file1_destination = '../../../PEPfiles/' . $file1_name;
         
         // File 2 destination
-        $file2_destination = 'EHCPfiles/' . $file2_name;
+        $file2_destination = '../../../EHCPfiles/' . $file2_name;
         
         // Move uploaded files to desired destination
         if (move_uploaded_file($file1_tmp, $file1_destination) || move_uploaded_file($file2_tmp, $file2_destination)){
@@ -132,37 +132,27 @@ if (empty($username_err) && empty($password_err) && empty($confirm_password_err)
                 </span>
 
 <?php
-        $query = "SELECT * FROM school"; // Replace 'your_table' with the actual table name
+        $query = "SELECT * FROM school"; 
+        $result = mysqli_query($conn, $query);
 
-// Execute the query
-$result = mysqli_query($conn, $query);
-
-// Check if the query was successful
 if ($result) {
     echo "<p>" . "<b>" . "School*" . "</b>" . "</p>";
     echo '<select name="school">';
     echo '<option>' . "select" . '</option>';
 
-    // Fetch each row from the result set
     while ($row = mysqli_fetch_assoc($result)) {
 
         $value = $row['schoolName']; 
-
-        // Create an option tag with the fetched value
         echo '<option value="' . $value . ' ">' . $value . '</option>';
     }
 
-    // End the dropdown box
     echo '</select>'. "</p>";
 
-    // Free the result set
     mysqli_free_result($result);
 } else {
-    // Error handling if the query fails
     echo 'Error: ' . mysqli_error($connection);
 }
 ?>
-      
                 <label for="year">School Year</label>
             <select id="year" name="schoolYear">
                 <option value="1">Year 1</option>
@@ -263,6 +253,6 @@ if ($result) {
  
 </div>
 </div>
-  <?php include_once "footer.php"?>
+  <?php include_once "../../../MenusAndFooter/footer.php"?>
  </body>
 </html>

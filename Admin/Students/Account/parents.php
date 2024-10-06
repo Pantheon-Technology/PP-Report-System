@@ -1,6 +1,5 @@
 <?php
-require_once "NewMenuAdmin.php";
-require_once "config.php";
+require_once "../../../MenusAndFooter/NewMenuAdmin.php";
 if (isset($_GET['parentid'])) {
     $id = $_SESSION["parentid"] = $_GET['parentid'];
 } else {
@@ -90,7 +89,7 @@ if(mysqli_num_rows($studentResult) > 0){
               $result = mysqli_query($conn, $sql1);
                  if (mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
-                       $filePath = "uploads\\" . $row['file']; 
+                       $filePath = "../../../uploads\\" . $row['file']; 
                        echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
                        
                     }
@@ -107,7 +106,7 @@ if(mysqli_num_rows($studentResult) > 0){
               $result = mysqli_query($conn, $sql1);
                  if (mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
-                       $filePath = "uploads\\" . $row['file']; 
+                       $filePath = "../../../uploads\\" . $row['file']; 
                        echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
                     }
                   }else{
@@ -123,6 +122,6 @@ if(mysqli_num_rows($studentResult) > 0){
       </div>
     </div>
   </div>
-  <?php include_once "footer.php"; ?>
+  <?php include_once "../../../MenusAndFooter/footer.php"; ?>
 </body>
 </html>

@@ -1,5 +1,6 @@
 <?php 
-include_once 'config.php';
+require_once "../../MenusAndFooter/mainMenu.php";
+include_once '../../Utilities/config.php';
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -27,7 +28,7 @@ if (empty($username_err) && empty($password_err)) {
                 session_start();
                 $_SESSION["loggedInTeacher"] = true;
                 $_SESSION["teacherUsername"] = $username;
-                header("location: teacherHome.php");
+                header("location: ../../Teacher/teacherHome.php");
                 } else {
                   $login_err = "Invalid username or password.";
                 }
@@ -40,7 +41,8 @@ if (empty($username_err) && empty($password_err)) {
       } mysqli_stmt_close($stmt);
   }
 } mysqli_close($conn);
-}require_once "mainMenu.php"; ?>
+}
+ ?>
       <h1>Teacher Login Page</h1>
       <p>If you are a teacher, please use the login form below to access your account.</p>
       <?php
@@ -60,6 +62,6 @@ if (empty($username_err) && empty($password_err)) {
       </form> 
     </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

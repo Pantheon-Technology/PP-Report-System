@@ -1,6 +1,5 @@
 <?php 
-include_once "NewMenuAdmin.php";
-include_once 'config.php';
+include_once "../../MenusAndFooter/NewMenuAdmin.php";
  
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";

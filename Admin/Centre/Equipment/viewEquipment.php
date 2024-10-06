@@ -1,5 +1,4 @@
-<?php include_once "NewMenuAdmin.php"; 
-include_once "config.php";
+<?php include_once "../../../MenusAndFooter/NewMenuAdmin.php"; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -52,7 +51,7 @@ while($row = $result->fetch_assoc()){
     echo "<td class='w3-border'>" . $day1 . "-" . $month1 . "-" . $year1 . "</td>";
     echo "<td class='w3-border'>". $row['endTime']. "</td>";
     echo "<td class='w3-border'>" . $row['equipment'] . "</td>";
-    echo "<td class='w3-border'><a href='photocopy/". $row['photocopy']. "' download>" . $row['photocopy'] . "</td>";
+    echo "<td class='w3-border'><a href='../../../photocopy/". $row['photocopy']. "' download>" . $row['photocopy'] . "</td>";
     echo "<td class='w3-border'>". $row['teacher']. "</td>";
     echo "<td class='w3-border'>";
     echo "<form class='w3-center' method='POST' action=''>";
@@ -68,6 +67,6 @@ echo "</table>";
 ?>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

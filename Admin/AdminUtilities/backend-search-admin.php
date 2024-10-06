@@ -1,5 +1,5 @@
 <?php
-include_once "config.php";
+include_once "../../Utilities/config.php";
 
 if (isset($_REQUEST["term"])) {
     // Create a select statement
@@ -21,13 +21,13 @@ if (isset($_REQUEST["term"])) {
             if (mysqli_num_rows($result) > 0) {
                 // create an associative array and fetch the results
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
-                    echo "<a href =\"parents.php?parentid=". $row['parentID'] . "\">" . "View " . $row["childFName"] ." " . $row["childLName"] . "'s" . " details" . "</p>";
+                    echo "<a href =\"../Students/Account/parents.php?parentid=". $row['parentID'] . "\">" . "View " . $row["childFName"] ." " . $row["childLName"] . "'s" . " details" . "</p>";
                 }
             } else {
                 echo "<p>No matches found</p>";
             }
         } else {
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+            echo "ERROR: Could not execute $sql. " . mysqli_error($link);
         }
 
     }

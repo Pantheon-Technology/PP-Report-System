@@ -1,6 +1,6 @@
 <?php
-require_once "NewMenuAdmin.php";
-require_once "config.php";
+require_once "../../../MenusAndFooter/NewMenuAdmin.php";
+
 if (isset($_GET['id'])) {
     $id = $_SESSION["id"] = $_GET['id'];
 } else {
@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
               echo "<p>" . $row['followUp'] . "</p>";
               echo "<p>" . "Followed Up By: " . $row['whoFollowedUp'] . "</p>";
               echo "<p>" . "This report was submitted to the system by: " . $row['reportedBy'] . "</p>";
-              echo "<p>" . "<a href='changeIncidentFollowUp.php' class='w3-button w3-round w3-white w3-text-black'>" . "Click Here to change the follow up details" . "</a>" . "</p>";
+              echo "<p>" . "<a href='changeIncidentFollowUp.php' class='w3-button w3-round w3-white w3-text-black'>" . "Click Here to add follow up details" . "</a>" . "</p>";
 
               echo "</div>";
 
@@ -80,6 +80,22 @@ if (isset($_GET['id'])) {
               echo "' class='w3-button w3-round w3-white w3-text-black'>" . "Email Information" . "</a>" . "</p>";
                 
               }
+              $followUp = "SELECT * FROM `followUp` WHERE `relatedId` = $id";
+              $results = mysqli_query($conn, $followUp);
+
+        if (mysqli_num_rows($results) > 0){
+            while($row = mysqli_fetch_assoc($results)){
+
+              echo "<h2>Follow up Actions and Comments</h2>";
+              echo "<h6><b>Who followed up?</b></h6>";
+              echo "<p>" . $row["followedUpBy"] . "</p>";
+              echo "<h6><b>Follow Up Detail</b></h6>";
+              echo "<p>" . $row["followUpDetail"] . "</p>";
+              echo "<hr>";
+            }
+          }else{
+            echo "<h2>There are no follow up actions yet</h2>";
+          }
         }else{
             echo "0 results";
         }
@@ -90,6 +106,6 @@ if (isset($_GET['id'])) {
       </div>
     </div>
   </div>
-  <?php include_once "footer.php"; ?>
+  <?php include_once "../../../MenusAndFooter/footer.php"; ?>
 </body>
 </html>

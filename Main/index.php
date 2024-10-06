@@ -1,4 +1,4 @@
-<?php include_once "mainMenu.php" ?>
+<?php include_once "../MenusAndFooter/mainMenu.php" ?>
 <style>
 * {box-sizing:border-box}
 
@@ -95,19 +95,19 @@
 <!-- Full-width images with number and caption text -->
 <div class="mySlides fade">
   <div class="numbertext">1 / 3</div>
-  <img src="Pictures/1.jpeg" style="width:100%">
-  <div class="text w3-black"><h2><a href="parentLogin.php"> Keep track of your childs' progress.</a></h2></div>
+  <img src="https://mypositiveprogress.co.uk/Pictures/1.jpeg" style="width:100%">
+  <div class="text w3-black"><h2>Keep track of your childs' progress.</h2></div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">2 / 3</div>
-  <img src="Pictures/2.jpeg" style="width:100%">
-  <div class="text w3-black"><h2><a href="postPage.php">View Announcements from the centre.</a></h2></div>
+  <img src="https://mypositiveprogress.co.uk/Pictures/2.jpeg" style="width:100%">
+  <div class="text w3-black"><h2>View Announcements from the centre.</h2></div>
 </div>
 
 <div class="mySlides fade">
   <div class="numbertext">3 / 3</div>
-  <img src="Pictures/3.jpeg" style="width:100%">
+  <img src="https://mypositiveprogress.co.uk/Pictures/3.jpeg" style="width:100%">
   <div class="text w3-black"><h2>Paper-free E-Learning!</h2></div>
 </div>
 
@@ -124,7 +124,7 @@
 <span class="dot" onclick="currentSlide(3)"></span>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../MenusAndFooter/footer.php" ?>
 </body>
 </html>
 <script>
