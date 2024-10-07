@@ -1,5 +1,5 @@
 <?php
-include_once "teacherMenu.php";
+include_once "../../MenusAndFooter/teacherMenu.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $sql = "INSERT INTO `incidents` (`studentName`, `date`, `time`, `issueType`, `desc`, `reffered`, `otherReffered`, `followUp`, `whoFollowedUp`, `reportedBy`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
@@ -37,7 +37,7 @@ $(document).ready(function(){
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){
-            $.get("backend-search.php", {term: inputVal}).done(function(data){
+            $.get("../../Utilities/backend-search.php", {term: inputVal}).done(function(data){
                 // Display the returned data in drop down box on the page
                 resultDropdown.html(data);
             });
@@ -151,6 +151,6 @@ if ($result) {
      </div>
    </div>
  </div>
- <?php include_once "footer.php" ?>
+ <?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

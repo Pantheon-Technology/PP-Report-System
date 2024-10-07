@@ -1,6 +1,4 @@
-<?php include_once "teacherMenu.php";
-require_once "config.php";
-?>
+<?php include_once "../../MenusAndFooter/teacherMenu.php"; ?>
 <html>
 <div id="Main" class="w3-panel w3-dark-grey w3-animate-right">
 
@@ -25,6 +23,6 @@ $conn->close();
 
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

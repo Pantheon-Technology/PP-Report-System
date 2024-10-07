@@ -1,12 +1,6 @@
 <?php
 session_start(); 
-include_once "parentMenu.php";
-include_once 'config.php';
-$username = $_SESSION['parentUsername'];
-if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
-  header("location: parentLogin.php");
-  exit;
-}
+include_once "../../MenusAndFooter/parentMenu.php";
 ?>
       <h1>Account Information</h1>
       <div>
@@ -103,7 +97,7 @@ $sql = "SELECT * FROM `incidents` WHERE `studentName` = '$username' ORDER BY `in
 $result = mysqli_query($conn, $sql);
 if($result->num_rows > 0){
 while($row = $result->fetch_assoc()){   
-    echo "<a href =\"View_incident_parent.php?id=". $row['incidentNumber'] . "\"><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom'>";
+    echo "<a href =\"../Incident/View_incident_parent.php?id=". $row['incidentNumber'] . "\"><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom'>";
     echo "<h2><i class='fa fa-eye'></i></h2>";
     echo "<p>" . "View details of Incident submitted by " . $row['reportedBy'] .  "</p>";
     echo "</div>";
@@ -117,7 +111,7 @@ $conn->close();
 </div>
     </div>
   </div>
-<?php include_once "footer.php"; 
+<?php include_once "../../MenusAndFooter/footer.php"; 
 
 
 ?>

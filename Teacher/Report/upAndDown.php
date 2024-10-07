@@ -1,4 +1,4 @@
-<?php include_once "teacherMenu.php"; include "config.php";?>
+<?php include_once "../../MenusAndFooter/teacherMenu.php";?>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script> //script for searching my database
@@ -8,7 +8,7 @@ $(document).ready(function(){
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){
-            $.get("backend-search.php", {term: inputVal}).done(function(data){
+            $.get("../../Utilities/backend-search.php", {term: inputVal}).done(function(data){
                 // Display the returned data in drop down box on the page
                 resultDropdown.html(data);
             });
@@ -31,7 +31,7 @@ $(document).ready(function(){
     <h1>Upload Report</h1>
     <p>Use the form below to upload a report for a child, you may use the 'username search' to find out their username if required.</p>
       <div class="w3-left-align w3-padding-large">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <form action="../Utility/upload.php" method="post" enctype="multipart/form-data">
         <?php
           $query = "SELECT * FROM parents ORDER BY `parentUsername` ASC";
 
@@ -89,6 +89,6 @@ if ($result) {
      </div>
    </div>
  </div>
- <?php include_once "footer.php" ?>
+ <?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

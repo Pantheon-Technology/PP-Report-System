@@ -1,6 +1,6 @@
 <?php
-require_once "teacherMenu.php";
-require_once "config.php";
+require_once "../../MenusAndFooter/teacherMenu.php";
+
 if (isset($_GET['parentid'])) {
     $id = $_SESSION["parentid"] = $_GET['parentid'];
 } else {
@@ -21,7 +21,7 @@ if (isset($_GET['parentid'])) {
 
         if (mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
-              $filePath = "Homework\\" . $row['file']; 
+              $filePath = "../../Homework\\" . $row['file']; 
             echo "<a href='$filePath' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round'>";
             echo "<h2><i class='fa fa-cloud-download'></i></h2>";
             echo "<p>" . $row['parentUsername'] . "'s" . " " . $row['fileName'] . ' for subject: ' . $row['subject'] . "</p>";
@@ -36,6 +36,6 @@ if (isset($_GET['parentid'])) {
         ?>
       </div>
     </div>
-  <?php include_once "footer.php"; ?>
+  <?php include_once "../../MenusAndFooter/footer.php"; ?>
 </body>
 </html>

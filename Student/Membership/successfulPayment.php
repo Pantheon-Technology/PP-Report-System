@@ -1,7 +1,8 @@
 <html>
 <meta charset="UTF-8">
-<?php require_once "paymentConfig.php";
-require_once "parentMenu.php";
+<?php 
+require_once "../../Utilities/paymentConfig.php";
+require_once "../../MenusAndFooter/parentMenu.php";
 
 $total_price = $_SESSION['totalPrice'];
 
@@ -21,8 +22,7 @@ if (isset($_POST['stripeToken'])) {
         "currency" => "gbp"
     ]);
 }
-require_once "config.php";
-    
+   
     $sql = "INSERT INTO `cancellations` (`studentName`, `comments`) VALUES (?,?);";
     if ($stmt = mysqli_prepare($conn, $sql)) {
         mysqli_stmt_bind_param($stmt, "ss", $param_studentName, $param_comments);
@@ -42,14 +42,14 @@ $conn->close();
 <p class="w3-center"> An email confirmation of your cancellation will be sent to you shortly. Please ensure you have downloaded any files you have with us as these will be deleted after the subscription ends.</p>
 
 <div class="w3-center">
-<a href="viewReport.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom">
+<a href="../Reports/viewReport.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom">
         <h2><i class="fa fa-archive"></i></h2>
         <p>View Uploads</p>
       </div>
       </a>
 
 <div class="w3-center">
-<a href="parentHome.php"><div class="w3-quarter w3-orange w3-margin-left w3-margin-bottom">
+<a href="../parentHome.php"><div class="w3-quarter w3-orange w3-margin-left w3-margin-bottom">
         <h2><i class="fa fa-home"></i></h2>
         <p>Return To Homepage</p>
       </div>

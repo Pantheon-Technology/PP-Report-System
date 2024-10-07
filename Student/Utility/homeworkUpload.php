@@ -1,12 +1,12 @@
 <?php
 session_start();
 $child = $_SESSION["parentUsername"];
-$target_dir = "Homework/";
+$target_dir = "../../Homework/";
 $reportUpload = str_replace(" ", "", basename($_FILES["fileToUpload"]["name"]));
 $target_file = $target_dir . $reportUpload;
 $uploadOk = 1;
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-include_once "config.php";
+include_once "../../Utilities/config.php";
 $file = "";
 
 if ($_FILES["fileToUpload"]["size"] > 5000000) {
@@ -19,7 +19,7 @@ if ($uploadOk == 0) {
 } else if ($uploadOk = 1) {
   move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
   $file = htmlspecialchars( $reportUpload);
-  echo '<script>alert("' . $reportUpload . " " . 'uploaded successfully");document.location="homework.php"</script>';
+  echo '<script>alert("' . $reportUpload . " " . 'uploaded successfully");document.location="../Homework/homework.php"</script>';
   $sql = "INSERT INTO `homework` (`parentUsername`, `fileName`, `subject`, `file`) VALUES (?, ?, ?, ?)";
   if ($stmt = mysqli_prepare($conn, $sql)) {
     mysqli_stmt_bind_param($stmt, "ssss", $param_user, $param_fileName, $param_subject, $param_fileToUpload);

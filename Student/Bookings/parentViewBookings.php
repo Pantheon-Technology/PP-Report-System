@@ -1,11 +1,10 @@
 <?php
-include_once "config.php";
-include_once "parentMenu.php";
+include_once "../../MenusAndFooter/parentMenu.php";
 
 ?>
 <div class="w3-row-padding w3-center w3-padding-64" id="pricing">
     <h2>Your Course Bookings</h2>
-    <p>Once your booking has been approved by our team, it will no longer appear on this list. Approved bookings will be sent to your timetable which you can view <a href="parentTimeTable.php">here.</a></p>
+    <p>Once your booking has been approved by our team, it will no longer appear on this list. Approved bookings will be sent to your timetable which you can view <a href="../Timetable/parentTimeTable.php">here.</a></p>
     <?php 
 $sql = "SELECT * FROM `bookings` where `parentUsername` = '$username' ORDER BY `date` DESC";
 $result = mysqli_query($conn, $sql);
@@ -43,5 +42,5 @@ mysqli_close($conn);
 ?>
 </div>
 </div>
-<?php include_once "footer.php";?>
+<?php include_once "../../MenusAndFooter/footer.php";?>
 </body></html>

@@ -1,6 +1,5 @@
 <?php 
-include_once "teacherMenu.php";
-require_once "config.php";
+include_once "../../MenusAndFooter/teacherMenu.php";
 
 if (isset($_GET['id'])) {
     $id = $_SESSION["id"] = $_GET['id'];
@@ -63,13 +62,13 @@ if (isset($_GET['id'])) {
     <div class="w3-third w3-margin-bottom">
         <div class='w3-container w3-teal w3-round'>
             <h3>Files</h3>
-            <p><?php echo "<a href='courseContent/" . $file1 . "' download>" . $file1 . "</a>" ?></p>
-            <p><?php echo "<a href='courseContent/" . $file2 . "' download>" . $file2 . "</a>" ?></p>
-            <p><?php echo "<a href='courseContent/" . $file3 . "' download>" . $file3 . "</a>" ?></p>
-            <p><?php echo "<a href='courseContent/" . $file4 . "' download>" . $file4 . "</a>" ?></p>
-            <p><?php echo "<a href='courseContent/" . $file5 . "' download>" . $file5 . "</a>" ?></p>
-            <p><?php echo "<a href='courseContent/" . $file6 . "' download>" . $file6 . "</a>" ?></p>
-            <p><?php echo "<a href='courseContent/" . $file7 . "' download>" . $file7 . "</a>" ?></p>
+            <p><?php echo "<a href='../../courseContent/" . $file1 . "' download>" . $file1 . "</a>" ?></p>
+            <p><?php echo "<a href='../../courseContent/" . $file2 . "' download>" . $file2 . "</a>" ?></p>
+            <p><?php echo "<a href='../../courseContent/" . $file3 . "' download>" . $file3 . "</a>" ?></p>
+            <p><?php echo "<a href='../../courseContent/" . $file4 . "' download>" . $file4 . "</a>" ?></p>
+            <p><?php echo "<a href='../../courseContent/" . $file5 . "' download>" . $file5 . "</a>" ?></p>
+            <p><?php echo "<a href='../../courseContent/" . $file6 . "' download>" . $file6 . "</a>" ?></p>
+            <p><?php echo "<a href='../../courseContent/" . $file7 . "' download>" . $file7 . "</a>" ?></p>
         </div>
     </div>
 
@@ -85,6 +84,6 @@ if (isset($_GET['id'])) {
 </div>
 </div>
 
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

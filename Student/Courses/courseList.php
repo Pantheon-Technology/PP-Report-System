@@ -1,6 +1,5 @@
 <?php 
-include_once "parentMenu.php";
-require_once "config.php";
+include_once "../../MenusAndFooter/parentMenu.php";
 $username = $_SESSION["parentUsername"]; 
 
 $search = isset($_GET['search']) ? $_GET['search'] : ''; // Get the search query from the URL parameter
@@ -28,7 +27,7 @@ $result = mysqli_query($conn, $sql);
 if ($result->num_rows > 0){
     while($row = $result->fetch_assoc()){   
         echo "<div class='w3-third w3-container w3-margin-bottom '>";
-        echo "<img src='CourseImg/" . $row['courseImage'] . "' alt='courseImage' style='width:100%' class='w3-hover-opacity'>";
+        echo "<img src='../../CourseImg/" . $row['courseImage'] . "' alt='courseImage' style='width:100%' class='w3-hover-opacity'>";
         echo "<div class='w3-container w3-white w3-round'>";
         echo "<p><b> Course: " . $row['courseTitle'] . "</b></p>";
         echo "<p>" . substr($row["courseDesc"], 0, 40) . "....</p>";
@@ -43,6 +42,6 @@ mysqli_close($conn);
 ?>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

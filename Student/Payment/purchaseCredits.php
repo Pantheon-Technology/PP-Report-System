@@ -1,7 +1,6 @@
 <?php
-include_once "config.php";
-include_once "parentMenu.php";
-require_once "paymentConfig.php";
+include_once "../../MenusAndFooter/parentMenu.php";
+require_once "../../Utilities/paymentConfig.php";
 ?>
 
 <div class="w3-row-padding w3-center w3-padding-64" id="pricing">
@@ -33,7 +32,7 @@ require_once "paymentConfig.php";
                                 data-key="<?php echo $test_keys['publishable_key']; ?>"
                                 data-name="Positive Pennies Payment"
                                 data-description="Thank you for your purchase!"
-                                data-image="Pictures/logo.png"
+                                data-image="https://mypositiveprogress.co.uk/Pictures/logo.png"
                                 data-amount="<?php echo $price * 100; ?>"
                                 data-currency="gbp"
                                 data-email="">
@@ -48,6 +47,6 @@ require_once "paymentConfig.php";
     ?>
 </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

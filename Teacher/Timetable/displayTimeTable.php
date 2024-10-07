@@ -1,6 +1,5 @@
 <?php
-include_once "teacherMenu.php";
-include_once "config.php";
+include_once "../../MenusAndFooter/teacherMenu.php";
 $currentDate = date("Y-m-d");
 ?>
 <!--Events tab -->
@@ -45,6 +44,6 @@ mysqli_close($conn);
 ?>
 <br>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

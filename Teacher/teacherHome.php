@@ -1,71 +1,71 @@
-<?php include_once "teacherMenu.php" ?>
+<?php include_once "../MenusAndFooter/teacherMenu.php" ?>
   <!--Events tab -->
   <div id="Main" class="w3-panel w3-dark-grey w3-animate-right">
     <h3>Positive Progress Center Options</h3>
 
     <div class="w3-row-padding w3-padding-16 w3-center" id="options">
     
-    <a href="upAndDown.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round same-size">
+    <a href="Report/upAndDown.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round same-size">
         <h2><i class="fa fa-upload"></i></h2>
         <p>Upload for Positive Progress Students</p>
       </div>
       </a>
   
-    <a href="studentFileUpload.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
+    <a href="Report/studentFileUpload.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-upload"></i></h2>
         <p>Upload for School Students</p>
       </div>
       </a>
 
-      <a href="homeworkSearch.php"><div class="w3-quarter w3-brown w3-margin-left w3-margin-bottom w3-round">
+      <a href="Homework/homeworkSearch.php"><div class="w3-quarter w3-brown w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-upload"></i></h2>
         <p>Search Homework</p>
       </div>
       </a>
 
-      <a href="incident_report.php"><div class="w3-quarter w3-blue w3-margin-left w3-margin-bottom w3-round">
+      <a href="Incident/incident_report.php"><div class="w3-quarter w3-blue w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-plus-square"></i></h2>
         <p>Report an Incident</p>
       </div>
       </a>
 
-      <a href="View_Incident_teacher.php"><div class="w3-quarter w3-light-grey w3-margin-left w3-margin-bottom w3-round">
+      <a href="Incident/View_Incident_teacher.php"><div class="w3-quarter w3-light-grey w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-eye"></i></h2>
         <p>View Incidents</p>
       </div>
       </a>
 
-      <a href="timesheets.php"><div class="w3-quarter w3-purple w3-margin-left w3-margin-bottom w3-round">
+      <a href="Timesheet/timesheets.php"><div class="w3-quarter w3-purple w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-calendar"></i></h2>
         <p>Upload Timesheet</p>
       </div>
       </a>
 
-      <a href="bookEquipment.php"><div class="w3-quarter w3-pink w3-margin-left w3-margin-bottom w3-round">
+      <a href="Equipment/bookEquipment.php"><div class="w3-quarter w3-pink w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-laptop"></i></h2>
         <p>Book Equipment</p>
       </div>
       </a>
 
-      <a href="displayTimeTable.php"><div class="w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round">
+      <a href="Timetable/displayTimeTable.php"><div class="w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-calendar"></i></h2>
         <p>View your Time Table</p>
       </div>
       </a>
 
-      <a href="teacherViewOwnTimesheet.php"><div class="w3-quarter w3-grey w3-margin-left w3-margin-bottom w3-round">
+      <a href="Timesheet/teacherViewOwnTimesheet.php"><div class="w3-quarter w3-grey w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-calendar"></i></h2>
         <p>View your Timesheet</p>
       </div>
       </a>
 
-      <a href="addContent.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
+      <a href="Content/addContent.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-graduation-cap"></i></h2>
         <p>Add Course Content</p>
       </div>
       </a>
 
-      <a href="searchContent.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
+      <a href="Content/searchContent.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-graduation-cap"></i></h2>
         <p>View Course Content</p>
       </div>
@@ -89,7 +89,7 @@
       </div>
       </a>
 
-      <a href="logOut.php"><div class="w3-quarter w3-black w3-margin-left w3-margin-bottom w3-round">
+      <a href="../../Utilities/logOut.php"><div class="w3-quarter w3-black w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-cog"></i></h2>
         <p>logout</p>
       </div>
@@ -99,6 +99,6 @@
 
 </div>
 
-    <?php include_once "footer.php" ?>
+    <?php include_once "../MenusAndFooter/footer.php" ?>
   <!-- End page content -->
 </div>

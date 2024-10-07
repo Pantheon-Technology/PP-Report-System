@@ -1,6 +1,6 @@
-<?php include_once "config.php";
-include_once "parentMenu.php";
-require_once "paymentConfig.php"; 
+<?php
+include_once "../../MenusAndFooter/parentMenu.php";
+require_once "../../Utilities/paymentConfig.php"; 
 $_SESSION['choice'] = true;
 ?>
 
@@ -17,6 +17,6 @@ publishable-key="pk_live_51LecHHI8iyY9hSHqXiizzlZhoRLyGQbLgMJrpeTPaLBpHHAQ8iwLyM
 </div>
 </div>
 
-    <?php include_once "footer.php" ?>
+    <?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

@@ -1,6 +1,5 @@
 <?php 
-include_once "parentMenu.php";
-require_once "config.php";
+include_once "../../MenusAndFooter/parentMenu.php";
 $currentDate = date('d/m/Y');
 
 if (!isset($_SESSION['choice'])){
@@ -28,7 +27,7 @@ $conn->close();
 <p class="w3-center"> Your account has been given a member token to purchase a variety of courses on our course page!</p>
 
 <div class="w3-center">
-<a href="courseList.php"><div class="w3-quarter w3-green w3-hover-opacity w3-round w3-margin-left w3-margin-bottom">
+<a href="../Courses/courseList.php"><div class="w3-quarter w3-green w3-hover-opacity w3-round w3-margin-left w3-margin-bottom">
         <h2><i class="fa fa-graduation-cap"></i></h2>
         <p>View Courses</p>
       </div>

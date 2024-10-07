@@ -14,8 +14,7 @@ require_once(__DIR__ . '../../Utilities/config.php');
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="index.css">
-<link rel="icon" type="image/x-icon" href="/pictures/logo.png">
+<link rel="icon" type="image/x-icon" href="https://mypositiveprogress.co.uk/Pictures/logo.png">
 <style>
 html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
@@ -29,7 +28,7 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:250px;" id="mySidebar"><br>
   <div class="w3-container">
-      <img src="Pictures/logo.png" style="width:220px">
+      <img src="https://mypositiveprogress.co.uk/Pictures/logo.png" style="width:220px">
     </div>
     <p><h4><i class="fa fa-user"> <b><?php echo $username ?></i></b></h4></p>
     <h5>Menu</h5>

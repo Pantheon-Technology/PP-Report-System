@@ -1,4 +1,4 @@
-<?php include_once "teacherMenu.php"; include "config.php";?>
+<?php include_once "../../MenusAndFooter/teacherMenu.php";?>
 
 <!--Events tab -->
 <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
@@ -6,7 +6,7 @@
     <h1>Create Course Content</h1>
     <p>Using the form below, you can add resources for your course content. You may upload up to 7 files and 3 links for any given topic.</p>
       <div class="w3-left-align w3-padding-large">
-        <form action="insertCourseToDB.php" method="post" enctype="multipart/form-data">
+        <form action="../Utility/insertCourseToDB.php" method="post" enctype="multipart/form-data">
 
           <p><b>Course Title</b></p>
           <p><input class="w3-input w3-padding-16 w3-border" type="text" id="title" name="title" placeholder="Course Title" required></p>
@@ -51,6 +51,6 @@
      </div>
    </div>
  </div>
- <?php include_once "footer.php" ?>
+ <?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

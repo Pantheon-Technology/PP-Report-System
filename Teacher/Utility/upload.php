@@ -1,6 +1,7 @@
 <?php
 session_start();
-$target_dir = "uploads/";
+include_once "../../Utilities/config.php";
+$target_dir = "../../uploads/";
 $child = $_POST["childName"];
 $reportUpload = str_replace(" ", "", basename("file1" . $child . $_FILES["fileToUpload"]["name"]));
 $reportUpload2 = str_replace(" ", "", basename("file2" . $child .$_FILES["fileToUpload2"]["name"]));
@@ -17,7 +18,6 @@ $target_file5 = $target_dir . $reportUpload5;
 
 $uploadOk = 1;
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-include_once "config.php";
 $documentName = $_POST["reportName"];
 $file = "";
 $teacherUpload = $_SESSION['teacherUsername'];
@@ -63,7 +63,7 @@ if ($uploadOk == 0) {
   move_uploaded_file($_FILES["fileToUpload3"]["tmp_name"], $target_file3);
   move_uploaded_file($_FILES["fileToUpload4"]["tmp_name"], $target_file4);
   move_uploaded_file($_FILES["fileToUpload5"]["tmp_name"], $target_file5);
-  echo'<script>alert("' . $reportUpload . " " . 'uploaded successfully");document.location="upAndDown.php"</script>';
+  echo'<script>alert("' . $reportUpload . " " . 'uploaded successfully");document.location="../Report/upAndDown.php"</script>';
 }
 if (!(mysqli_stmt_execute($stmt))) {
   echo "Error: " . $sql . "<br>" . $conn->error;

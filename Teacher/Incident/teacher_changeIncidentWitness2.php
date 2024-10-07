@@ -1,6 +1,5 @@
 <?php 
-include_once "teacherMenu.php";
-include_once 'config.php';
+include_once "../../MenusAndFooter/teacherMenu.php";
 if (isset($_GET['id'])) {
     $id = $_SESSION["id"] = $_GET['id'];
 } else {
@@ -15,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $param_name = $_POST['name'];
             
                 if (mysqli_stmt_execute($stmt)) {
-                    echo '<script>alert("Incident No.' . $id . " " . ' has been updated successfully");document.location="incident.php"</script>';
+                    echo '<script>alert("Incident No.' . $id . " " . ' has been updated successfully");document.location="teacher_incident.php"</script>';
                 } else {
                     echo "Oops! Something went wrong. Please try again later.";
                 }
@@ -35,6 +34,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
     </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

@@ -1,7 +1,6 @@
 <?php 
-include_once "parentMenu.php";
-require_once "config.php";
-require_once "paymentConfigTest.php";
+include_once "../../MenusAndFooter/parentMenu.php";
+require_once "../../Utilities/paymentConfigTest.php";
 
 if (isset($_GET['courseid'])) {
     $courseid = $_SESSION["courseid"] = $_GET['courseid'];
@@ -65,7 +64,7 @@ else{}
         $param_childFirstName = $Fname;
         $param_childLastName = $Lname;
 
-        echo '<script>alert("Thank you for purchasing this course, click OK to continue");document.location="parentViewBookings.php"</script>';
+        echo '<script>alert("Thank you for purchasing this course, click OK to continue");document.location="../Bookings/parentViewBookings.php"</script>';
       } if (!mysqli_stmt_execute($stmt1)) {
         echo "Error: " . $sql3 . "<br>" . $conn->error;
 
@@ -101,7 +100,7 @@ echo "test";
         $param_childFirstName = $Fname;
         $param_childLastName = $Lname;
 
-        echo '<script>alert("Thank you for purchasing this course, click OK to continue");document.location="parentViewBookings.php"</script>';
+        echo '<script>alert("Thank you for purchasing this course, click OK to continue");document.location="../Bookings/parentViewBookings.php"</script>';
       } if (!mysqli_stmt_execute($stmt2)) {
         echo "Error: " . $sql3 . "<br>" . $conn->error;
 
@@ -150,6 +149,6 @@ echo "test";
 </div>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

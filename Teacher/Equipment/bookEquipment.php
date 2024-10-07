@@ -1,10 +1,9 @@
 <?php
-include_once "teacherMenu.php";
-include_once "config.php";
+include_once "../../MenusAndFooter/teacherMenu.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  $target_dir = "photocopy/";
+  $target_dir = "../../photocopy/";
 $reportUpload = str_replace(" ", "", basename($_FILES["fileToUpload"]["name"]));
 $target_file = $target_dir . $reportUpload;
 $uploadOk = 1;
@@ -74,6 +73,6 @@ $file = "";
 
 <br>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

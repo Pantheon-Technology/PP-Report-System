@@ -1,6 +1,5 @@
 <?php
-require_once "teacherMenu.php";
-require_once "config.php";
+require_once "../../MenusAndFooter/teacherMenu.php";
 if (isset($_GET['id'])) {
     $id = $_SESSION["id"] = $_GET['id'];
 } else {
@@ -91,6 +90,6 @@ if (isset($_GET['id'])) {
       </div>
     </div>
   </div>
-  <?php include_once "footer.php"; ?>
+  <?php include_once "../../MenusAndFooter/footer.php"; ?>
 </body>
 </html>

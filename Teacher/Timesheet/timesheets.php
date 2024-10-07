@@ -1,5 +1,4 @@
-<?php include_once "config.php";
-include_once "teacherMenu.php"; 
+<?php include_once "../../MenusAndFooter/teacherMenu.php"; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Assuming you have established the database connection in $conn variable.
@@ -529,6 +528,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    </div>
  </div>
- <?php include_once "footer.php" ?>
+ <?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

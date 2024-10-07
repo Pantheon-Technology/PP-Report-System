@@ -1,6 +1,5 @@
 <?php
-include_once "teacherMenu.php";
-include_once "config.php";
+include_once "../../MenusAndFooter/teacherMenu.php";
 
 // Initialize an associative array to store total hours per project
 $totalHoursPerProject = array();
@@ -66,6 +65,6 @@ mysqli_close($conn);
 
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

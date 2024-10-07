@@ -1,4 +1,4 @@
-<?php include_once "teacherMenu.php";?>
+<?php include_once "../../MenusAndFooter/teacherMenu.php";?>
 
 <!--Events tab -->
 <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
@@ -11,7 +11,7 @@ $(document).ready(function(){
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){
-            $.get("backend-search-schoolStudent.php", {term: inputVal}).done(function(data){
+            $.get("../../Admin/AdminUtilities/backend-search-schoolStudent.php", {term: inputVal}).done(function(data){
                 // Display the returned data in drop down box on the page
                 resultDropdown.html(data);
             });
@@ -31,7 +31,7 @@ $(document).ready(function(){
     <h1>Upload Report</h1>
     <p>Use the form below to upload a report for a school student, you may use the 'username search' to find out their username if required.</p>
       <div class="w3-left-align w3-padding-large">
-        <form action="studentUpload.php" method="post" enctype="multipart/form-data">
+        <form action="../Utility/studentUpload.php" method="post" enctype="multipart/form-data">
 
         <?php
           $query = "SELECT * FROM schoolStudent ORDER BY `studentUsername` ASC"; 
@@ -121,6 +121,6 @@ if ($result) {
      </div>
    </div>
  </div>
- <?php include_once "footer.php" ?>
+ <?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

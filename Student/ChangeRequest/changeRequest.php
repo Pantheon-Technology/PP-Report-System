@@ -1,5 +1,4 @@
-<?php include_once "parentMenu.php"; 
-include_once "config.php";
+<?php include_once "../../MenusAndFooter/parentMenu.php"; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -17,8 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      
       if (mysqli_stmt_execute($stmt)) {
         
-           require "ping.php";
-       echo '<script>alert("Your request has been sent to our team, they will respond to your query ASAP");document.location="parentHome.php"</script>';
+           require "../../Utilities/ping.php";
+       echo '<script>alert("Your request has been sent to our team, they will respond to your query ASAP");document.location="../parentHome.php"</script>';
       } else {
           echo "Oops! Something went wrong. Please try again later.";
       }
@@ -57,6 +56,6 @@ mysqli_close($conn);
   
     </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

@@ -1,8 +1,8 @@
 <html>
 <meta charset="UTF-8">
-<?php require_once "paymentConfig.php";
-require_once "parentMenu.php";
-require_once "config.php";
+<?php 
+require_once "../../Utilities/paymentConfig.php";
+require_once "../../MenusAndFooter/parentMenu.php";
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = $_POST['price'];
@@ -52,7 +52,7 @@ if (isset($_POST['stripeToken'])) {
 <p class="w3-center"> An email confirmation of your positive pennies will be sent to you shortly. Why not begin browsing our courses below?</p>
 
 <div class="w3-center">
-<a href="courseList.php"><div class="w3-round  w3-hover-opacity w3-orange w3-margin-left w3-margin-bottom">
+<a href="../Courses/courseList.php"><div class="w3-round  w3-hover-opacity w3-orange w3-margin-left w3-margin-bottom">
         <h2><i class="fa fa-graduation-cap"></i></h2>
         <p>Course List</p>
       </div>

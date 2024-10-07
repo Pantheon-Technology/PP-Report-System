@@ -1,5 +1,5 @@
 <?php
-require_once("vendor/autoload.php");
+require_once(__DIR__ . "../../vendor/autoload.php");
 
 $test_keys = array(
     "publishable_key" => "pk_live_51LecHHI8iyY9hSHqXiizzlZhoRLyGQbLgMJrpeTPaLBpHHAQ8iwLyM79eyu5nn7DVYkrMbeQas59kamdC1oZHS1X00CTpmV7M3",

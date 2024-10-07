@@ -1,6 +1,5 @@
 <?php 
-include_once "parentMenu.php";
-require_once "config.php";
+include_once "../../MenusAndFooter/parentMenu.php";
 $username = $_SESSION["parentUsername"]; 
 ?>
 <html>
@@ -26,6 +25,6 @@ $conn->close();
 ?>
 </div>
 </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

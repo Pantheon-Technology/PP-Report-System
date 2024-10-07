@@ -1,11 +1,11 @@
-<?php include_once "parentMenu.php"; 
+<?php include_once "../../MenusAndFooter/parentMenu.php"; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $_SESSION['childName'] = trim($_POST['name']);
   $_SESSION['totalPrice'] = trim($_POST['subscription']);
   $_SESSION['reason'] = trim($_POST['reason']);
 
-  header("location: processPayment.php");
+  header("location: ../Payment/processPayment.php");
 }
 ?>
       <h1>Cancellation Request</h1>
@@ -38,6 +38,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
     </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

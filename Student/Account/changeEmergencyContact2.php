@@ -1,6 +1,5 @@
 <?php 
-include_once "parentMenu.php";
-include_once 'config.php';
+include_once "../../MenusAndFooter/parentMenu.php";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $sql = "UPDATE `parents` SET `emergencyName2` = ?, `relation2` = ?, `emergencyPostcode2` = ?, `emergencyContactNum2` = ? WHERE parentUsername = '$username'";
@@ -33,6 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </form>
     </div>
   </div>
-<?php include_once "footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>
