@@ -3,7 +3,6 @@ session_start();
 $target_dir = "../../CenterForms/";
 $reportUpload = str_replace(" ", "", basename($_FILES["fileToUpload"]["name"]));
 $target_file = $target_dir . $reportUpload;
-
 $uploadOk = 1;
 $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 include_once "../../Utilities/config.php";

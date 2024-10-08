@@ -1,5 +1,4 @@
-<?php include_once "../../../MenusAndFooter/NewMenuAdmin.php"; 
-?>
+<?php include_once "../../../MenusAndFooter/NewMenuAdmin.php"; ?>
       <h1>Timesheets</h1>
       <p>Click on a teachers account to view their timesheets</p>
       <div class="w3-row-padding w3-padding-16 w3-center" id="options">

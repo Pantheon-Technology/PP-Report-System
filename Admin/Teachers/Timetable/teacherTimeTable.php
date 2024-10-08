@@ -5,7 +5,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt = $conn->prepare("INSERT INTO `timeTable` (`subject`, `teacher`, `link`, `date`, `time`, `desc`, `studentList`, `additionalComments`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-    // Check if the statement is prepared successfully
     if ($stmt === false) {
         die("Error in preparing the SQL query: " . $conn->error);
     }
@@ -37,8 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             
       <?php
           $query = "SELECT * FROM `teacher` ORDER BY `teacherUsername` ASC";
-
-$result = mysqli_query($conn, $query);
+            $result = mysqli_query($conn, $query);
 
 if ($result) {
     echo "<p>" . "<b>" . "Teacher Username" . "</b>" . "</p>";
@@ -46,12 +44,9 @@ if ($result) {
     echo '<option>' . "select" . '</option>';
 
     while ($row = mysqli_fetch_assoc($result)) {
-
         $value = $row['teacherUsername']; 
-
         echo '<option value="' . $value . ' ">' . $value . '</option>';
     }
-
     echo '</select>';
     mysqli_free_result($result);
 } else {

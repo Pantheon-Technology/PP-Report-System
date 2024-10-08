@@ -1,7 +1,4 @@
-<?php
-include_once "../../MenusAndFooter/parentMenu.php";
-
-?>
+<?php include_once "../../MenusAndFooter/parentMenu.php"; ?>
 <div class="w3-row-padding w3-center w3-padding-64" id="pricing">
     <h2>Your Course Bookings</h2>
     <p>Once your booking has been approved by our team, it will no longer appear on this list. Approved bookings will be sent to your timetable which you can view <a href="../Timetable/parentTimeTable.php">here.</a></p>

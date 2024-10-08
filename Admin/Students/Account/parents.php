@@ -10,12 +10,9 @@ $studentResult = mysqli_query($conn, $getUsername);
 if(mysqli_num_rows($studentResult) > 0){
   while($queryRow = mysqli_fetch_assoc($studentResult)){
   $studentUsername = $queryRow['parentUsername'];
-  
   }
 }
-
 ?>
-</html>
 <body>
       <h1><?php echo $studentUsername . "'s details"; ?></h1>
       <div>

@@ -13,7 +13,7 @@ if (isset($_GET['courseid'])) {
    if($result->num_rows > 0){
     while($row = $result->fetch_assoc()){    
       $courseName = $row['courseTitle'];
-      $img = "courseImg/" . $row['courseImage'];
+      $img = "../../courseImg/" . $row['courseImage'];
       $courseDesc = $row['courseDesc'];
       $learningObjectives = $row['learningObjectives'];
       $credits = $row['credits'];
@@ -70,8 +70,6 @@ else{}
 
     }
   }
-
-   // mysqli_stmt_close($stmt);
     }
 
   }
@@ -89,7 +87,7 @@ else{}
     if (!mysqli_stmt_execute($stmt)) {
         echo "Error: " . $sql2 . "<br>" . $conn->error;
     }else{
-echo "test";
+
       $sql3 = "INSERT INTO `bookings` (`parentUsername`, `email`, `courseTitle`, `childFName`, `childLName`) VALUES (?, ?, ?, ?, ?)";
       if ($stmt2 = mysqli_prepare($conn, $sql3)){
         mysqli_stmt_bind_param($stmt2, "sssss", $param_username, $param_email, $param_courseTitle, $param_childFirstName, $param_childLastName);
@@ -114,9 +112,7 @@ echo "test";
     }
   }
   }
- 
   $conn->close();
-
     ?>
     <html>
 

@@ -23,7 +23,6 @@ if (file_exists($file_path)) {
 } else {
     echo 'File does not exist.';
 }
-
 }
 }
 ?>

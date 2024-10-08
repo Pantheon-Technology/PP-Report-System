@@ -26,9 +26,7 @@ require_once "../../MenusAndFooter/schoolMenuLoggedIn.php";
         }else{
             echo "0 results";
         }
-        
         mysqli_close($conn);
-
         ?>
       </div>
     </div>

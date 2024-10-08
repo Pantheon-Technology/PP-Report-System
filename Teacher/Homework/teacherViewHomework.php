@@ -30,9 +30,7 @@ if (isset($_GET['parentid'])) {
         }else{
             echo "<h3>"."There are no homework submissions for this student yet"."</h3>";
         }
-        
         mysqli_close($conn);
-
         ?>
       </div>
     </div>

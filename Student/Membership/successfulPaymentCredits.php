@@ -7,10 +7,9 @@ require_once "../../MenusAndFooter/parentMenu.php";
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $price = $_POST['price'];
     $credits = $_POST['credits'];
-    // Set the session variables
+
     $_SESSION['totalPrice'] = $price;
     $_SESSION['credits'] = $credits;
-
 
 }
 

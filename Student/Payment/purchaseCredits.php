@@ -18,7 +18,6 @@ require_once "../../Utilities/paymentConfig.php";
         $price = $option['price'];
         $credits = $option['credits'];
     ?>
-
         <div class="w3-third w3-margin-bottom">
             <ul class="w3-ul w3-border w3-hover-shadow w3-teal w3-round">
                 <li class="w3-theme">

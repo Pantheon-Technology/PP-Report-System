@@ -1,7 +1,5 @@
 <?php
-include_once "../../MenusAndFooter/parentMenu.php";
-
-    ?>
+include_once "../../MenusAndFooter/parentMenu.php"; ?>
     <h1>Upload Legal Forms</h1>
     <p>We ask that you would take the time to read the documents below. Once you have read these documents, you can sign them and upload them below.</p>
     <br>

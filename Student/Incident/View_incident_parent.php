@@ -56,10 +56,8 @@ if (isset($_GET['id'])) {
               }
         }else{
             echo "0 results";
-        }
-        
+        }  
         mysqli_close($conn);
-
         ?>
       </div>
     </div>

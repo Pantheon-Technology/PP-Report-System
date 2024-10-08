@@ -40,10 +40,8 @@ $username = $_SESSION['studentUsername'];
               }
         }else{
             echo "0 results";
-        }
-        
+        }   
         mysqli_close($conn);
-
         ?>
       </div>
     </div>

@@ -41,25 +41,20 @@ if (empty(trim($_POST["confirm_password"]))) {
 
 if (empty($username_err) && empty($password_err) && empty($confirm_password_err)) {
 
-        // File 1 handling
         $file1 = $_FILES['file1'];
         $file1_name = $file1['name'];
         $file1_tmp = $file1['tmp_name'];
         $file1_size = $file1['size'];
         
-        // File 2 handling
         $file2 = $_FILES['file2'];
         $file2_name = $file2['name'];
         $file2_tmp = $file2['tmp_name'];
         $file2_size = $file2['size'];
         
-        // File 1 destination
         $file1_destination = '../../../PEPfiles/' . $file1_name;
         
-        // File 2 destination
         $file2_destination = '../../../EHCPfiles/' . $file2_name;
         
-        // Move uploaded files to desired destination
         if (move_uploaded_file($file1_tmp, $file1_destination) || move_uploaded_file($file2_tmp, $file2_destination)){
             
         }   else{
@@ -141,11 +136,9 @@ if ($result) {
     echo '<option>' . "select" . '</option>';
 
     while ($row = mysqli_fetch_assoc($result)) {
-
         $value = $row['schoolName']; 
         echo '<option value="' . $value . ' ">' . $value . '</option>';
     }
-
     echo '</select>'. "</p>";
 
     mysqli_free_result($result);

@@ -19,7 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 ?>
-</html>
 <body>
       <h1><?php echo "Cancellation No." . $id; ?></h1>
       <div>

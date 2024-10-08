@@ -1,5 +1,4 @@
-<?php include_once "../../../MenusAndFooter/NewMenuAdmin.php";
-?>
+<?php include_once "../../../MenusAndFooter/NewMenuAdmin.php";?>
       <h1>Manage Policy & Legal</h1> 
       <p>Here you can browse the policies you have uploaded and made available to users, if a document becomes outdated or needs replacing, simply delete the file before uploading it once more.</p>
   <div class="w3-row-padding w3-padding-16 w3-center" id="options">
@@ -24,9 +23,7 @@ else{
 }
 $conn->close();
 ?>
-    
     </div>
-    
   </div>
 <?php include_once "../../../MenusAndFooter/footer.php" ?>
 </body>

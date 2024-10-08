@@ -36,8 +36,6 @@ $conn->close();
 ?>
 </div>
 </div>
-
 <?php include_once "../../../MenusAndFooter/footer.php" ?>
-
 </body>
 </html>

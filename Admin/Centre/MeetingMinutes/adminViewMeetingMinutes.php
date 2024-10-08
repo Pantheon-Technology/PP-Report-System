@@ -1,6 +1,4 @@
-<?php require_once "../../../MenusAndFooter/NewMenuAdmin.php";
-
-?>
+<?php require_once "../../../MenusAndFooter/NewMenuAdmin.php";?>
 <h3>Recent Meeting Minutes</h3>
 <div class="w3-row-padding w3-padding-16 w3-center" id="options">
     <?php

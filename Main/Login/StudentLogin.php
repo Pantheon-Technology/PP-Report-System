@@ -60,7 +60,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </form>
     </div>
   </div>
-<?php
- include_once "../../MenusAndFooter/footer.php" ?>
+<?php include_once "../../MenusAndFooter/footer.php" ?>
 </body>
 </html>

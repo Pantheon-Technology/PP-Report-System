@@ -31,7 +31,7 @@ $filePath5 = "../../uploads\\" . $row['file5'];
             echo "</a>";
 
             if (!empty($row['file2'])){
-                echo "<a href='$filePath2' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-opacity'>";
+            echo "<a href='$filePath2' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-opacity'>";
             echo "<h2><i class='fa fa-cloud-download'></i></h2>";
             echo "<p>" . $row['file2'] . "</p>";
             echo "</div>";
@@ -39,7 +39,7 @@ $filePath5 = "../../uploads\\" . $row['file5'];
             }
 
             if (!empty($row['file3'])){
-                echo "<a href='$filePath3' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-opacity'>";
+            echo "<a href='$filePath3' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-opacity'>";
             echo "<h2><i class='fa fa-cloud-download'></i></h2>";
             echo "<p>" . $row['file3'] . "</p>";
             echo "</div>";
@@ -47,7 +47,7 @@ $filePath5 = "../../uploads\\" . $row['file5'];
             }
 
             if (!empty($row['file4'])){
-                echo "<a href='$filePath4' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-opacity'>";
+            echo "<a href='$filePath4' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-opacity'>";
             echo "<h2><i class='fa fa-cloud-download'></i></h2>";
             echo "<p>" . $row['file4'] . "</p>";
             echo "</div>";
@@ -55,7 +55,7 @@ $filePath5 = "../../uploads\\" . $row['file5'];
             }
 
             if (!empty($row['file5'])){
-                echo "<a href='$filePath5' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-opacity'>";
+            echo "<a href='$filePath5' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round w3-hover-opacity'>";
             echo "<h2><i class='fa fa-cloud-download'></i></h2>";
             echo "<p>" . $row['file5'] . "</p>";
             echo "</div>";

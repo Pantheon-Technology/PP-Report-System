@@ -1,24 +1,21 @@
 <?php 
 include_once "../../MenusAndFooter/teacherMenu.php";
-
-$search = isset($_GET['search']) ? $_GET['search'] : ''; // Get the search query from the URL parameter
-
+$search = isset($_GET['search']) ? $_GET['search'] : ''; 
 ?>
 <div id="Main" class="w3-panel w3-dark-grey w3-animate-right">
 <h1>Content List</h1>
-<!-- Add a form for searching -->
+
 <form method="get">
     <p><input class="w3-input w3-border" type="text" name="search" placeholder="Search" value="<?php echo $search; ?>"></p>
     <p><input type="submit" value="Search"></p>
 </form>
 <br>
-<!-- First Photo Grid-->
+
 <div class="w3-row-padding">
 
 <?php
 $sql = "SELECT * FROM `courseContent`";
 
-// Modify the SQL query to include the search filter
 if (!empty($search)) {
     $sql .= " WHERE `courseTitle` LIKE '%$search%' OR `courseDesc` LIKE '%$search%'";
 }

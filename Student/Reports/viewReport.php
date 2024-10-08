@@ -7,8 +7,7 @@ $username = $_SESSION["parentUsername"];
       <h1>Reports for <?php echo $username ?></h1>
       <div class="w3-row-padding w3-padding-16 w3-center" id="options">
       <?php 
-
-$sql = "SELECT * FROM `reportUpload` WHERE parentUsername = '$username' ORDER BY `date` DESC";
+$sql = "SELECT * FROM `reportUpload` WHERE parentUsername = '$username' ORDER BY `date` DESC LIMIT 20";
 $result = mysqli_query($conn, $sql);
 if($result->num_rows > 0){
 while($row = $result->fetch_assoc()){   

@@ -17,7 +17,7 @@
       </div>
       </a>
 
-      <a href="PostPage.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round w3-hover-opacity">
+      <a href="../Post/PostPage.php"><div class="w3-quarter w3-green w3-margin-left w3-margin-bottom w3-round w3-hover-opacity">
         <h2><i class="fa fa-graduation-cap"></i></h2>
         <p>Revision Lessons</p>
       </div>

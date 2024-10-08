@@ -2,7 +2,7 @@
 include_once "../../MenusAndFooter/teacherMenu.php";
 $currentDate = date("Y-m-d");
 ?>
-<!--Events tab -->
+
 <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
 
     <h1>Time table</h1>

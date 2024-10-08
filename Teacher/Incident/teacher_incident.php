@@ -49,12 +49,10 @@ if (isset($_GET['id'])) {
               echo "<p>" . $row['witness2'] . "</p>";
               echo "<p>" . "<a href='teacher_changeIncidentWitness2.php' class='w3-button w3-round w3-white w3-text-black'>" . "Click Here to add or change witness statement" . "</a>" . "</p>";
 
-
               echo "<h5><b>Witness Three :" . $row['w3name'] . "</b></h5>";
               echo "<p>" . "<b>" . "statement" . "</b>" . "</p>";
               echo "<p>" . $row['witness3'] . "</p>";
               echo "<p>" . "<a href='teacher_changeIncidentWitness3.php' class='w3-button w3-round w3-white w3-text-black'>" . "Click Here to add or change witness statement" . "</a>" . "</p>";
-
 
               echo "</div>";
 
@@ -76,16 +74,29 @@ if (isset($_GET['id'])) {
               $emailBodyEncoded = urlencode($emailBody);
               echo "<br>";
               echo "<p>" . "<a href='mailto:youremail@example.com?subject=Incident report ID: " . $id . "&body=" . $emailBodyEncoded;
-              echo "' class='w3-button w3-round w3-white w3-text-black'>" . "Email Information" . "</a>" . "</p>";
-
-                
+              echo "' class='w3-button w3-round w3-white w3-text-black'>" . "Email Information" . "</a>" . "</p>";                
               }
+
+              $followUp = "SELECT * FROM `followUp` WHERE `relatedId` = $id";
+              $results = mysqli_query($conn, $followUp);
+
+        if (mysqli_num_rows($results) > 0){
+            while($row = mysqli_fetch_assoc($results)){
+
+              echo "<h2>Follow up Actions and Comments</h2>";
+              echo "<h6><b>Who followed up?</b></h6>";
+              echo "<p>" . $row["followedUpBy"] . "</p>";
+              echo "<h6><b>Follow Up Detail</b></h6>";
+              echo "<p>" . $row["followUpDetail"] . "</p>";
+              echo "<hr>";
+            }
+          }else{
+            echo "<h2>There are no follow up actions yet</h2>";
+          }
         }else{
             echo "0 results";
         }
-        
         mysqli_close($conn);
-
         ?>
       </div>
     </div>

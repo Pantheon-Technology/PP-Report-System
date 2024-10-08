@@ -2,23 +2,21 @@
 include_once "../../MenusAndFooter/parentMenu.php";
 $username = $_SESSION["parentUsername"]; 
 
-$search = isset($_GET['search']) ? $_GET['search'] : ''; // Get the search query from the URL parameter
+$search = isset($_GET['search']) ? $_GET['search'] : ''; 
 
 ?>
 <h1>Course List</h1>
-<!-- Add a form for searching -->
+
 <form method="get">
     <p><input class="w3-input w3-border" type="text" name="search" placeholder="Search" value="<?php echo $search; ?>"></p>
     <p><input type="submit" value="Search"></p>
 </form>
 <br>
-<!-- First Photo Grid-->
 <div class="w3-row-padding">
 
 <?php
 $sql = "SELECT * FROM `courseList`";
 
-// Modify the SQL query to include the search filter
 if (!empty($search)) {
     $sql .= " WHERE `courseTitle` LIKE '%$search%' OR `courseDesc` LIKE '%$search%'";
 }

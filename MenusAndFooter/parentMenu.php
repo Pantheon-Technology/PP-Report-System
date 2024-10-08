@@ -20,12 +20,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 </style>
 </head>
 <body class="w3-light-grey">
-    <!-- Top container -->
+
 <div class="w3-bar w3-top w3-teal w3-large" style="z-index:4">
   <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
   <span class="w3-bar-item w3-right">My positive Progress - Parent</span>
 </div>
-<!-- Sidebar/menu -->
+
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:250px;" id="mySidebar"><br>
   <div class="w3-container">
       <img src="https://mypositiveprogress.co.uk/Pictures/logo.png" style="width:220px">
@@ -47,15 +47,12 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
 </nav>
 
-<!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;margin-top:43px;">
 
-<!-- Header -->
 <header class="w3-container" style="padding-top:22px">
   <h1 class ="w3-animate-top"><b>My Positive Progress</b></h1>
 </header>
 
-<!--Events tab -->
 <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">

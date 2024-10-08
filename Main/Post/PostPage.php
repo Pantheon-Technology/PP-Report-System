@@ -1,7 +1,6 @@
 <?php require_once "../../MenusAndFooter/mainMenu.php";
 include_once '../../Utilities/config.php';?>
 
-  <!--Events tab -->
   <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
     <h3>Events/News and Updates</h3>
      <?php
@@ -23,14 +22,11 @@ include_once '../../Utilities/config.php';?>
    else{
       echo "<h4>" . "There are no posts at this time." . "</h4>";
   }
- 
   $conn->close();
-
     ?>
   </div>
 </div>
-  
-  <!-- Location Tab -->
+
   <div id="LOCATION" class="w3-panel w3-animate-zoom w3-yellow w3-padding-32">
     <h3>Location</h3>
     <div class="w3-third w3-margin-right">
@@ -46,17 +42,13 @@ include_once '../../Utilities/config.php';?>
   </div>
     <?php include_once "../../MenusAndFooter/footer.php" ?>
 
-  <!-- End page content -->
 </div>
 <script src="index.js"></script>
 <script>
-// Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 
-// Get the DIV with overlay effect
 var overlayBg = document.getElementById("myOverlay");
 
-// Toggle between showing and hiding the sidebar, and add overlay effect
 function w3_open() {
   if (mySidebar.style.display === 'block') {
     mySidebar.style.display = 'none';
@@ -67,7 +59,6 @@ function w3_open() {
   }
 }
 
-// Close the sidebar with the close button
 function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";

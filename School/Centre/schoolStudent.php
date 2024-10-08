@@ -48,7 +48,6 @@ if (isset($_GET['studentid'])) {
         echo "<h2>" . "Student Uploads" . "</h2>";
 
         $student = $_SESSION['thisStudent'];
-
         $sql1 = "SELECT * FROM `schoolStudentFiles` where `studentUsername` = '$student' ORDER BY `date` DESC LIMIT 10 ";
 
         $result = mysqli_query($conn, $sql1);

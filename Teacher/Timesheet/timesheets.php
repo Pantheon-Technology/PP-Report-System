@@ -1,11 +1,9 @@
 <?php include_once "../../MenusAndFooter/teacherMenu.php"; 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-  // Assuming you have established the database connection in $conn variable.
 
   $stmt = $conn->prepare("INSERT INTO `timesheet` (`employee_name`, `date`, `hours_worked`, `milage`, `tunnel`, `project`, `confirmation`, `weekCommencing`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
-  // Get data from the form submission
   $employeeName = $_SESSION["teacherUsername"];
   $dates = $_POST["date"];
   $hoursWorkedArr = $_POST["hours_worked"];
@@ -15,13 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $confirmation = $_POST['confirmation'];
   $week = $_POST['weekCommencing'];
 
-  // Count the number of entries in the hours array
   $numEntries = count($dates);
 
-  // Variable to track successful insertions
   $insertedSuccessfully = false;
 
-  // Loop through the submitted data and insert into the database
   for ($i = 0; $i < $numEntries; $i++) {
       $date = $dates[$i];
       $hoursWorked = $hoursWorkedArr[$i];
@@ -29,16 +24,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $milage = $milageArr[$i];
       $tunnel = $tunnelArr[$i];
 
-      // Bind the parameters and execute the statement
       $stmt->bind_param("ssssssss", $employeeName, $date, $hoursWorked, $milage, $tunnel, $project, $confirmation, $week);
 
       if ($stmt->execute()) {
-          // Set the flag to true if at least one entry is inserted successfully
           $insertedSuccessfully = true;
       }
   }
 
-  // Display the alert if at least one entry is inserted successfully
   if ($insertedSuccessfully) {
       echo '<script>alert("Your timesheet entries have been added successfully!")</script>';
   }
@@ -73,7 +65,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     text-align: left;
   }
 
-  /* Add media query for screens smaller than 600px */
   @media (max-width: 600px) {
     th,
     td {
@@ -98,7 +89,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 </style>
 
-<!--Events tab -->
 <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
 
     <h1>Timesheet Form</h1>

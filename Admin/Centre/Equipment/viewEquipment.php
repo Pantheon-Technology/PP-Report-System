@@ -14,11 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            } mysqli_stmt_close($stmt);
        }
    }
-
-
 ?>
       <h1>View Equipment Request</h1>
-
       <div class="w3-row-padding w3-padding-16 w3-center" id="options">
 <?php 
 $sql = "SELECT * FROM `equipmentRequest` WHERE `granted` = 0 ORDER BY `startDate` DESC";

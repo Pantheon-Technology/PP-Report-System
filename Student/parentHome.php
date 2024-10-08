@@ -1,8 +1,6 @@
 <?php include_once "../MenusAndFooter/parentMenu.php"; 
 $sql = "SELECT * FROM `parents` where `parentUsername` = '$username'";
 $result = mysqli_query($conn, $sql);
-
-
 if ($result->num_rows > 0) {
   
   $row = mysqli_fetch_assoc($result);
@@ -34,14 +32,9 @@ if ($result->num_rows > 0) {
       $newDate = "UPDATE `parents` SET `giveCredits` = '$currentDate' WHERE `parentUsername` = '$username'";
       mysqli_query($conn, $newDate);
     }
-  }else{
-    //do nothing
-  }
+  }else{ }
   
-} else {
-
-}
-
+} else {}
 mysqli_close($conn);
 ?>
       <h1>Parent Home Page</h1>

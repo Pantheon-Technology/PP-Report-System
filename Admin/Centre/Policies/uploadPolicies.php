@@ -8,7 +8,6 @@
       <div class="w3-left-align w3-padding-large">
         <form action="../../AdminUtilities/policyUpload.php" method="post" enctype="multipart/form-data">
 
-
           <p><b>Name of Document</b></p>
           <p><input type="text" id="reportName" name="reportName" placeholder="Name of document" required></p>
 

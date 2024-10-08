@@ -7,7 +7,6 @@ if (isset($_GET['id'])) {
 }
 
 ?>
-</html>
 <body>
       <h1><?php echo "Request No." . $id; ?></h1>
       <div>

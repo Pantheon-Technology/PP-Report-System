@@ -17,6 +17,7 @@ $sql = "INSERT INTO `incidents` (`studentName`, `date`, `time`, `issueType`, `de
          $param_reportedBy = $username;   
             
                 if (mysqli_stmt_execute($stmt)) {
+                    require "../../Utilities/SendIncidentEmail.php";
                   echo '<script>alert("Incident added successfully")</script>';
                 } else {
                     echo "Oops! Something went wrong. Please try again later.";
@@ -30,15 +31,13 @@ $sql = "INSERT INTO `incidents` (`studentName`, `date`, `time`, `issueType`, `de
  <!DOCTYPE html>
 
  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script> //script for searching my database
+<script> 
 $(document).ready(function(){
     $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
         var inputVal = $(this).val();
         var resultDropdown = $(this).siblings(".result");
         if(inputVal.length){
             $.get("../../Utilities/backend-search.php", {term: inputVal}).done(function(data){
-                // Display the returned data in drop down box on the page
                 resultDropdown.html(data);
             });
         } else{
@@ -46,7 +45,6 @@ $(document).ready(function(){
         }
     });
 
-    // Set search input value on click of result item
     $(document).on("click", ".result p", function(){
         $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
         $(this).parent(".result").empty();
@@ -54,7 +52,6 @@ $(document).ready(function(){
 });
 </script>
 
-<!--Events tab -->
 <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
 
     <h1>Incident Report</h1>
@@ -68,33 +65,23 @@ $(document).ready(function(){
       <h2>Incident Form</h2>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
       <?php
-          $query = "SELECT * FROM parents ORDER BY `parentUsername` ASC";
+          $query = "SELECT * FROM parents ORDER BY `parentUsername` ASC WHERE `archived` != 1";
 
-// Execute the query
 $result = mysqli_query($conn, $query);
 
-// Check if the query was successful
 if ($result) {
     echo "<p>" . "<b>" . "Username of Child" . "</b>" . "</p>";
     echo '<select name="student">';
     echo '<option>' . "select" . '</option>';
 
-    // Fetch each row from the result set
     while ($row = mysqli_fetch_assoc($result)) {
-
         $value = $row['parentUsername']; 
-
-        // Create an option tag with the fetched value
         echo '<option value="' . $value . ' ">' . $value . '</option>';
     }
 
-    // End the dropdown box
     echo '</select>';
-
-    // Free the result set
     mysqli_free_result($result);
 } else {
-    // Error handling if the query fails
     echo 'Error: ' . mysqli_error($connection);
 }
 ?>
@@ -130,23 +117,7 @@ if ($result) {
                 <p><input class="w3-input w3-border w3-padding-16" type="text" name="followUpName" placeholder="Name"></p>
 
           <button class="w3-button w3-black w3-margin-bottom" input type="submit" required name="sendEmail">Upload incident to the system</button>
-        </form>
-        <?php
-            if (isset($_POST['sendEmail'])) {
-              $to = 'georgia.nisted@positive-progress.co.uk'; // Replace with the recipient's email address
-              $subject = 'Incident Reported'; // Replace with the email subject
-              $message = 'An incident has been reported, check the view incidents area on your admin dashboard.'; // Replace with the email message
-              $headers = 'From: georgia.nisted@positive-progress.co.uk'; // Replace with the sender's email address
-
-              // Send the email
-              if (mail($to, $subject, $message, $headers)) {
-              echo "Email sent successfully.";
-              } else {
-              echo "Failed to send email.";
-              }
-            }
-?>
-        
+        </form>        
         </div>
      </div>
    </div>

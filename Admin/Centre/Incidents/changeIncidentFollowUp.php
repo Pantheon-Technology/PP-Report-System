@@ -7,20 +7,21 @@ if (isset($_GET['id'])) {
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $sql = "UPDATE `incidents` SET `followUp` = ?, `whoFollowedUp` = ? WHERE incidentNumber = '$id'";
-        if ($stmt = mysqli_prepare($conn, $sql)) {
-         mysqli_stmt_bind_param($stmt, "ss", $param_followUp, $param_whoFollowedUp);
-            $param_followUp = trim($_POST["followUp"]);
-            $param_whoFollowedUp = trim($_POST['name']);
-            
-                if (mysqli_stmt_execute($stmt)) {
-                    echo '<script>alert("Incident No.' . $id . " " . ' has been updated successfully")</script>';
-                } else {
-                    echo "Oops! Something went wrong. Please try again later.";
-                }
-                mysqli_stmt_close($stmt);
+    $sql = "INSERT INTO `followUp` (`relatedId`, `followUpDetail`, `followedUpBy`) VALUES (?, ?, ?)";
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+     mysqli_stmt_bind_param($stmt, "iss", $param_relatedId, $param_followUp, $param_whoFollowedUp);
+        $param_relatedId = $id;
+        $param_followUp = trim($_POST["followUp"]);
+        $param_whoFollowedUp = trim($_POST['name']);
+        
+            if (mysqli_stmt_execute($stmt)) {
+                echo '<script>alert("Follow up added to Incident No.' . $id . ' has been updated successfully")</script>';
+            } else {
+                echo "Oops! Something went wrong. Please try again later.";
             }
-        } mysqli_close($conn);
+            mysqli_stmt_close($stmt);
+        }
+    } mysqli_close($conn);
  ?>
       <h1>Add Follow up details</h1>
       <p>Use the form below to add follow up information.</p>

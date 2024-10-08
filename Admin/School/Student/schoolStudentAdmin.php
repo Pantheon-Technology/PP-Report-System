@@ -5,11 +5,9 @@ if (isset($_GET['studentid'])) {
 } else {
     $id = $_SESSION["studentid"];
 }
-
 ?>
-</html>
 <body>
-      <h1><?php echo "Student" . " details"; ?></h1>
+      <h1><?php echo "Student details"; ?></h1>
       <div>
         <?php
         $sql = "SELECT * FROM schoolStudent where studentID = $id ";
@@ -69,8 +67,6 @@ if (isset($_GET['studentid'])) {
             echo "No uploads";
         }
         echo "</div>";
-      
-
         ?>
       </div>
     </div>

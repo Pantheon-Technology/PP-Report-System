@@ -1,14 +1,10 @@
 <?php
 include_once "../../MenusAndFooter/teacherMenu.php";
-
-// Initialize an associative array to store total hours per project
 $totalHoursPerProject = array();
-
 ?>
 
 <h1>Your Timesheet</h1>
 <div id="Main" class="w3-panel w3-dark-grey w3-animate-right w3-padding">
-  
 <?php 
 $sql = "SELECT * FROM timesheet WHERE employee_name = '$username' AND hours_worked != '0' ORDER BY `date` DESC";
 $result = mysqli_query($conn, $sql);
@@ -41,7 +37,6 @@ if ($result->num_rows > 0) {
     echo "<td class='w3-border'>" . $row['milage'] . "</td>";
     echo "<td class='w3-border'>" . $row['tunnel'] . "</td>";
 
-    // Update the total hours for each project
     $project = $row['project'];
     if (!isset($totalHoursPerProject[$project])) {
       $totalHoursPerProject[$project] = 0;
@@ -59,10 +54,8 @@ if ($result->num_rows > 0) {
 } else {
   echo "<h2>There are no timesheets for $username</h2>";
 }
-
 mysqli_close($conn);
 ?>
-
 </div>
 </div>
 <?php include_once "../../MenusAndFooter/footer.php" ?>

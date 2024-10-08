@@ -27,7 +27,6 @@ $sql = "SELECT * FROM timesheet WHERE employee_name = '$id' AND archived = '0' A
 $result = mysqli_query($conn, $sql);
 
 $totalHours = 0;
-
 ?>
 
 <h1>Timesheet for <?php echo $id ?></h1>
@@ -84,10 +83,8 @@ if ($result->num_rows > 0) {
 } else {
     echo "<h2>There are no timesheets for $id</h2>";
 }
-
 mysqli_close($conn);
 ?>
-
 </div>
 </div>
 <?php include_once "../../../MenusAndFooter/footer.php" ?>

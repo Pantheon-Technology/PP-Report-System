@@ -9,7 +9,6 @@ $fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 include_once "../../Utilities/config.php";
 $file = "";
 
-
 if ($_FILES["fileToUpload"]["size"] > 500000) {
   echo "Sorry, your file is too large.";
   $uploadOk = 0;

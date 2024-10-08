@@ -1,5 +1,4 @@
 <?php include_once "../MenusAndFooter/teacherMenu.php" ?>
-  <!--Events tab -->
   <div id="Main" class="w3-panel w3-dark-grey w3-animate-right">
     <h3>Positive Progress Center Options</h3>
 
@@ -98,7 +97,5 @@
       </div>
 
 </div>
-
     <?php include_once "../MenusAndFooter/footer.php" ?>
-  <!-- End page content -->
 </div>

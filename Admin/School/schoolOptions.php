@@ -1,5 +1,4 @@
 <?php include_once "../../MenusAndFooter/NewMenuAdmin.php" ?>
-  <!--Events tab -->
   <div id="Main" class="w3-panel w3-dark-grey w3-animate-right">
     <h3>School Options</h3>
 
@@ -47,23 +46,16 @@
       </div>
   </a>
 </div>
-
 </div>
   </div>
-
-
     <?php include_once "../../MenusAndFooter/footer.php" ?>
-  <!-- End page content -->
 </div>
 <script src="index.js"></script>
 <script>
-// Get the Sidebar
 var mySidebar = document.getElementById("mySidebar");
 
-// Get the DIV with overlay effect
 var overlayBg = document.getElementById("myOverlay");
 
-// Toggle between showing and hiding the sidebar, and add overlay effect
 function w3_open() {
   if (mySidebar.style.display === 'block') {
     mySidebar.style.display = 'none';
@@ -74,7 +66,6 @@ function w3_open() {
   }
 }
 
-// Close the sidebar with the close button
 function w3_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";

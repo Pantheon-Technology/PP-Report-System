@@ -15,14 +15,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $param_comments = trim($_POST['comments']);
      
       if (mysqli_stmt_execute($stmt)) {
-        
-           require "../../Utilities/ping.php";
+       require "../../Utilities/ping.php";
        echo '<script>alert("Your request has been sent to our team, they will respond to your query ASAP");document.location="../parentHome.php"</script>';
       } else {
           echo "Oops! Something went wrong. Please try again later.";
       }
-
-      
       mysqli_stmt_close($stmt);
   }
 }
@@ -48,12 +45,10 @@ mysqli_close($conn);
 
       <p><textarea class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="Comments" name="comments"></textarea></p>
 
-
       <p><button type="submit">Submit Request</button></p>
     
 </form>
 </div>
-  
     </div>
   </div>
 <?php include_once "../../MenusAndFooter/footer.php" ?>

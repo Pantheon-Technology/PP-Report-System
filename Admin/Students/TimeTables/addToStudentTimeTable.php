@@ -6,10 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $stmt = $conn->prepare("INSERT INTO `studentTimeTable` (`parentUsername`, `subject`, `link`, `date`, `time`) VALUES (?, ?, ?, ?, ?)");
 
-// Check if the statement is prepared successfully
 if ($stmt === false) {
     die("Error in preparing the SQL query: " . $conn->error);
 }
+
 $parent = $_SESSION['parent'];
 $subject = $_SESSION['courseTitle'];
 $link = $_POST['link'];
