@@ -17,6 +17,18 @@
       </div>
       </a>
 
+      <a href="Course/newResourcePack.php"><div class="w3-quarter w3-pink w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+        <h2><i class="fa fa-plus"></i></h2>
+        <p>Add a new resource pack</p>
+      </div>
+      </a>
+
+      <a href="Course/searchResourcePacks.php"><div class="w3-quarter w3-pink w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+        <h2><i class="fa fa-eye"></i></h2>
+        <p>Search resource pack</p>
+      </div>
+      </a>
+
       <a href="Posts/makepost.php"><div class="w3-quarter w3-purple w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-pencil"></i></h2>
         <p>Create a Post</p>
