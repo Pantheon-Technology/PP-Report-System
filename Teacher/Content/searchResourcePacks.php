@@ -20,7 +20,7 @@ if (isset($_GET['id'])) {
 <div class="w3-row-padding">
 
 <?php
-$sql = "SELECT * FROM `ResourcePack`";
+$sql = "SELECT * FROM `resourcePack`";
 
 if (!empty($search)) {
     $sql .= " WHERE `Subject` LIKE '%$search%' OR `Topic` LIKE '%$search%' OR `Topic` LIKE '%$search%' OR `Level` LIKE '%$search%' OR `Tag1` LIKE '%$search%' OR `Tag2` LIKE '%$search%' OR `Tag3` LIKE '%$search%' OR `Tag4` LIKE '%$search%' OR `Tag5` LIKE '%$search%'";
@@ -39,16 +39,12 @@ if ($result->num_rows > 0){
                 $colour = 'w3-yellow'; 
             case 'Biology':
                 $colour = 'w3-teal'; 
-    
             case 'English':
                 $colour = 'w3-blue'; 
-    
             case 'History':
                 $colour = 'w3-brown';
-    
             case 'Geography':
                 $colour = 'w3-orange';
-            
             default:
             $colour = 'w3-white';
             }

@@ -59,7 +59,7 @@
       }
       ?>
 
-      <a href="../../Utilities/logOut.php"><div class="w3-quarter w3-red w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
+      <a href="https://mypositiveprogress.co.uk/Utilities/logOut.php"><div class="w3-quarter w3-red w3-margin-left w3-margin-bottom w3-round w3-hover-shadow">
         <h2><i class="fa fa-sign-out"></i></h2>
         <p>Logout</p>
       </div>

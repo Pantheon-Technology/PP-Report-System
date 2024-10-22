@@ -1,4 +1,10 @@
-<?php session_start();$username = $_SESSION['studentUsername'];  require_once(__DIR__ . '../../Utilities/config.php');?>
+<?php session_start();
+$username = $_SESSION['studentUsername']; 
+if(!isset($_SESSION["studentUsername"]) || $_SESSION["studentUsername"] === null){
+  header("location:https://mypositiveprogress.co.uk/");
+  exit;
+}
+require_once(__DIR__ . '../../Utilities/config.php');?>
 <!DOCTYPE html>
 <html>
 <head>

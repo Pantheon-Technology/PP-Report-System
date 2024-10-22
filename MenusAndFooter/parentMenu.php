@@ -1,6 +1,6 @@
 <?php session_start(); $username = $_SESSION["parentUsername"]; 
 if(!isset($_SESSION["loggedInParent"]) || $_SESSION["loggedInParent"] !== true){
-  header("location:" . __DIR__ . "../Main/parentLogin.php");
+  header("location:https://mypositiveprogress.co.uk/");
   exit;
 }
 require_once(__DIR__ . '../../Utilities/config.php');

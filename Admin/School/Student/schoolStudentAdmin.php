@@ -55,7 +55,7 @@ if (isset($_GET['studentid'])) {
         if (mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
 
-              $filePath = "../../../schoolUploads\\" . $row['file']; 
+              $filePath = "https://mypositiveprogress.co.uk/schoolUploads\\" . $row['file']; 
               echo "<a href='$filePath' download><div class='w3-quarter w3-teal w3-margin-left w3-margin-bottom w3-round'>";
               echo "<h2><i class='fa fa-cloud-download'></i></h2>";
               echo "<p>Download student's recent upload</p>";

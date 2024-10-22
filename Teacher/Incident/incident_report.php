@@ -65,8 +65,7 @@ $(document).ready(function(){
       <h2>Incident Form</h2>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
       <?php
-          $query = "SELECT * FROM parents ORDER BY `parentUsername` ASC WHERE `archived` != 1";
-
+          $query = "SELECT * FROM parents ORDER BY `parentUsername` ASC";
 $result = mysqli_query($conn, $query);
 
 if ($result) {

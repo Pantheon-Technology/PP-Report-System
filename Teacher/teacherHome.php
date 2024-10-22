@@ -83,7 +83,7 @@ if($username == 't.archibald'){
 
       <a href="Content/searchResourcePacks.php"><div class="w3-quarter w3-brown w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-graduation-cap"></i></h2>
-        <p>View Course Content</p>
+        <p>View Resource Packs</p>
       </div>
       </a>
 
@@ -105,7 +105,7 @@ if($username == 't.archibald'){
       </div>
       </a>
 
-      <a href="../../Utilities/logOut.php"><div class="w3-quarter w3-black w3-margin-left w3-margin-bottom w3-round">
+      <a href="https://mypositiveprogress.co.uk/Utilities/logOut.php"><div class="w3-quarter w3-black w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-cog"></i></h2>
         <p>logout</p>
       </div>

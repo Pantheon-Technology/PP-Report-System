@@ -54,7 +54,7 @@ if (isset($_GET['studentid'])) {
         if (mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
                 echo "<div class=w3-half>";
-                $filePath = "../../uploads\\" . $row['file']; 
+                $filePath = "https://mypositiveprogress.co.uk/uploads\\" . $row['file']; 
                 echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
                 echo "</div>";
 

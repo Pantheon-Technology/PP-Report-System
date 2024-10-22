@@ -11,7 +11,7 @@ $sql = "SELECT * FROM `policies`";
 $result = mysqli_query($conn, $sql);
 if($result->num_rows > 0){
 while($row = $result->fetch_assoc()){   
-$filePath = "../../CenterForms\\" . $row['file']; 
+$filePath = "https://mypositiveprogress.co.uk/CenterForms\\" . $row['file']; 
 echo "<a href=" . $filePath ." download> <div class='w3-quarter w3-green w3-round w3-margin-left w3-hover-opacity'>" ;
 echo '<h2><i class="fa fa-cloud-download"></i></h2>';
 echo "<p>Download " . $row['fileName']  . "</p>";

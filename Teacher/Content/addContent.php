@@ -1,6 +1,5 @@
 <?php include_once "../../MenusAndFooter/teacherMenu.php";?>
 
-<!--Events tab -->
 <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
 
     <h1>Create Course Content</h1>

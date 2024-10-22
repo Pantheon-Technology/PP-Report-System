@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password_verify($password, $hashed_password)) {
                 $_SESSION["loggedInParent"] = true;
                 $_SESSION["parentUsername"] = $username;
-                header("location: ../../Student/parentHome.php");
+                echo "<script type='text/javascript'>window.top.location='../../Student/parentHome.php';</script>"; exit;
               } else {
                 $login_err = "Invalid username or password.";
               }

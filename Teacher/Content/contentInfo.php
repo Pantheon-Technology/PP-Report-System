@@ -1,6 +1,6 @@
 <?php 
 include_once "../../MenusAndFooter/teacherMenu.php";
-$filePath = '../../../courseContent/';
+$filePath = 'https://mypositiveprogress.co.uk/courseContent/';
 
 if (isset($_GET['id'])) {
     $id = $_SESSION["id"] = $_GET['id'];

@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 if (password_verify($password, $hashed_password)) {
                 $_SESSION["loggedInSchool"] = true;
                 $_SESSION["centerUsername"] = $username;
-                header("location: ../../School/Centre/schoolDashboard.php");
+                echo "<script type='text/javascript'>window.top.location='../../School/Centre/schoolDashboard.php';</script>"; exit;
               } else {
                 $login_err = "Invalid username or password.";
               }

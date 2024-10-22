@@ -86,7 +86,7 @@ if(mysqli_num_rows($studentResult) > 0){
               $result = mysqli_query($conn, $sql1);
                  if (mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
-                       $filePath = "../../../uploads\\" . $row['file']; 
+                       $filePath = "https://mypositiveprogress.co.uk/uploads\\" . $row['file']; 
                        echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
                        
                     }
@@ -103,7 +103,7 @@ if(mysqli_num_rows($studentResult) > 0){
               $result = mysqli_query($conn, $sql1);
                  if (mysqli_num_rows($result) > 0){
                     while($row = mysqli_fetch_assoc($result)){
-                       $filePath = "../../../uploads\\" . $row['file']; 
+                       $filePath = "https://mypositiveprogress.co.uk/uploads\\" . $row['file']; 
                        echo "<div>" . "<a href=" . $filePath ." download>" . "Download" . " " . $row['studentUsername'] . "'s" . " " . $row['fileName'] . "</a>" . "</div>";
                     }
                   }else{

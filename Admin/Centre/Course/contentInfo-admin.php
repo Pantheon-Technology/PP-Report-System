@@ -7,7 +7,7 @@ if (isset($_GET['id'])) {
   $id = $_SESSION["id"];
 }
 
-$filePath = '../../../courseContent/';
+$filePath = 'https://mypositiveprogress.co.uk/courseContent/';
 
      $sql = "SELECT * FROM `courseContent` WHERE ID = $id";
      $result = mysqli_query($conn, $sql);

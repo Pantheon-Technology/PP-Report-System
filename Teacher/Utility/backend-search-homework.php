@@ -3,7 +3,7 @@ include_once "../../Utilities/config.php";
 
 if (isset($_REQUEST["term"])) {
 
-    $sql = "SELECT * FROM parents WHERE `childFName` LIKE ? or childLName LIKE ?";
+    $sql = "SELECT * FROM parents WHERE `childFName` LIKE ? OR childLName LIKE ?";
     if ($stmt = mysqli_prepare($conn, $sql)) {
 
         mysqli_stmt_bind_param($stmt, "ss", $param_term, $param_term);

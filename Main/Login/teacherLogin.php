@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once "../../MenusAndFooter/mainMenu.php";
 include_once '../../Utilities/config.php';
 $username = $password = "";
@@ -28,7 +29,7 @@ if (empty($username_err) && empty($password_err)) {
                 session_start();
                 $_SESSION["loggedInTeacher"] = true;
                 $_SESSION["teacherUsername"] = $username;
-                header("location: ../../Teacher/teacherHome.php");
+                echo "<script type='text/javascript'>window.top.location='../../Teacher/teacherHome.php';</script>"; exit;
                 } else {
                   $login_err = "Invalid username or password.";
                 }

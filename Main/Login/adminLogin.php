@@ -27,7 +27,7 @@ $username_err = $password_err = $login_err = "";
                 if (password_verify($password, $hashed_password)) {
                 $_SESSION["loggedInAdmin"] = true;
                 $_SESSION["adminUsername"] = $username;
-                header("location: ../../Admin/Main/adminHome.php");
+                echo "<script type='text/javascript'>window.top.location='../../Admin/Main/adminHome.php';</script>"; exit;
               } else {
                 $login_err = "Invalid username or password.";
               }

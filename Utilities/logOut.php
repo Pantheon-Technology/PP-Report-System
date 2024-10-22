@@ -4,5 +4,5 @@ session_start();
 $_SESSION = array();
 
 session_destroy();
-header('location:' . __DIR__ . '../Main/index.php');
+echo "<script type='text/javascript'>window.top.location='https://mypositiveprogress.co.uk/';</script>"; exit;
 ?>

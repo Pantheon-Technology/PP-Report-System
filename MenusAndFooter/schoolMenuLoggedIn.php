@@ -1,5 +1,10 @@
 <?php session_start(); 
 $username = $_SESSION['centerUsername'];
+
+if(!isset($_SESSION["centerUsername"]) || $_SESSION["centerUsername"] === null){
+  header("location:https://mypositiveprogress.co.uk/");
+  exit;
+}
 require_once(__DIR__ . '../../Utilities/config.php');
 ?>
 <!DOCTYPE html>

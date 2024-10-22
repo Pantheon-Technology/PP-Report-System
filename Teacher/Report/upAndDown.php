@@ -29,7 +29,7 @@ $(document).ready(function(){
       <div class="w3-left-align w3-padding-large">
         <form action="../Utility/upload.php" method="post" enctype="multipart/form-data">
         <?php
-          $query = "SELECT * FROM parents ORDER BY `parentUsername` ASC";
+          $query = "SELECT * FROM parents ORDER BY `parentUsername`  ASC";
 
 $result = mysqli_query($conn, $query);
 
