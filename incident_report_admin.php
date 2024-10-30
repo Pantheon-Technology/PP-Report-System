@@ -133,7 +133,8 @@ if ($result) {
                 <p><input class="w3-input w3-border w3-padding-16" type="text" name="followUpName" placeholder="Name"></p>
 
           <button class="w3-button w3-black w3-margin-bottom" input type="submit" required name="sendEmail">Upload incident to the system</button>
-        </form>       
+        </form>   
+            
         </div>
      </div>
    </div>

@@ -29,11 +29,16 @@
       </div>
       </a>
 
-      <a href="View_Incident_teacher.php"><div class="w3-quarter w3-light-grey w3-margin-left w3-margin-bottom w3-round">
-        <h2><i class="fa fa-eye"></i></h2>
-        <p>View Incidents</p>
-      </div>
-      </a>
+      <?php
+if($username == 't.archibald'){
+    echo '<a href="View_Incident_teacher.php">
+            <div class="w3-quarter w3-light-grey w3-margin-left w3-margin-bottom w3-round">
+                <h2><i class="fa fa-eye"></i></h2>
+                <p>View Incidents</p>
+            </div>
+          </a>';
+}
+?>
 
       <a href="timesheets.php"><div class="w3-quarter w3-purple w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-calendar"></i></h2>
@@ -61,13 +66,24 @@
 
       <a href="addContent.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-graduation-cap"></i></h2>
-        <p>Add Course Content</p>
+        <p>Add Purchasable Course Content</p>
       </div>
       </a>
 
       <a href="searchContent.php"><div class="w3-quarter w3-yellow w3-margin-left w3-margin-bottom w3-round">
         <h2><i class="fa fa-graduation-cap"></i></h2>
-        <p>View Course Content</p>
+        <p>View Purchasable Course Content</p>
+      </div>
+      </a>
+
+      <a href="teacherNewResourcePack.php"><div class="w3-quarter w3-purple w3-margin-left w3-margin-bottom w3-round">
+        <h2><i class="fa fa-graduation-cap"></i></h2>
+        <p>Create Resource Pack</p>
+      </div>
+      </a>
+      <a href="teacherSearchResourcePacks.php"><div class="w3-quarter w3-brown w3-margin-left w3-margin-bottom w3-round">
+        <h2><i class="fa fa-graduation-cap"></i></h2>
+        <p>View Resource Packs</p>
       </div>
       </a>
 
