@@ -20,7 +20,7 @@ $query = $_SESSION['queryFilter'];
     </div>
 <div class="w3-row-padding w3-padding-16 w3-center" id="options">
 <?php 
-if ($username == "l.heron" || $username == "Margaret.Rude21" || $username == "e.colangelo" || $username == "k.dermott" || $username == "gnisted"){
+if ($username == 'lheron' || $username == 'llake' || $username == 'j.deberque' || $username == 'tarchibald' || $username == 'BobTheTester' || $username == "l.heron" || $username == "Margaret.Rude21" || $username == "e.colangelo" || $username == "k.dermott" || $username == "gnisted"){
     if($query != null){
         $sql = "SELECT * FROM incidents WHERE (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
     }else{
@@ -28,9 +28,9 @@ if ($username == "l.heron" || $username == "Margaret.Rude21" || $username == "e.
     }
 }else{
     if($query != null){
-        $sql = "SELECT * FROM incidents WHERE `issueType` <> 'Safeguarding' AND (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
+        $sql = "SELECT * FROM incidents WHERE `issueType` <> 'Safeguarding' AND `issueType` <> 'Background' AND (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
     }else{
-    $sql = "SELECT * FROM `incidents` where `issueType` <> 'Safeguarding' ORDER BY `Date` DESC LIMIT 20";
+    $sql = "SELECT * FROM `incidents` where `issueType` <> 'Safeguarding' AND `issueType` <> 'Background' ORDER BY `Date` DESC LIMIT 20";
     }
 }
 $result = mysqli_query($conn, $sql);
@@ -41,43 +41,59 @@ if($result->num_rows > 0){
     echo "<th class='w3-border w3-padding'><h3>Type</h3></th>";
     echo "<th class='w3-border w3-padding'><h3>Student</h3></th>";
     echo "<th class='w3-border w3-padding'><h3>Reported By</h3></th>";
+    echo "<th class='w3-border w3-padding'><h3>Reported On</h3></th>";
     echo "<th class='w3-border w3-padding'><h3>View More Information</h3></th>";
     echo "</tr>";
  
-    while($row = $result->fetch_assoc()){   
- 
-     $year = substr($row["date"], 0, 4);
-     $month = substr($row['date'], 5, -3);
-     $day = substr($row['date'], 8, 10);
+    while ($row = $result->fetch_assoc()) {
 
-     $type = $row['issueType'];
+    // Format Incident Date (robustly)
+    $incidentDateFormatted = '—';
+    if (!empty($row['date'])) {
+        try {
+            $dt = new DateTime($row['date']);
+            // Use day-month-year (same style you used before). If you prefer a full month name, use 'd F Y'.
+            $incidentDateFormatted = $dt->format('d-m-Y');
+        } catch (Exception $e) {
+            // leave as fallback '—'
+        }
+    }
 
-     switch ($type){
-        case 'Safeguarding':
-            $colour = 'w3-blue';
-            break;
-        case 'Behavioural':
-            $colour = 'w3-red';
-            break;
-        case 'Homework':
-            $colour = 'w3-yellow';
-            break;
-        case 'Attendance':
-            $colour = 'w3-orange';
-            break;
-        default:
-            $colour = 'w3-green';
-     }
- 
-      echo "<tr>";
-      echo "<td class='w3-border w3-padding'>" . $day . "-" . $month . "-" . $year . "</td>";
-      echo "<td class='w3-border " . $colour . "'>" . $row['issueType'] . "</td>";
-      echo "<td class='w3-border'>" . $row['fullName'] . "</td>";
-      echo "<td class='w3-border'>" . $row['reportedBy'] . "</td>";
-      echo "<td class='w3-border'>". "<a href =\"incident.php?id=". $row['incidentNumber'] . "\">View More</a>"  . "</td>";
-      echo "</tr>";
-      
-  }
+    // Format Reported On (robustly, include time if present)
+    $reportedOnFormatted = '—';
+    if (!empty($row['reportedOn'])) {
+        try {
+            $dt2 = new DateTime($row['reportedOn']);
+            // include time if the stored value has time information
+            $hasTime = (strpos($row['reportedOn'], ':') !== false);
+            $reportedOnFormatted = $hasTime ? $dt2->format('d-m-Y H:i') : $dt2->format('d-m-Y');
+        } catch (Exception $e) {
+            // fallback - raw value escaped
+            $reportedOnFormatted = htmlspecialchars($row['reportedOn'], ENT_QUOTES);
+        }
+    }
+
+    // Determine color class for issue type
+    $type = $row['issueType'];
+    switch ($type) {
+        case 'Safeguarding': $colour = 'w3-blue'; break;
+        case 'Behavioural':  $colour = 'w3-red';  break;
+        case 'Homework':     $colour = 'w3-yellow'; break;
+        case 'Attendance':   $colour = 'w3-orange'; break;
+        case 'Background':   $colour = 'w3-orange'; break;
+        default:             $colour = 'w3-green';
+    }
+
+    echo "<tr>";
+    echo "<td class='w3-border w3-padding'>" . htmlspecialchars($incidentDateFormatted, ENT_QUOTES) . "</td>";
+    echo "<td class='w3-border " . $colour . "'>" . htmlspecialchars($row['issueType'], ENT_QUOTES) . "</td>";
+    echo "<td class='w3-border'>" . htmlspecialchars($row['fullName'], ENT_QUOTES) . "</td>";
+    echo "<td class='w3-border'>" . htmlspecialchars($row['reportedBy'], ENT_QUOTES) . "</td>";
+    echo "<td class='w3-border'>" . htmlspecialchars($reportedOnFormatted, ENT_QUOTES) . "</td>";
+    echo "<td class='w3-border'><a href=\"incident.php?id=" . urlencode($row['incidentNumber']) . "\">View More</a></td>";
+    echo "</tr>";
+}
+
   echo "</table>";
 }
 else{

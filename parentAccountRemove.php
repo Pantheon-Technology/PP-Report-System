@@ -1,89 +1,69 @@
 <?php 
 include_once "NewMenuAdmin.php";
-include_once 'config.php';
-$username = "";
-$username_err = "";
+require_once "config.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty(trim($_POST["username"]))) {
-     $username_err = "Please enter a username.";
-    } else {
-      $sql = "SELECT parentID FROM parents WHERE parentUsername = ?";
-        if ($stmt = mysqli_prepare($conn, $sql)) {
-         mysqli_stmt_bind_param($stmt, "s", $param_username);
-          $param_username = trim($_POST["username"]);
-            if (mysqli_stmt_execute($stmt)) {
-                 mysqli_stmt_store_result($stmt);
-                    if (mysqli_stmt_num_rows($stmt) == 0) {
-                        $username_err = "This username does not exist. Please try another";
-                    } else {
-                        $username = trim($_POST["username"]);
-                    }
-            } else {
-                echo "Oops! Something went wrong. Please try again later.";
-                } mysqli_stmt_close($stmt);
-            }
-        }
-if (empty($username_err)) {
- $sql = "UPDATE parents SET `archived` = 1 WHERE parentUsername = ?";
+$search = isset($_GET['search']) ? $_GET['search'] : '';
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Handle the deletion
+    $sql = "UPDATE parents SET `archived` = 1 WHERE `parentID` = ?";
     if ($stmt = mysqli_prepare($conn, $sql)) {
-        mysqli_stmt_bind_param($stmt, "s", $param_username);
-        $param_username = $username;
-            if (mysqli_stmt_execute($stmt)) {
-                echo '<script>alert("' . $username . " " . 'archived successfully")</script>';
-            } else {
-                 echo "Oops! Something went wrong. Please try again later.";
-            } mysqli_stmt_close($stmt);
+        mysqli_stmt_bind_param($stmt, "i", $param_Id);
+        $param_Id = $_POST['studentId'];
+        if (mysqli_stmt_execute($stmt)) {
+            echo '<script>alert("Student archived successfully")</script>';
+        } else {
+            echo "Oops! Something went wrong. Please try again later.";
+        }
+        mysqli_stmt_close($stmt);
     }
-        } mysqli_close($conn);
 }
 ?>
+<h1>School Students</h1>
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script> //script for searching my database
-$(document).ready(function(){
-    $('.search-box input[type="text"]').on("keyup input", function(){
-        /* Get input value on change */
-        var inputVal = $(this).val();
-        var resultDropdown = $(this).siblings(".result");
-        if(inputVal.length){
-            $.get("backend-search.php", {term: inputVal}).done(function(data){
-                // Display the returned data in drop down box on the page
-                resultDropdown.html(data);
-            });
-        } else{
-            resultDropdown.empty();
-        }
-    });
+<form method="get">
+    <p><input class="w3-input w3-border" type="text" name="search" placeholder="Search" value="<?php echo htmlspecialchars($search); ?>"></p>
+    <p><input type="submit" value="Search"></p>
+</form>
+<br>
 
-    // Set search input value on click of result item
-    $(document).on("click", ".result p", function(){
-        $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
-        $(this).parent(".result").empty();
-    });
-});
+<div class="w3-row-padding">
+<?php
+$sql = "SELECT * FROM `parents` WHERE `archived` IS NULL OR `archived` = 0 ";
+
+if (!empty($search)) {
+    $sql .= " AND `childFName` LIKE '%$search%' OR `childLName` LIKE '%$search%'";
+}
+
+$sql .= ' LIMIT 20';
+
+$result = mysqli_query($conn, $sql);
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {   
+        echo "<div class='w3-third w3-container w3-margin-bottom'>";
+        echo "<div class='w3-container w3-white w3-round'>";
+        echo "<p><b>Student: " . $row['childFName'] . " " . $row['childLName'] . "</b></p>";
+        echo "<form method='post' onsubmit='return confirmDelete(this)'>";
+        echo "<input type='hidden' name='studentId' value='" . htmlspecialchars($row['parentID']) . "'>";
+        echo "<button type='submit' class='w3-button w3-red w3-round w3-margin-bottom w3-hover-opacity'>Archive this student</button>";
+        echo "</form>";
+        echo "</div>";
+        echo "</div>";
+    }
+} else {
+    echo "<h3>No students match your search.</h3>";
+}
+mysqli_close($conn);
+?>
+</div>
+
+<script>
+// JavaScript function for confirmation
+function confirmDelete(form) {
+    return confirm("Are you sure you want to archive this student?");
+}
 </script>
-
-      <h1>Parent Account Archive</h1>
-      <p>Use the form below to Archive a parent in your system.</p>
-      <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-      <p><input class="w3-input w3-padding-16 w3-border" type="text" auto_complete="no" placeholder="username" required name="username"></p>
-      <?php echo (! empty($username_err)) ? 'is-invalid' : '';?>
-                <span class="invalid-feedback">
-                <?php echo $username_err;?>
-                </span>
-      <p><button class="w3-button w3-light-grey w3-block" type="submit">Archive</button></p>
-      <p><button class="w3-button w3-light-grey w3-block" type="reset">Reset data</button></p>
-        </form>
-
-        <h2>Username Search</h2>
-        <p> Type in the name of the child to find out the username</p>
-        <div class="search-box">
-        <input type="text" autocomplete="off" placeholder="Search..." />
-        <div class="result"></div>
-    </div>
-    </div>
-  </div>
-<?php include_once "footer.php" ?>
+</div>
+<?php include_once "footer.php"; ?>
 </body>
 </html>

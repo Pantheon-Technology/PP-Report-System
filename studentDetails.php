@@ -20,6 +20,9 @@ $username = $_SESSION['studentUsername'];
                 echo "<p>" . "School: " . $row['schoolName'] . "</p>";
                 echo "<p>" . "School Year: " . $row['schoolYear'] . "</p>";
                 echo "<p>" . "Allocated Tutor: " . $row['allocatedTutor'] . "</p>";
+                if($row['live_student_learning_log'] !== ''){
+                echo "<p><a href='" . $row['live_student_learning_log'] . "'>Live learning logs</a></p>";
+                }
                 echo "</div>";
 
                 echo "<div class=w3-half>";

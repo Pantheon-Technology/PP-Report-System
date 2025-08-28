@@ -1,5 +1,5 @@
 <?php 
-include_once "NewMenuAdmin.php";
+require_once "teacherMenu.php";
 include_once 'config.php';
 if (isset($_GET['id'])) {
     $id = $_SESSION["id"] = $_GET['id'];
@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 } mysqli_close($conn);
             }
  ?>
+ <div id="EVENTS" class="w3-panel w3-dark-grey w3-animate-right">
       <h1>Add Follow up Details</h1>
       <p>Use the form below to Add to the follow up information.</p>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
@@ -35,10 +36,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       
       <p><button class="w3-button w3-light-grey w3-block" type="submit">Add follow up details</button></p>
       <p><button class="w3-button w3-light-grey w3-block" type="reset">Reset Form</button></p>
-      <p><a class="w3-button w3-black w3-block" href ="<?php echo 'incident.php?id=' . $id ?>">Back</a></p>
+      <p><a class="w3-button w3-black w3-block" href ="<?php echo 'teacher_incident.php?id=' . $id ?>">Back</a></p>
     </form>
     </div>
   </div>
+        </div>
 <?php include_once "footer.php" ?>
 </body>
 </html>

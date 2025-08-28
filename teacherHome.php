@@ -30,7 +30,7 @@
       </a>
 
       <?php
-if($username == 't.archibald'){
+if($username == 't.archibald' || $username == 'elena.colangelo' || $username == 'l.heron'){
     echo '<a href="View_Incident_teacher.php">
             <div class="w3-quarter w3-light-grey w3-margin-left w3-margin-bottom w3-round">
                 <h2><i class="fa fa-eye"></i></h2>

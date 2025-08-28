@@ -10,7 +10,9 @@ if (isset($_GET['studentid'])) {
 ?>
 </html>
 <body>
+<p><a href ='adminViewSchoolStudent.php.php'><- back</a></p>
       <h1><?php echo "Student" . " details"; ?></h1>
+      <p><a href ='editSchoolStudentAdmin.php?studentid=<?php echo $id ?>' class="w3-button w3-light-grey">Edit Student details</a></p>
       <div>
         <?php
         $sql = "SELECT * FROM schoolStudent where studentID = $id ";
@@ -18,13 +20,42 @@ if (isset($_GET['studentid'])) {
 
         if (mysqli_num_rows($result) > 0){
             while($row = mysqli_fetch_assoc($result)){
+
+              $year = substr($row['DOB'], 0, 4);
+                $month = substr($row['DOB'], 5, -3);
+                $day = substr($row['DOB'], 8, 10);
+              $formattedDate = $day . '/' . $month . '/' . $year;
+
               echo "<h2>" . "General Details" . "</h2>";
               echo "<div class=w3-half>";
                 echo "<p>" . "Unique ID: " . $row['studentID'] . " Username: " . $row['studentUsername'] . "</p>";
                 echo "<p>" . "Student Name: " . $row['studentName'] . "</p>";
                 echo "<p>" . "School: " . $row['schoolName'] . "</p>";
                 echo "<p>" . "School Year: " . $row['schoolYear'] . "</p>";
+                echo "<p>" . "D.O.B: " . $formattedDate . "</p>";
+                echo "<p>" . "Mobile: " . $row['Mobile'] . "</p>";
+                echo "<p>" . "Email: " . $row['Email'] . "</p>";
+                echo "<p>" . "Address Line 1: " . $row['AddressLine1'] . "</p>";
+                echo "<p>" . "Address Line 2: " . $row['AddressLine2'] . "</p>";
+                echo "<p>" . "Post Code: " . $row['PostCode'] . "</p>";
+                if($row['live_student_learning_log'] !== ''){
+                  echo "<p><a href='" . $row['live_student_learning_log'] . "'>Live learning logs</a></p>";
+                  }
                 echo "</div>";
+
+                echo "<h2>" . "Emergency Contact 1" . "</h2>";
+                echo "<div class=w3-half>";
+                  echo "<p>" . "Name: " . $row['EmergencyContactName1'] . "</p>";
+                  echo "<p>" . "Relationship to Child: " . $row['EmergencyContactRelationship1'] . "</p>";
+                  echo "<p>" . "Phone: " . $row['EmergencyContactPhone1'] . "</p>";
+                  echo "</div>";
+
+                  echo "<h2>" . "Emergency Contact 2" . "</h2>";
+                echo "<div class=w3-half>";
+                  echo "<p>" . "Name: " . $row['EmergencyContactName2'] . "</p>";
+                  echo "<p>" . "Relationship to Child: " . $row['EmergencyContactRelationship2'] . "</p>";
+                  echo "<p>" . "Phone: " . $row['EmergencyContactPhone2'] . "</p>";
+                  echo "</div>";
 
                 echo "<div class=w3-half>";
                 echo "<p>" . "<h2>" . "Classes" . "</h2>" . "</p>";
@@ -40,6 +71,10 @@ if (isset($_GET['studentid'])) {
                 echo "<p>" . "E.H.C.P Information: " . "</p>";
                 echo "<p>" . $row['EHCP'] . "</p>";
                 echo "<p>" . "Allocated Tutor: " . $row['allocatedTutor'] . "</p>";
+
+                echo "<p>" . "Notes: " . "</p>";
+                echo "<p>". $row['AdditionalInformation']. "</p>";
+
                 echo "</div>";
 
                 $_SESSION['thisStudent'] = $row['studentUsername'];

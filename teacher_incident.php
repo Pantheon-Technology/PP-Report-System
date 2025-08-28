@@ -32,10 +32,8 @@ if (isset($_GET['id'])) {
               echo "<p>" . $row['desc'] . "</p>";
               echo "<p>" . "Reffered to: " . $row['reffered'] . "</p>";
               echo "<p>" . "If reffered by other: " . $row['otherReffered'] . "</p>";
-              echo "<p>" . "<b>" . "Follow Up Actions: " . "</b>" . "</p>";
-              echo "<p>" . $row['followUp'] . "</p>";
-              echo "<p>" . "Followed Up By: " . $row['whoFollowedUp'] . "</p>";
               echo "<p>" . "This report was submitted to the system by: " . $row['reportedBy'] . "</p>";
+              echo "<p>" . "<a href='changeIncidentFollowUpTeacher.php' class='w3-button w3-round w3-white w3-text-black'>" . "Click Here to add follow up details" . "</a>" . "</p>";
             
               echo "</div>";
 
@@ -44,19 +42,23 @@ if (isset($_GET['id'])) {
               echo "<h5><b>Witness One :" . $row['w1name'] . "</b></h5>";
               echo "<p>" . "<b>" . "statement" . "</b>" . "</p>";
               echo "<p>" . $row['witness1'] . "</p>";
+              if($row['witness1'] != ""){
               echo "<p>" . "<a href='teacher_changeIncidentWitness1.php' class='w3-button w3-round w3-white w3-text-black'>" . "Click Here to add or change witness statement" . "</a>" . "</p>";
+              }
 
               echo "<h5><b>Witness Two :" . $row['w2name'] . "</b></h5>";
               echo "<p>" . "<b>" . "statement" . "</b>" . "</p>";
               echo "<p>" . $row['witness2'] . "</p>";
+              if($row['witness2'] != ""){
               echo "<p>" . "<a href='teacher_changeIncidentWitness2.php' class='w3-button w3-round w3-white w3-text-black'>" . "Click Here to add or change witness statement" . "</a>" . "</p>";
-
+              }
 
               echo "<h5><b>Witness Three :" . $row['w3name'] . "</b></h5>";
               echo "<p>" . "<b>" . "statement" . "</b>" . "</p>";
               echo "<p>" . $row['witness3'] . "</p>";
+              if($row['witness3'] != ""){
               echo "<p>" . "<a href='teacher_changeIncidentWitness3.php' class='w3-button w3-round w3-white w3-text-black'>" . "Click Here to add or change witness statement" . "</a>" . "</p>";
-
+              }
 
               echo "</div>";
 
@@ -87,16 +89,19 @@ if (isset($_GET['id'])) {
 
         if (mysqli_num_rows($results) > 0){
             while($row = mysqli_fetch_assoc($results)){
-
+              echo '<p>';
               echo "<h2>Follow up Actions and Comments</h2>";
               echo "<h6><b>Who followed up?</b></h6>";
               echo "<p>" . $row["followedUpBy"] . "</p>";
               echo "<h6><b>Follow Up Detail</b></h6>";
               echo "<p>" . $row["followUpDetail"] . "</p>";
               echo "<hr>";
+              echo "</p>";
             }
           }else{
+            echo '<p>';
             echo "<h2>There are no follow up actions yet</h2>";
+            echo '</p>';
           }
         }else{
             echo "0 results";

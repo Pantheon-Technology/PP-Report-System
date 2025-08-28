@@ -94,11 +94,7 @@ CREATE TABLE IF NOT EXISTS `reportUpload`(
 alter table `reportUpload` add `file2` varchar(250);
 alter table `reportUpload` add `file3` varchar(250);
 alter table `reportUpload` add `file4` varchar(250);
-if($query != null){
-        $sql = "SELECT * FROM incidents WHERE `issueType` <> 'Safeguarding' AND (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
-    }else{
-    $sql = "SELECT * FROM `incidents` where `issueType` <> 'Safeguarding' ORDER BY `Date` DESC LIMIT 20";
-    }
+
 select * from `reportUpload`;
 
 ALTER TABLE `reportUpload` add `comment` VARCHAR(1000);
@@ -131,6 +127,10 @@ ALTER TABLE `incidents` add `witness3` VARCHAR(2000);
 ALTER TABLE `incidents` add `w3name` VARCHAR(30);
 ALTER TABLE `incidents` add `fullName` VARCHAR(150);
 
+alter table `incidents` add `reportedOn` TIMESTAMP DEFAULT CURRENT_TIMESTAMP;
+
+select * from incidents;
+
 CREATE TABLE IF NOT EXISTS `school`(
 `schoolID` INT PRIMARY KEY AUTO_INCREMENT,
 `schoolName` VARCHAR(100),
@@ -143,6 +143,7 @@ CREATE TABLE IF NOT EXISTS `school`(
 `financeName` VARCHAR(100),
 `financeEmail` VARCHAR(100)
 );
+SELECT * FROM school;
 
 
 CREATE TABLE IF NOT EXISTS `schoolStudent`(
@@ -170,6 +171,22 @@ CREATE TABLE IF NOT EXISTS `schoolStudent`(
 `PEPfile` VARCHAR(250),
 `EHCPfile` VARCHAR(250)
 );
+alter table `schoolStudent` add `DOB` varchar(15);
+alter table `schoolStudent` add `Mobile`int(15);
+alter table `schoolStudent` add `Email` varchar(80);
+alter table `schoolStudent` add `EmergencyContactName1` varchar(40);
+alter table `schoolStudent` add `EmergencyContactRelationship1` varchar(30);
+alter table `schoolStudent` add `EmergencyContactPhone1` varchar(15);
+alter table `schoolStudent` add `EmergencyContactName2` varchar(40);
+alter table `schoolStudent` add `EmergencyContactRelationship2` varchar(30);
+alter table `schoolStudent` add `EmergencyContactPhone2` varchar(15);
+alter table `schoolStudent` add `AddressLine1` varchar(150);
+alter table `schoolStudent` add `AddressLine2` varchar(150);
+alter table `schoolStudent` add `PostCode` varchar(12);
+alter table `schoolStudent` add `AdditionalInformation` varchar(3000);
+
+SELECT * FROM `schoolStudent`;
+
 
 DROP TABLE IF EXISTS `schoolStudentFiles`;
 
@@ -325,3 +342,31 @@ CREATE TABLE IF NOT EXISTS `followUp`(
 `followUpDetail` VARCHAR(5000),
 `followedUpBy` VARCHAR(250)
 );
+
+CREATE TABLE IF NOT EXISTS `resourcePack`(
+`Id` INT PRIMARY KEY NOT NULL auto_increment,
+`Subject` VARCHAR(250),
+`Topic` VARCHAR(250),
+`Level` varchar(250),
+`LastModifiedDate` timestamp default current_timestamp,
+`ModifiedBy` varchar(100),
+`Tag1` varchar(100),
+`Tag2` varchar(100),
+`Tag3` varchar(100),
+`Tag4` varchar(100),
+`Tag5` varchar(100),
+`Description` varchar(2000),
+`filePath1` varchar(500),
+`filePath2` varchar(500),
+`filePath3` varchar(500),
+`filePath4` varchar(500),
+`filePath5` varchar(500),
+`filePath6` varchar(500),
+`filePath7` varchar(500),
+`link1` varchar(500),
+`link2` varchar(500),
+`link3` varchar(500),
+`createdBy` varchar(100)
+);
+
+drop table `resourcePack`;

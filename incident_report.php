@@ -114,7 +114,9 @@ if ($result) {
             <input type="radio" id="Homework" required name="incidentType" value="Homework">
             <label for="Homework">Homework</label>
             <input type="radio" id="Attendance" required name="incidentType" value="Attendance">
-            <label for="Attendance">Attendance</label></p>
+            <label for="Attendance">Attendance</label>
+            <input type="radio" id="Background" required name="incidentType" value="Background">
+            <label for="Background">Background</label></p>
           <p><b>Statement of Facts*</b></p>
             <p><textarea class="w3-input w3-padding-16 w3-border" type="textarea" auto_complete="no" placeholder="Description of Incident" name="description"></textarea></p>
             <label for="staff">Referred by:*</label>
@@ -128,10 +130,6 @@ if ($result) {
             </select>
             <p><b>If OTHER, please state...</b></p>
                 <p><input class="w3-input w3-border w3-padding-16" type="text" name="otherName" placeholder="Name"></p>
-            <p><b>Follow Up Actions</b></p>
-                <p><textarea class="w3-input w3-padding-16 w3-border" type="textarea" auto_complete="no" placeholder="What has been done?" name="followUp"></textarea></p>
-            <p><b>Who followed up?</b></p>
-                <p><input class="w3-input w3-border w3-padding-16" type="text" name="followUpName" placeholder="Name"></p>
 
           <button class="w3-button w3-black w3-margin-bottom" input type="submit" required name="sendEmail">Upload incident to the system</button>
         </form>   

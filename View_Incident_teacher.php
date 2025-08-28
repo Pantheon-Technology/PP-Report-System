@@ -29,9 +29,9 @@ if($username == 't.archibald'){
  }
 }else{
 if($query != null){
-    $sql = "SELECT * FROM incidents WHERE `issueType` <> 'Safeguarding' AND (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
+    $sql = "SELECT * FROM incidents WHERE `issueType` <> 'Safeguarding' AND `issueType` <> 'Background' AND (`issueType` LIKE '%$query%' OR `Date` LIKE '%$query%' OR `studentName` LIKE '%$query%' OR `reportedBy` LIKE '%$query%' OR `fullName` LIKE '%$query%')";
 }else{
-$sql = "SELECT * FROM `incidents` where `issueType` <> 'Safeguarding' ORDER BY `Date` DESC LIMIT 20";
+$sql = "SELECT * FROM `incidents` where `issueType` <> 'Safeguarding' AND `issueType` <> 'Background' ORDER BY `Date` DESC LIMIT 20";
 }
 }
 
@@ -65,6 +65,9 @@ if($result->num_rows > 0){
             $colour = 'w3-yellow';
             break;
         case 'Attendance':
+            $colour = 'w3-orange';
+            break;
+        case 'Background':
             $colour = 'w3-orange';
             break;
         default:
